@@ -1,0 +1,12 @@
+name: "stat-305"
+output_dir: "../docs"
+navbar:
+  title: "Stat 305 C Engineering Statistics"
+  left:
+    - text: "Syllabus"
+      href: index.html
+    - text: "Materials"
+      href: materials.html
+output:
+  html_document:
+    theme: cosmo
