@@ -6,6 +6,7 @@ output:
       in_header: 00_header.tex
 fontsize: 12pt
 geometry: margin=1in
+linestretch: 1.5
 ---
 
 \setcounter{section}{0}
@@ -18,14 +19,7 @@ First we start with a roadmap for the course. The subject of **engineering stati
 
 Statistics is the science of collecting, presenting, analyzing, and making decisions from data. Often, as an engineer, it is necessary to **collect and interpret data** that will help in understanding how a new system or product works. 
 
-Statistics has applications to engineering through 
-
-- quality control, 
-- process control, 
-- reliability, 
-- risk management, 
-- system identification, 
-- design of experiments, etc.
+Statistics has applications to engineering through quality control, process control, reliability, risk management, system identification, design of experiments, etc.
 
 \vspace{.25in}
 \begin{df}
@@ -37,12 +31,11 @@ Statistics has applications to engineering through
 \end{enumerate}
 all while recognizing the reality of variation.
 \end{df}
-\vspace{.25in}
+\vspace{.1in}
 
 We can break down this study into three main tasks:
 
 \begin{enumerate}
-\itemsep .1in
 \item {\bf Summary:} 
 \item {\bf Inference:}
 \item {\bf Interpretation:}
