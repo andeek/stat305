@@ -1,6 +1,7 @@
 ---
 output: 
   pdf_document:
+    keep_tex: true
     number_sections: true
     includes:
       in_header: 00_header.tex
@@ -8,6 +9,16 @@ fontsize: 12pt
 geometry: margin=1in
 linestretch: 1.5
 ---
+
+```{r setup, echo=FALSE, message=FALSE}
+library(knitr)
+library(tidyverse)
+library(xtable)
+library(ggplot2)
+
+knitr::opts_chunk$set(echo=FALSE, message=FALSE, fig.height = 3)
+theme_set(theme_bw(base_family = "serif"))
+```
 
 \setcounter{section}{0}
 
@@ -43,9 +54,41 @@ We can break down this study into three main tasks:
 
 \newpage
 
+```{r gears-load}
+gears <- read_csv("../../data/gears.csv")
+```
+
+
+
 \begin{ex}[Heat treating gears, pg. 2]
+A process engineer is faced with the question, "How should gears be loaded into a continuous carburizing furnace in order to minimize distortion during heat treating?" The engineer conducts a well-thought-out study and obtains the runout values for `r gears %>% filter(Arrangement == "laid") %>% nrow()` gears laid and `r gears %>% filter(Arrangement == "hung") %>% nrow()` gears hung.
+
+```{r, results='asis'}
+gears %>%
+  group_by(Arrangement) %>%
+  summarise(Values = paste(Runout, collapse = ", ")) %>%
+  spread(Arrangement, Values) %>%
+  xtable(align = c("c", "p{1in}", "p{1in}"), caption = "Thrust face runouts (.0001 in.)") %>%
+  print(include.rownames = FALSE)
+```
+
+This data, as is, is hard to get insights from. Should the gears be hung or laid? We still cannot tell by looking at the table.
+
+{\bf Numerical summaries:} 
+\vspace{.75in}
+
+{\bf Variation:} 
+```{r, fig.cap="Dot diagrams of runouts"}
+gears %>%
+  ggplot() +
+  geom_dotplot(aes(Runout)) +
+  facet_wrap(~Arrangement)
+```
 
 \end{ex}
+
+
+
 
 ## Populations and samples
 
