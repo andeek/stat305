@@ -1,7 +1,6 @@
 ---
 output: 
   pdf_document:
-    keep_tex: true
     number_sections: true
     includes:
       in_header: 00_header.tex
@@ -16,7 +15,7 @@ library(tidyverse)
 library(xtable)
 library(ggplot2)
 
-knitr::opts_chunk$set(echo=FALSE, message=FALSE, fig.height = 3)
+knitr::opts_chunk$set(echo=FALSE, message=FALSE, warning=FALSE, fig.height = 2)
 theme_set(theme_bw(base_family = "serif"))
 ```
 
@@ -78,22 +77,129 @@ This data, as is, is hard to get insights from. Should the gears be hung or laid
 \vspace{.75in}
 
 {\bf Variation:} 
-```{r, fig.cap="Dot diagrams of runouts"}
+```{r gear-dotplot, fig.show='hide', results='asis'}
 gears %>%
   ggplot() +
   geom_dotplot(aes(Runout)) +
   facet_wrap(~Arrangement)
 ```
+\begin{figure}[H]
+\centering
+\includegraphics{01_introduction_files/figure-latex/gear-dotplot-1.pdf}
+\caption{Dot diagrams of runouts.}
+\end{figure}
 
+{\bf Inference:} Runout values are variable, is there any assurance that the difference seen in the present data would reappear in further testing? 
+
+Points to need for methods of formal statistical inference from data and translation into practical conclusions. We can use statistical inference to say
+
+\begin{enumerate}
+\item We are roughly 90\% sure that the difference in long-run mean runout produced inder conditions like those in the study is in the range 3.2 to 7.4.
+\item We are roughly 95\% sure that the difference in long-run mean runout produced inder conditions like those in the study is in the range 3.0 to 22.2.
+\end{enumerate}
+
+{\bf Interpretation:} Explains those answers in layman’s terms without all the probability theory, symbols and equations.
 \end{ex}
 
 
+\vspace{1in}
+**Overview/schematic:**
 
+\newpage
 
-## Populations and samples
+## Basic terminology
 
-## Experimental vs. observational studies
+It's important we speak the same language. This section introduces common terminology related to statistical studies, types of data, and types of data structures.
 
-## Data and measurement
+### Population vs. sample
 
-## Complete/Fractional factorial designs
+\vspace{.25in}
+\begin{df}
+A \emph{population} is the entire group of objects about which one wishes to gather information in a statistical study.
+\end{df}
+
+\vspace{.25in}
+\begin{df}
+A \emph{sample} is the group of objects on which one actually gathers data. 
+\end{df}
+\vspace{.1in}
+
+```{r sample-pop, fig.width=3, fig.cap="The relationship between a population and a sample. In this example, we have 100 parts and 5 are examined in order to verify acceptibility. Notice we say \"one sample\", not \"five samples\"."}
+pop <- expand.grid(x=1:10, y=1:10)
+pop$class <- "population"
+pop$class[c(48:50, 39, 59)] <- "sample"
+
+ggplot(pop) + geom_point(aes(x, y, shape = class, colour = class)) + theme_void(base_family = "serif")
+
+```
+
+\begin{ex}[Heat treating gears, cont'd]
+~\\[.25in]
+{\bf Population}:
+
+{\bf Sample}:
+\end{ex}
+
+\newpage
+
+\begin{ex}[Fiscal cliff]
+On Dec. 1-2, 2012, \href{http://www.gallup.com/}{Gallup} conducted a \href{http://www.gallup.com/poll/159065/americans-widely-prefer-compromise-fiscal-cliff.aspx}{study} to find out what proportion of Americans prefer a compromise on the Fiscal Cliff issue. 1000 adults were randomly selected for telephone interviews. The adults were aged 18 and older and living in any of the 50 U.S. states or the District of Columbia.
+
+\vspace{.1in}
+
+{\bf Population}:
+
+{\bf Sample}:
+\end{ex}
+
+\vspace{.25in}
+\begin{ex}
+\href{http://www.esbit.net/}{Esbit} manufactures fuel pellets out of compressed hexamine powder. Suppose a new shipment of 100 pelletizing machines arrives, and the goal of a new study is to determine the quality of this particular new shipment.
+
+5 machines out of the 100 are randomly selected for comprehensive testing in which each produces 200 pellets, and each pellet’s mass, volume, flash point, and rate of combustion are measured.
+
+\vspace{.1in}
+
+{\bf Population}:
+
+{\bf Sample}:
+\end{ex}
+
+### Types of studies
+
+When an engineer **collects data**, (s)he must decide how active to be. Should the engineer manipulate the process or let things happen and record the results?
+
+\vspace{.1in}
+\begin{df}
+An \emph{experimental study} (or, more simply, an experiment) is one in which the investigator's role is active. Process variables are manipulated, and the study environment is regulated.
+\end{df}
+
+\vspace{.1in}
+\begin{df}
+In a \emph{randomized experiment}, investigators control the assignment of treatments to experimental units using a chance mechanism (like the flip of a coin or a computer's random number generator).
+\end{df}
+
+\vspace{.1in}
+\begin{ex}[Smoking - experimental]
+To answer the question of if smoking affects lung capacity in young men, an investigator does the following. 
+
+Finds 100 men age 20 who do not currently smoke. Randomly assigns 50 of the 100 men to the smoking treatment and the other 50 to the non-smoking treatment. Those in the smoking group smoke a pack a day for 10 years while those in the control group remain smoke free for 10 years. Measures lung capacity for each of the 100 men. Analyze, interpret, and draw conclusions from data.
+\end{ex}
+
+\vspace{.1in}
+\begin{df}
+An \emph{observational study} is one in which the investigator's role is basically passive. A process or phenomenon is watched and data are recorded, but there is no intervention on the part of the person conducting the study.
+\end{df}
+
+\vspace{.1in}
+\begin{ex}[Smoking - observational]
+To answer the question of if smoking affects lung capacity in young men, an investigator does the following. 
+
+Finds 100 men age 30 of which 50 have been smoking a pack a day for 10 years while the other 50 have been smoke free for 10 years. Measures lung capacity for each of the 100 men. Analyze, interpret, and draw conclusions from data.
+\end{ex}
+
+### Data 
+
+### Data structures
+
+## Measurement difficulties
