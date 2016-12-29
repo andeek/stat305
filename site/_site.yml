@@ -1,5 +1,5 @@
 name: "stat-305"
-output_dir: "../docs"
+output_dir: ".."
 navbar:
   title: "Stat 305 C Engineering Statistics"
   left:
