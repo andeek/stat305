@@ -10,7 +10,7 @@ No class on Tue, March 14 or Thu, March 16 (Spring break).
 
 Week | Topic | Slides | Comments
 --- | ---------------------- | -------- | -------------
-1  | Introduction, Data collection (Ch. 1-2) | [blank]() | 
+1  | Introduction, Data collection (Ch. 1-2) | [blank](notes/blank/01_introduction.pdf) | 
 2  | Data collection, Descriptive statistics (Ch. 2, Ch 3.1 - 3.2) |  |  
 3  | Descriptive statistics (Ch. 3.2-3.3) |  |  
 4  | Line fitting (Ch. 4.1-4.2) |  |  
@@ -31,7 +31,7 @@ Week | Topic | Slides | Comments
 
 # Homework
 
-1. [Homework 1]() - due Jan. 19
+1. Homework 1 - due Jan. 19
 2. Homework 2 - due Jan. 26
 3. Homework 3 - due Feb. 2
 4. Homework 4 - due Feb. 9
