@@ -271,10 +271,70 @@ When multivariate data consist of several determinations of basically the same c
 \begin{ex}[Paired distortion]
 For the gears heat treating example, the measurements were actually made on the 77 gears both before and after heat treating.
 \end{ex}
-\vspace{.25in}
+\vspace{.15in}
 
 ### Data structures
 
+It is common for several sets of conditions to be compared with each other, in which **several samples** are involved. Here are two structures for multisample studies.
+
+\vspace{.1in}
+\begin{df}
+A \emph{response variable} (or dependent variable) is the outcome of a study.
+\end{df}
+
+\vspace{.1in}
+\begin{df}
+A \emph{factor} is any numerical or categorical variable with a finite set of possible values. A \emph{level} is the value of the factor.
+\end{df}
+
+\vspace{.1in}
+\begin{df}
+A \emph{(complete) factorial study} is one in which several process variables (and settings of each) are identified as being of interest and data are collected under each possible combination of settings of the process variables. The process variables are usually factors.
+\end{df}
+
+\vspace{.1in}
+\begin{ex}[Pelletizing machine, pg. 6, 12]
+Experimentation with a pelletizing machine using a $2\times 2\times2$ or $2^3$ factorial structure. The researchers are measuring the percentage of acceptable fuel pellets for various situations. The factors and respective levels are:
+
+\begin{itemize}
+\item \emph{Die volume} - low volume vs. high volume
+\item \emph{Material flow} - current method vs. manual filling
+\item \emph{Mixture type} - no binding agent vs. with binder
+\end{itemize}
+
+There are then $`r 2^3`$ sets of conditions under which data are collected.
+
+```{r full-factorial, results='asis'}
+factorial <- expand.grid(Volume = c("low", "high"),
+                         Flow = c("current", "manual"),
+                         Mixture = c("no bunder", "binder"))
+
+factorial %>%
+  xtable(caption = "Combinations in a $2^3$ factorial study.") %>%
+  print(include.rownames = FALSE)
+
+```
+
+\end{ex}
+
+When there are many factors or levels are involved, the number of sampling units in a complete fractional study can quickly reach an impractical size.
+
+\vspace{.1in}
+\begin{df}
+A \emph{fractional factorial study} is one in which data are collected for only some of the sombinations that would make up a complete factorial study.
+\end{df}
+
+\vspace{.1in}
+\begin{ex}[Pelletizing machine, cont'd]
+~\\
+```{r fractional-factorial, results='asis'}
+factorial[c(2, 3, 5, 8),] %>%
+  xtable(caption = "A \"clever\" half of the eight possible combinations.") %>%
+  print(include.rownames = FALSE)
+```
+
+
+\end{ex}
 
 ## Measurement difficulties
 
