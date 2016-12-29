@@ -200,6 +200,56 @@ Finds 100 men age 30 of which 50 have been smoking a pack a day for 10 years whi
 
 ### Data 
 
+
+
 ### Data structures
 
+
 ## Measurement difficulties
+
+A measurement system is:
+
+- **Valid** if 
+- **Accurate** if 
+- **Precise** if 
+
+```{r paper}
+paper <- read.csv("../../data/paper.csv")
+```
+
+
+\vspace{.1in}
+\begin{ex}[Paper thickness, pg. 16]
+Two students measured the thickness of paper in the same book. Each student took `r paper %>% group_by(Measurer) %>% summarise(count = n()) %>% select(count) %>% unique() %>% as.numeric()` measurements.
+
+```{r paper-table, results='asis'}
+paper %>%
+  group_by(Measurer) %>%
+  summarise(Values = paste(Thickness, collapse = ", ")) %>%
+  spread(Measurer, Values) %>%
+  xtable(align = c("c", "p{1in}", "p{1in}"), caption = "Thickness of book paper in mm.") %>%
+  print(include.rownames = FALSE)
+```
+
+```{r paper-dotplot, fig.show='hide', results='asis'}
+paper %>%
+  ggplot() +
+  geom_dotplot(aes(Thickness), binwidth = .0001, dotsize = 5) +
+  facet_wrap(~Measurer)
+```
+\begin{figure}[H]
+\centering
+\includegraphics{01_introduction_files/figure-latex/paper-dotplot-1.pdf}
+\caption{Dot diagrams of paper thickness.}
+\end{figure}
+
+If the true thickness is 0.1, then
+
+\begin{enumerate}
+\item Who is more accurate?
+\item Who is more precise?
+\end{enumerate}
+
+\end{ex}
+
+
