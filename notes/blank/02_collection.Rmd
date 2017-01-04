@@ -132,7 +132,7 @@ A \emph{supervised (or managed) variable} in an experiment is one over which an 
 \end{df}
 \vspace{.2in}
 \begin{df}
-A \emph{concomitant (or accompanying) variable} in an experiment is one that is observed but is neither a primary response variable nor a managed variable. Such a variable can change in reation to either experimental or unobserved causes and may or may not itself have an impact on a response variable.
+A \emph{concomitant (or accompanying) variable} in an experiment is one that is observed but is neither a primary response variable nor a managed variable. Such a variable can change in relation to either experimental or unobserved causes and may or may not itself have an impact on a response variable.
 \end{df}
 
 \vspace{.2in}
@@ -150,8 +150,51 @@ What is a full/complete factorial study for this experiment? What are the respon
 
 ### Extraneous variables
 
+\begin{df}
+\emph{Extraneous variables} are undesirable variables that influence the relationship between the variables that an experimenter is examining. Extraneous variables that vary with the levels of the independent variable are the most dangerous type in terms of challenging the validity of experimental results. These types of extraneous variables have a special name, \emph{confounding variables}.
+\end{df}
+
+There are three basic ways to handle extraneous variable:
+
+\begin{enumerate}
+\itemsep .2in
+\item 
+\item 
+\item 
+\end{enumerate}
+
+
+\vspace{.2in}
+
+\begin{df}
+A \emph{block} of experimental units, experiental times of observation, experimental conditions, etc. is a homogeneous group within which different levels of primary experimental variables can be applied and compared in a relatively uniform environment.
+\end{df}
+
+\vspace{.2in}
+
+\begin{df}
+\emph{Randomization} is the use of a randomizing device at some point where experimental protocol is not already dictated by the specification of the supervised variables. Often it means that assigning experimental units to the experimental conditions at random.
+\end{df}
+
+\newpage
+
+\begin{ex}[Chemical purity, cont'd]
+Assume time of day is an extraneous variable.
+\vspace{.2in}
+{\bf Completely randomized design:}
+
+\vspace{3in}
+
+{\bf Randomized complete block design:}
+
+\end{ex}
+\newpage
+
 ### Some key issues of data collection
 
-1. Comparative study
-2. Replication
-3. Allocation of resources
+\begin{enumerate}
+\itemsep 2in
+\item Comparative study
+\item Replication
+\item Allocation of resources
+\end{enumerate}
