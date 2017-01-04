@@ -30,7 +30,6 @@ Week | Topic | Notes | Comments
 16  | Control charts, Review (Ch. 7.5) |  |  
 17  | Final Exam |  |  
 
-
 # Homework
 
 1. Homework 1 - due Jan. 19
@@ -60,6 +59,10 @@ knitr::kable(exams)
 # JMP
 
 Coming soon...
+
+# Tables
+
+[Random digits](tables/random-digits.pdf)
 
 # Data
 
