@@ -86,7 +86,7 @@ A statistics instructor wanted to know how many hours per week her students spen
 
 1. Let $M$ be the number of digits in the number $N$, where $N$ is the population size.
 2. Give each member of the population an $M$-digit label.
-3. Move through the table of random digits from left to right, top to bottom, selecting population members for the sample when you encounter their indices (ignoring indices that have already been chosen) until you have selected $n$ units for the sample.
+3. Move through the table of random digits (Table B.1) from left to right, top to bottom, selecting population members for the sample when you encounter their indices (ignoring indices that have already been chosen) until you have selected $n$ units for the sample.
 
 \vspace{.25in}
 ![Top of the table of random digits.](images/head_random_digits.png)
