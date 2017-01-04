@@ -102,4 +102,56 @@ Take a simple random sample of $12$ units of pig iron out of a shipment of $90$ 
 
 \newpage
 
-## Taxonomy of variables
+## Effective experimentation
+
+Purposefully changing a system and observing what happens as a result is a principled way of learning how a system works.
+
+
+**A typical experimental situation:**
+
+
+\vspace{6.5in}
+
+\begin{ex}[Chemical purity]
+Suppose you want to know about the effect of two different reactants (A and B) on the purity of a chemical for a given mixing speed and batch size. Reactant A has 2 levels ($a_1$ and $a_2$) and reactant B also has 2 levels ($b_1$ and $b2$).
+\end{ex}
+
+\newpage
+
+### Taxonomy of variables
+
+Planning an experiment is complicated. There are typically many different charcteristics of the system an engineer is interested in improving and many variables that might influence them. Some terminology is needed.
+
+\vspace{.2in}
+\begin{df}
+A \emph{response variable} in an experiment is one that is monitored as characterizing system performance/behavior.
+\end{df}
+\vspace{.2in}
+\begin{df}
+A \emph{supervised (or managed) variable} in an experiment is one over which an investigator exercises power, choosing a setting or settings for use in the study. When a supervised variable is held constant (has only one setting), it is called a \emph{control variable}. When a supervised variable is given several settings in a study, it is called an \emph{experimental variable}.
+\end{df}
+\vspace{.2in}
+\begin{df}
+A \emph{concomitant (or accompanying) variable} in an experiment is one that is observed but is neither a primary response variable nor a managed variable. Such a variable can change in reation to either experimental or unobserved causes and may or may not itself have an impact on a response variable.
+\end{df}
+
+\vspace{.2in}
+\begin{ex}[Chemical purity, cont'd]
+What are the response variables, controlled variables, experimental variables, and concomitant variables?
+\end{ex}
+\newpage
+
+\begin{ex}[Wood joint strength, pg. 39]
+Dimond and Dix experimented with three different woods and three different glues, investigating joint strength properties. Their primary interest was the effects of wood type and glue type on joint strength in a tension test and joint strength in a shear test. In addition, they found that the strengths were probably related to the variables drying time and pressure, so they hold these two variables constant. They also observed that variation in strengths could also have originated in properties of the particular specimens glued, such as moisture content although they haven't utilized this variable in the analysis of the data.
+
+What is a full/complete factorial study for this experiment? What are the response variables, controlled variables, experimental variables, and concomitant variables?
+\end{ex}
+\newpage
+
+### Extraneous variables
+
+### Some key issues of data collection
+
+1. Comparative study
+2. Replication
+3. Allocation of resources
