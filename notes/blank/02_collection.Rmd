@@ -24,7 +24,7 @@ theme_set(theme_bw(base_family = "serif"))
 
 Data collection is one of the most important parts of engineering statistics. If collected properly, data can make formal inferences easy to complete and easy to understand. On the other hand, if data is collected poorly, it can become nearly impossible to salvage a badly designed study and gain insights.
 
-This chapter covers the general principles of data collection and effective experimentation. 
+This chapter covers the general principles of data collection, ideas for effective experimentation, and examples of common experimental setups. 
 
 ## Sampling
 
@@ -178,6 +178,49 @@ A \emph{block} of experimental units, experiental times of observation, experime
 
 \newpage
 
+\begin{ex}[Heat treating gears, cont'd]
+A process engineer is faced with the question, "How should gears be loaded into a continuous carburizing furnace in order to minimize distortion during heat treating?" There are two types of methods for loading, laying or hanging the gears. The thrust face runout (0.0001 in) is a measure of distortion. What are the response variables, controlled variables, experimental variables, and extraneous variables? How would you use handle the extraneous variable (three ways)?
+\end{ex}
+
+\newpage
+
+### Some key issues of data collection
+
+\begin{enumerate}
+\itemsep 2in
+\item Comparative study
+\item Replication
+\item Allocation of resources
+\end{enumerate}
+
+\newpage
+
+## Common experimental designs
+
+There are many subtelties that enter into the planning of an effective experiment. There are some standard "skeletons" of plans that can help with planning an experiment.
+
+\vspace{.2in}
+\begin{df}
+A \emph{completely randomized experiment} is one in which all experimental variables are of primary interest (i.e. none are included only for purposes of blocking), and randomization is used at every possible point of choosing the experimental protocol.
+\end{df}
+
+\vspace{.2in}
+\begin{df}
+A \emph{randomized complete block experiment} is one in which at least one experimental variable is a blocking factor (not of primary interest to the investigator); and within each block, every setting of the primary experimental variables appears at least once; and randomization is employed at all possible points where the exact experimental protocol is determined.
+\end{df}
+
+\vspace{.2in}
+\begin{ex}[Glass restrengthening]
+Boyer, Millis, and Schiber studied the restrengthening of damaged glass through etching. They investigated the effects of the concentration of hydroflouric acid in etching bath and the time spent in the etching bath on the resulting strength of damaged glass rods. Strengths were measured using a three-point bending method.
+
+A $3\times 3$ factorial eperiment is run with the levels of concentration being 50\%, 75\%, and 100\% HF and the levels of time being 30 sec., 60 sec, 120 sec. 18 damaged rods were allocated - two apiece - to eaching of the nine treatment combinations for testing. This was done at random by labeling the rods 01-18, placing numbered slips of paper in a hat, mixing, drawing two out for 30 sec. and 50\%, then drawing two out for 30 sec. and 75\%, etc. The slips of paper were also used to determine the order of testing and the order of damaging the rods.
+
+\vspace{.5in}
+
+{\bf Completely randomized design} or {\bf Randomized complete block design?}
+\end{ex}
+
+\newpage
 \begin{ex}[Chemical purity, cont'd]
 Assume time of day is an extraneous variable.
 \vspace{.2in}
@@ -189,12 +232,3 @@ Assume time of day is an extraneous variable.
 
 \end{ex}
 \newpage
-
-### Some key issues of data collection
-
-\begin{enumerate}
-\itemsep 2in
-\item Comparative study
-\item Replication
-\item Allocation of resources
-\end{enumerate}
