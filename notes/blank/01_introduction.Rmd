@@ -22,7 +22,7 @@ theme_set(theme_bw(base_family = "serif"))
 
 # Introduction
 
-First we start with a roadmap for the course. The subject of **engineering statistics** is defined, its importance is described and basic terminology is introduced.
+First we start with a road map for the course. The subject of **engineering statistics** is defined, its importance is described and basic terminology is introduced.
 
 ## What is statistics?
 
@@ -93,8 +93,8 @@ gears %>%
 Points to need for methods of formal statistical inference from data and translation into practical conclusions. We can use statistical inference to say
 
 \begin{enumerate}
-\item We are roughly 90\% sure that the difference in long-run mean runout produced inder conditions like those in the study is in the range 3.2 to 7.4.
-\item We are roughly 95\% sure that the difference in long-run mean runout produced inder conditions like those in the study is in the range 3.0 to 22.2.
+\item We are roughly 90\% sure that the difference in long-run mean runout produced under conditions like those in the study is in the range 3.2 to 7.4.
+\item We are roughly 95\% sure that the difference in long-run mean runout produced under conditions like those in the study is in the range 3.0 to 22.2.
 \end{enumerate}
 
 {\bf Interpretation:} Explains those answers in layman’s terms without all the probability theory, symbols and equations.
@@ -208,7 +208,7 @@ Engineers encounter many types of data. It's important to have a way to distingu
 
 \vspace{.1in}
 \begin{df}
-\emph{Quantitative} or \emph{numeric} data are the values of numerical chatacteristics associated with items in a sample. These are typically counts of the number of occurences of a phenomenon of interest or measurements of some physical property of the items.
+\emph{Quantitative} or \emph{numeric} data are the values of numerical characteristics associated with items in a sample. These are typically counts of the number of occurrences of a phenomenon of interest or measurements of some physical property of the items.
 \end{df}
 
 Types of numeric data:
@@ -223,7 +223,7 @@ Types of numeric data:
 
 \vspace{.1in}
 \begin{df}
-\emph{Multivariate data} arise when observations are made on more than one characterisic of each sampled item. A special case is when there are two characteristice - \emph{bivariate}.
+\emph{Multivariate data} arise when observations are made on more than one characteristic of each sampled item. A special case is when there are two characteristics - \emph{bivariate}.
 \end{df}
 
 \vspace{.1in}
@@ -320,7 +320,7 @@ When there are many factors or levels are involved, the number of sampling units
 
 \vspace{.1in}
 \begin{df}
-A \emph{fractional factorial study} is one in which data are collected for only some of the sombinations that would make up a complete factorial study.
+A \emph{fractional factorial study} is one in which data are collected for only some of the combinations that would make up a complete factorial study.
 \end{df}
 
 \vspace{.1in}

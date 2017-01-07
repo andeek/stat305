@@ -35,7 +35,7 @@ This chapter covers the general principles of data collection, ideas for effecti
 \end{itemize}
 \vspace{.1in}
 
-Often we want to answer a question (conduct a study) about an identifyable, concrete population of items, but we want to use a **sample** to represent this (typically) much larger population.
+Often we want to answer a question (conduct a study) about an identifiable, concrete population of items, but we want to use a **sample** to represent this (typically) much larger population.
 
 **Why?**
 \vspace{.75in}
@@ -120,7 +120,7 @@ Suppose you want to know about the effect of two different reactants (A and B) o
 
 ### Taxonomy of variables
 
-Planning an experiment is complicated. There are typically many different charcteristics of the system an engineer is interested in improving and many variables that might influence them. Some terminology is needed.
+Planning an experiment is complicated. There are typically many different characteristics of the system an engineer is interested in improving and many variables that might influence them. Some terminology is needed.
 
 \vspace{.2in}
 \begin{df}
@@ -167,7 +167,7 @@ There are three basic ways to handle extraneous variable:
 \vspace{.2in}
 
 \begin{df}
-A \emph{block} of experimental units, experiental times of observation, experimental conditions, etc. is a homogeneous group within which different levels of primary experimental variables can be applied and compared in a relatively uniform environment.
+A \emph{block} of experimental units, experimental times of observation, experimental conditions, etc. is a homogeneous group within which different levels of primary experimental variables can be applied and compared in a relatively uniform environment.
 \end{df}
 
 \vspace{.2in}
@@ -197,7 +197,7 @@ A process engineer is faced with the question, "How should gears be loaded into 
 
 ## Common experimental designs
 
-There are many subtelties that enter into the planning of an effective experiment. There are some standard "skeletons" of plans that can help with planning an experiment.
+There are many subtleties that enter into the planning of an effective experiment. There are some standard "skeletons" of plans that can help with planning an experiment.
 
 \vspace{.2in}
 \begin{df}
@@ -213,7 +213,7 @@ A \emph{randomized complete block experiment} is one in which at least one exper
 \begin{ex}[Glass restrengthening]
 Boyer, Millis, and Schiber studied the restrengthening of damaged glass through etching. They investigated the effects of the concentration of hydroflouric acid in etching bath and the time spent in the etching bath on the resulting strength of damaged glass rods. Strengths were measured using a three-point bending method.
 
-A $3\times 3$ factorial eperiment is run with the levels of concentration being 50\%, 75\%, and 100\% HF and the levels of time being 30 sec., 60 sec, 120 sec. 18 damaged rods were allocated - two apiece - to eaching of the nine treatment combinations for testing. This was done at random by labeling the rods 01-18, placing numbered slips of paper in a hat, mixing, drawing two out for 30 sec. and 50\%, then drawing two out for 30 sec. and 75\%, etc. The slips of paper were also used to determine the order of testing and the order of damaging the rods.
+A $3\times 3$ factorial experiment is run with the levels of concentration being 50\%, 75\%, and 100\% HF and the levels of time being 30 sec., 60 sec, 120 sec. 18 damaged rods were allocated - two apiece - to each of the nine treatment combinations for testing. This was done at random by labeling the rods 01-18, placing numbered slips of paper in a hat, mixing, drawing two out for 30 sec. and 50\%, then drawing two out for 30 sec. and 75\%, etc. The slips of paper were also used to determine the order of testing and the order of damaging the rods.
 
 \vspace{.5in}
 
