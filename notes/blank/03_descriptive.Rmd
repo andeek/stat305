@@ -1,0 +1,350 @@
+---
+output: 
+  pdf_document:
+    number_sections: true
+    includes:
+      in_header: 00_header.tex
+fontsize: 12pt
+geometry: margin=1in
+linestretch: 1.5
+---
+
+```{r setup, echo=FALSE, message=FALSE}
+library(knitr)
+library(tidyverse)
+library(xtable)
+library(MASS)
+
+knitr::opts_chunk$set(echo=FALSE, message=FALSE, warning=FALSE, fig.height = 2)
+theme_set(theme_bw(base_family = "serif"))
+
+set.seed(305)
+```
+
+\setcounter{section}{2}
+
+# Descriptive statistics
+
+Engineering data are always variable. Given precise enough measurement, even constant process conditions produce different responses. Thus, it is not the individual data values that are important, but their **distribution**. We will discuss simple methods that describe important distributional characteristics of data.
+
+\vspace{.25in}
+\begin{df}
+\emph{Descriptive statistics} is the use of plots and numerical summaries to describe data without drawing any formal conclusions.
+\end{df}
+
+\vspace{.25in}
+
+Through the use of *descriptive statistics*, we seek to find the following features of data sets:
+
+\vspace{.25in}
+\begin{enumerate}
+\itemsep .5in
+\item Center 
+\item Spread
+\item Shape 
+\item Outliers
+\end{enumerate}
+
+\newpage
+
+## Graphical and tabular displays of quantitative data
+
+Almost always, the place to start a data analysis is with appropriate graphical and tabular displays. When only a few samples are involved, a good plot can tell most of the story about data and drive an analysis.
+
+### Dot diagrams and stem-and-leaf plots
+
+When a study produces a small or moderate amount of **univariate quantittative data**, a *dot diagram* can be useful.
+
+\vspace{.25in}
+\begin{df}
+A \emph{dot diagram} shows each observation as a dot placed at the position corresponding to its numerical value along a number line.
+\end{df}
+
+```{r gears-load}
+gears <- read_csv("../../data/gears.csv")
+```
+\vspace{.25in}
+\begin{ex}[Heat treating gears, cont'd]
+Recall the example from Chapter 1. A process engineer is faced with the question, "How should gears be loaded into a continuous carburizing furnace in order to minimize distortion during heat treating?" The engineer conducts a well-thought-out study and obtains the runout values for `r gears %>% filter(Arrangement == "laid") %>% nrow()` gears laid and `r gears %>% filter(Arrangement == "hung") %>% nrow()` gears hung.
+
+\vspace{.25in}
+```{r gear-dotplot, fig.show='hide', results='asis'}
+gears %>%
+  ggplot() +
+  geom_dotplot(aes(Runout)) +
+  facet_wrap(~Arrangement)
+```
+\begin{figure}[H]
+\centering
+\includegraphics{03_descriptive_files/figure-latex/gear-dotplot-1.pdf}
+\caption{Dot diagrams of runouts.}
+\end{figure}
+\end{ex}
+
+\newpage
+
+
+```{r bullets-load}
+bullets <- read_csv("../../data/bullets.csv")
+```
+\begin{ex}[Bullet penetration depth, pg. 67]
+Sale and Thom compared penetration depths for several types of .45 caliber bullets fired into oak wood from a distance of 15 feet. They recorded the penetration depths (in mm from the target surface to the back of the bullets) for two bullet types.
+
+```{r, results='asis'}
+bullets %>%
+  mutate(grain = paste(grain, "grain jacketed bullets")) %>%
+  group_by(grain) %>%
+  summarise(Values = paste(penetration, collapse = ", ")) %>%
+  spread(grain, Values) %>%
+  xtable(align = c("c", "p{2in}", "p{2in}"), caption = "Bullet penetration depths (mm)") %>%
+  print(include.rownames = FALSE)
+```
+
+\vspace{.25in}
+```{r bullets-dotplot, fig.show='hide', results='asis'}
+bullets %>%
+  mutate(grain = paste(grain, "grain jacketed bullets")) %>%
+  ggplot() +
+  geom_dotplot(aes(penetration)) +
+  facet_wrap(~grain)
+```
+\begin{figure}[H]
+\centering
+\includegraphics{03_descriptive_files/figure-latex/bullets-dotplot-1.pdf}
+\caption{Dot diagrams of penetration depths.}
+\end{figure}
+\end{ex}
+
+\newpage
+
+Dot diagrams are good for getting a general feel for the data (and can be done with pencil and paper), but do not allow the recovery of the exact values used to make them.
+
+\vspace{.25in}
+\begin{df}
+A \emph{stem-and-leaf plot} is made by using the last few digits of each data point to indicated where it falls.
+\end{df}
+
+\vspace{.25in}
+\begin{ex}[Heat treating gears, cont'd]
+~\\
+```{r, results='asis'}
+gears %>%
+  group_by(Arrangement) %>%
+  summarise(Values = paste(Runout, collapse = ", ")) %>%
+  spread(Arrangement, Values) %>%
+  xtable(align = c("c", "p{2in}", "p{2in}"), caption = "Thrust face runouts (.0001 in.)") %>%
+  print(include.rownames = FALSE)
+```
+\end{ex}
+
+\newpage
+
+### Frequency tables and histograms
+
+Dot diagrams and stem-and-leaf plots are useful for getting to know a data set, but they are not commonly used in papers and presentations. 
+
+\vspace{.1in}
+\begin{df}
+A \emph{frequency table} is made by first breaking an interval containing all the data into an appropriate number of smaller intervals of equal length. Then tally marks can be recorded to indicate the number of data points falling into each interval. Finally, frequencies, relative frequencies, and cumulative relative frequencies can be added.
+\end{df}
+
+\vspace{.1in}
+\begin{ex}[Heat treating gears, cont'd]
+~\\[-.2in]
+\begin{table}[ht]
+\centering
+\begin{tabular}{p{2cm} l l p{2cm} p{2cm}}
+  \hline
+  Runout (.0001 in) & Tally & Frequency & Relative Frequency & Cumulative Relative Frequency \\
+  \hline
+  5-8 &  \tally 3 & $3$ & $.079$ & $.079$ \\
+  9-12 & \tally 18 & $18$ & $.474$ & $.553$ \\
+  13-16 & \tally 12 & $12$ & $.316$  & $.868$ \\
+  17-20 & \tally 4 & $4$ & $.105$ & $.974$ \\
+  21-24 &  & $0$ & $0$ & $.974$ \\
+  25-28 & \tally 1 & $1$ & $.026$ &  $1.000$ \\
+  \hline
+  & & $38$ & $1.000$ &
+\end{tabular}
+\caption{Frequency table for laid gear thrust face runouts.} 
+\end{table}  
+\end{ex}
+
+\vspace{.25in}
+\begin{ex}[Bullet penetration depth, cont'd]
+~\\[-.2in]
+\begin{table}[ht]
+\centering
+\begin{tabular}{p{2.25cm} l l p{2cm} p{2cm}}
+  \hline
+  Runout (.0001 in) & Tally & Frequency & Relative Frequency & Cumulative Relative Frequency \\
+  \hline
+  58-59.99 &  \tally 5 & $5$ & $.25$ & $.25$ \\
+  60.00-61.99 & \tally 3 & $3$ & $.15$ & $.40$ \\
+  62.00-63.99 & \tally 6 & $6$ & $.30$  & $.70$ \\
+  64.00-65.99 & \tally 3 & $3$ & $.15$ & $.85$ \\
+  66.00-67.99 & \tally 1 & $1$ & $.05$ & $.90$ \\
+  68.00-69.99 &  & $0$ & $0$ &  $.90$ \\
+  70.00-71.99 & \tally 2 & $2$ & $.10$ &  $1.000$ \\
+  \hline
+  & & $20$ & $1.000$ &
+\end{tabular}
+\caption{Frequency table for 200 grain penetration depths.} 
+\end{table}  
+\end{ex}
+
+\newpage
+
+After making a frequency table, it is common to use the organization provided by the table to create a histogram. 
+
+\vspace{.2in}
+\begin{df}
+A \emph{(frequency or relative frequency) histogram} is a kind of bar chart used to portray the shape of a distribution of data points. 
+\end{df}
+\vspace{.2in}
+
+Guidelines for making histograms:
+\vspace{2in}
+
+\vspace{.25in}
+\begin{ex}[Bullet penetration depth, cont'd]
+~\\
+```{r bullets-hist, fig.show='hide', results='asis', fig.height=3.5}
+bullets %>%
+  filter(grain == 200) %>%
+  ggplot() +
+  geom_histogram(aes(penetration), breaks = seq(58, 72, by = 2)) +
+  xlab("Penetration depth (mm)") + ylab("Frequency")
+```
+\begin{figure}[H]
+\centering
+\includegraphics{03_descriptive_files/figure-latex/bullets-hist-1.pdf}
+\caption{Histogram of the $200$ grain penetration depths.}
+\end{figure}
+\end{ex}
+
+\newpage
+\begin{ex}
+Suppose you have the following data: $$74, 79, 77, 81, 68, 79, 81, 76, 81, 80, 80, 78, 88, 83, 79, 91, 79, 75, 74, 73$$. Create the corresponding \emph{frequency table} and \emph{freqency histogram}.
+\end{ex}
+\newpage
+
+
+Why do we plot data? Information on location, spread, and shape is portrayed clearly in a histogram and can give hints as to the functioning of the physical process that is generating the data.
+
+\vspace{.25in}
+
+```{r data-shape, fig.cap="Common distributional shapes."}
+shapes <- data.frame(shape = "Bell-shaped", data = rnorm(1000))
+shapes %>%
+  bind_rows(data.frame(shape = "Right-skewed", data = rbeta(1000, 2, 5))) %>%
+  bind_rows(data.frame(shape = "Left-skewed", data = rbeta(1000, 5, 2))) %>%
+  bind_rows(data.frame(shape = "Uniform", data = runif(10000))) %>%
+  bind_rows(data.frame(shape = "Bimodal", data = c(rnorm(500), rnorm(500, 5, 2)))) %>%
+  bind_rows(data.frame(shape = "Truncated", data = rnorm(2000)) %>% filter(data < 0)) -> shapes
+                     
+                  
+shapes %>%
+  ggplot() +
+  geom_histogram(aes(data)) +
+  facet_wrap(~shape, nrow = 2, scales = "free") +
+  theme_void(base_family = "serif")
+
+```
+
+If data on the diameters of machined metal cylinders purchased from a vendor produce a histogram that is decidedly **bimodal**, this suggests  
+
+
+\vspace{2in}
+
+If the histogram is **truncated**, this might suggest 
+
+\newpage
+
+### Scatter plots
+
+Dot-diagrams, stem-and-leaf plots, frequency tables, and histograms are univariate tools. But engineering questions often concern multivariate data and *relationships between the variables*.
+
+\vspace{.25in}
+\begin{df}
+A \emph{scatterplot} is a simple and effective way of displaying potential relationships between two quantitative variable by assigning each variable to either the $x$ or $y$ axis and plotting the resulting coordinate points.
+\end{df}
+
+\vspace{.25in}
+\begin{ex}
+Jim and Jane want to know the relationship between an orange tree's age (in days since 1968-12-31) and its circumference (in mm). They recorded the data for $35$ orange trees.
+
+```{r orange-scatter, fig.show='hide', results='asis', fig.height=3.5}
+Orange %>%
+  ggplot() +
+  geom_point(aes(age, circumference)) +
+  xlab("Age (in days since 1968-12-31)") + ylab("Circumference (in mm)")
+```
+\begin{figure}[H]
+\centering
+\includegraphics{03_descriptive_files/figure-latex/orange-scatter-1.pdf}
+\caption{Scatterplot of $35$ trees' age and circumference.}
+\end{figure}
+\end{ex}
+
+\newpage
+
+There are three typical association/relationship between two variables:
+
+\vspace{.5in}
+```{r, fig.height=4}
+data <- data.frame(relationship = "Positive", 
+                   mvrnorm(25, c(0, 0), matrix(c(1, .9, .9, 1), nrow = 2)))
+data %>%
+  bind_rows(data.frame(relationship = "Negative", 
+                   mvrnorm(25, c(0, 0), matrix(c(1, -.9, -.9, 1), nrow = 2)))) %>%
+  bind_rows(data.frame(relationship = "No association", 
+                   mvrnorm(25, c(0, 0), matrix(c(1, 0, 0, 1), nrow = 2)))) -> data
+
+data %>%
+  rename(x = X1, y = X2) %>%
+  ggplot() +
+  geom_point(aes(x, y)) +
+  facet_wrap(~ relationship) +
+  theme(strip.background = element_blank(),
+       strip.text.x = element_blank())
+```
+
+\newpage
+
+\begin{df}
+A \emph{run chart} is a basic graph that displays data values in a time sequence in the order in which the data were generated. 
+\end{df}
+
+\vspace{.2in}
+\begin{ex}[Office hours]
+A professor collects data on the number of students that come to her office hours per week during the course of the semester. 
+
+
+```{r, results='asis'}
+office <- data.frame(Week = 1:15,
+                     Attendance = c(0, 1, 4, 5, 40, 2, 5, 10, 7, 30, 0, 4, 3, 19, 60))
+
+office %>%
+  xtable(caption = "Weekly attendance in office hours for a semester.") %>%
+  print(include.rownames = FALSE)
+```
+
+\end{ex}
+
+
+## Quantiles
+
+### Boxplots
+
+### Quantile-quantile plots
+
+### Theoretical quantile-quantile plots
+
+## Numerical summaries 
+
+### Location and spread
+
+### Statistics and parameters
+
+## Categorical and count data
