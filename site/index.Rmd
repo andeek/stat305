@@ -43,7 +43,10 @@ ISBN-13: 978-0-534-36957-6
 # Software
 
 JMP 12, freely available for [download](http://stat.iastate.edu/statistical-software-jmp).  
-You can find [on-campus computers equipped with JMP](https://www.it.iastate.edu/labsdb/?q=JMP). 
+You can find [on-campus computers equipped with JMP](https://www.it.iastate.edu/labsdb/?q=JMP).   
+  
+  
+You can also use R, freely available for [download](https://cloud.r-project.org/).
 
 # Grading
 
