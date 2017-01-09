@@ -2,6 +2,7 @@
 output: 
   pdf_document:
     number_sections: true
+    fig_caption: true
     includes:
       in_header: 00_header.tex
 fontsize: 12pt
@@ -442,10 +443,117 @@ bullets %>%
 \mbox{}
 \newpage
 
-### Quantile-quantile plots
+### Quantile-quantile (Q-Q) plots
+
+Often times, we want to compare the shapes of two distributions.
+
+\vspace{.5in}
+
+A more sensitive way is to make a single plot based on the quantile functions for two distributions.
+
+\vspace{.5in}
+
+\begin{df}
+A \emph{Q-Q plot} for two data sets with respective quantile functions $Q_1$ and $Q_2$ is a plot of ordered pais $(Q_1(p), Q_2(p))$ for appropriate values of $p$. When two data sets of size $n$ are involved, the values of $p$ used to make the plot will be $\frac{i-.5}{n}$ for $i = 1, \dots, n$. 
+\end{df}
+
+\vspace{.2in}
+
+\begin{ex}[Bullet penetration depth, cont'd]
+~\\
+```{r bullets-qq, results='asis', fig.show='hide', fig.height=4}
+bullets %>% filter(grain == 200) %>% dplyr::select(penetration) %>% arrange(penetration) %>% rename(`200 grain bullets` = penetration) %>%
+  bind_cols(bullets %>% filter(grain == 230) %>% dplyr::select(penetration) %>% arrange(penetration) %>% rename(`230 grain bullets` = penetration)) %>%
+  ggplot() +
+  geom_point(aes(`200 grain bullets`, `230 grain bullets`))
+```
+\begin{figure}[H]
+\centering
+\includegraphics{03_descriptive_files/figure-latex/bullets-qq-1.pdf}
+\caption{Q-Q plot for the bullet penetration depths.}
+\end{figure}
+\end{ex}
+
+\newpage
+
+To make a Q-Q plot for two data sets of the same size,
+
+1. order each from the smallest observation to the largest,
+2. pair off corresponding values in the two data sets
+3. plot ordered pairs, with the horizontal coordinated coming from the first data set and the vertical ones from the second.
+
+\vspace{.2in}
+
+\begin{ex}[Q-Q plot by hand]
+Make a Q-Q plot for the following small artificial datasets.
+
+```{r, results='asis'}
+data <- data.frame(data_set = c(rep("Data set 1", 5), rep("Data set 2", 5)),
+                   values = c(3, 5, 4, 7, 3, 15, 7, 9, 7, 11))
+
+data %>%
+  group_by(data_set) %>%
+  summarise(values = paste(values, collapse=", ")) %>%
+  spread(data_set, values) %>%
+  xtable(caption = "Two artificial data sets") %>%
+  print(include.rownames = FALSE)
+```
+
+\end{ex}
+
+
+\newpage
 
 ### Theoretical quantile-quantile plots
 
+Q-Q plots are useful when comparing two finite data sets, but a Q-Q plot can also be used to compare a data set and an expected shape, or *theoretical distribution*.
+
+\vspace{.2in}
+\begin{df}
+A \emph{theoretical Q-Q plot} for a data set of size $n$ and a theoretical distribution, with respective quantile functions $Q_1$ and $Q_2$ is a plot of ordered pairs $(Q_1(p), Q_2(p))$ for $p = \frac{i-.5}{n}$ where $i = 1, \dots, n$.
+\end{df}
+
+The most famous theoretical Q-Q plot occurs when quantiles for the *standard Normal* or *Gaussian* distribution are used. A simple numerical approximation to the quantile function for the Normal distribution is 
+
+$$
+Q(p) \approx 4.9(p^{.14} - (1-p)^{.14}).
+$$
+
+The standard Normal quantiles can be used to make a theoretical Q-Q plot as a way of assessing how bell-shaped a data set is. The resulting plot is called a *normal Q-Q plot*.
+
+\vspace{.2in}
+
+```{r normal-dist, fig.show='hold', fig.width=3.5, fig.height=3, fig.cap= "Histogram and approximate quantile function for a standard Normal distirbution."}
+norm <- rnorm(1000)
+p <- seq(0, 1, length.out = 1000)
+
+#histogram
+ggplot() + geom_histogram(aes(norm)) + xlab("Standard Normal data")
+
+#approximate quantiles
+qplot(p, 4.9*(p^.14 - (1-p)^.14), geom = "line") +
+  ylab("Approx. Q() for Normal(0, 1) distribution")
+```
+
+\newpage
+
+\begin{ex}[Breaking strengths of paper towels, cont'd]
+~\\
+```{r, results='asis'}
+towels %>% 
+  dplyr::select(strength) %>%
+  arrange(strength) %>% 
+  rename(`Breaking strength Q()` = strength) %>%
+  mutate(i = 1:n(),
+         `$\\frac{i-.5}{20}$` = (i -.5)/n()) %>%
+  dplyr::select(2, 3, 1) %>%
+  mutate(`Standard Normal Q()` = qnorm((i-.5)/n())) %>%
+  xtable(caption = "Breaking strength and standard Normal quantiles.") %>%
+  print(include.rownames = FALSE, sanitize.text.function=function(x){x})
+```
+\newpage
+
+\end{ex}
 ## Numerical summaries 
 
 ### Location and spread
