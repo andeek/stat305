@@ -226,7 +226,7 @@ bullets %>%
 
 \newpage
 \begin{ex}[Histogram]
-Suppose you have the following data: $$74, 79, 77, 81, 68, 79, 81, 76, 81, 80, 80, 78, 88, 83, 79, 91, 79, 75, 74, 73$$. Create the corresponding \emph{frequency table} and \emph{freqency histogram}.
+Suppose you have the following data: $$74, 79, 77, 81, 68, 79, 81, 76, 81, 80, 80, 78, 88, 83, 79, 91, 79, 75, 74, 73$$. Create the corresponding \emph{frequency table} and \emph{frequency histogram}.
 \end{ex}
 \newpage
 
@@ -341,7 +341,7 @@ Most people are probably familiar with the idea of *percentiles*.
 
 \vspace{.2in}
 \begin{df}
-The \emph{$p^{th}$ percentile} of a dataset is a number greater than $p$\% of the data and less than the rest.
+The \emph{$p^{th}$ percentile} of a data set is a number greater than $p$\% of the data and less than the rest.
 \end{df}
 
 > "You scored at the $90^{th}$ percentile on the SAT" means that your score was higher than 90% of the students who took the test and lower than the other 10% 
@@ -355,7 +355,7 @@ It is often more convenient to work in terms of fractions between $0$ and $1$ th
 For a data set consisting of $n$ values that when ordered are $x_1 \le x_2 \le \cdots \le x_n$,
 \begin{enumerate}
 \item if $p = \frac{i - .5}{n}$ for a positive integer $i \le n$, the $p$ \emph{quantile} of the data set is 
-$$Q(p) = Q\left(\frac{i-.5}{n}\right) = x_i$$ (the $i$th smallest data point will be called th $\frac{i-.5}{n}$ quantile)
+$$Q(p) = Q\left(\frac{i-.5}{n}\right) = x_i$$ (the $i$th smallest data point will be called the $\frac{i-.5}{n}$ quantile)
 \item for any number $p$ between $\frac{.5}{n}$ and $\frac{n-.5}{n}$ that is not of the form $\frac{i-.5}{n}$ for an integer $i$, the $p$ \emph{quantile} of the data set will be obtained by linear interpolation between the two values of $Q\left(\frac{i-.5}{n}\right)$ with corresponding $\frac{i-.5}{n}$ that bracket $p$.
 \end{enumerate}
 In both cases, the notation $Q(p)$ will denote the $p$ quantile.
@@ -454,7 +454,7 @@ A more sensitive way is to make a single plot based on the quantile functions fo
 \vspace{.5in}
 
 \begin{df}
-A \emph{Q-Q plot} for two data sets with respective quantile functions $Q_1$ and $Q_2$ is a plot of ordered pais $(Q_1(p), Q_2(p))$ for appropriate values of $p$. When two data sets of size $n$ are involved, the values of $p$ used to make the plot will be $\frac{i-.5}{n}$ for $i = 1, \dots, n$. 
+A \emph{Q-Q plot} for two data sets with respective quantile functions $Q_1$ and $Q_2$ is a plot of ordered pairs $(Q_1(p), Q_2(p))$ for appropriate values of $p$. When two data sets of size $n$ are involved, the values of $p$ used to make the plot will be $\frac{i-.5}{n}$ for $i = 1, \dots, n$. 
 \end{df}
 
 \vspace{.2in}
@@ -485,7 +485,7 @@ To make a Q-Q plot for two data sets of the same size,
 \vspace{.2in}
 
 \begin{ex}[Q-Q plot by hand]
-Make a Q-Q plot for the following small artificial datasets.
+Make a Q-Q plot for the following small artificial data sets.
 
 ```{r, results='asis'}
 data <- data.frame(data_set = c(rep("Data set 1", 5), rep("Data set 2", 5)),
@@ -591,7 +591,7 @@ We have also seen the *median*, $Q(.5)$, which is another measure of location. A
 
 \newpage 
 
-\begin{ex}[Measure of location]
+\begin{ex}[Measures of location]
 Calculate the three measures of location for the following data.
 $$
 0, 1, 1, 2, 3, 5
@@ -602,6 +602,124 @@ $$
 
 ### Measures of spread
 
+Quantifying variation in a data set can be as important as measuring its location. Again, there are many way to measure the spread of a data set.
+
+\vspace{.2in}
+\begin{df}
+The \emph{range} of a data set consisting of ordered values $x_1 \le \cdots \le x_n$ is 
+$$
+R = x_n - x_1.
+$$
+\end{df}
+
+\vspace{.2in}
+\begin{df}
+The \emph{sample variance} of a data set consisting of values $x_1, \dots, x_n$ is
+$$
+s^2 = \frac{1}{n-1} \sum\limits_{i=1}^n (x_i - \overline{x})^2.
+$$
+The \emph{sample standard deviation}, $s$, is the nonnegative square root of the sample variance.
+\end{df}
+
+\vspace{.2in}
+
+We have also seen the *IQR*, $Q(.75) - Q(.25)$, which is another measure of spread.
+
+\newpage
+
+\begin{ex}[Measures of spread]
+Calculate the four measures of spread for the following data.
+$$
+0, 1, 1, 2, 3, 5
+$$
+\end{ex}
+
+\vspace{2in}
+
+\begin{ex}[Sensitivity to outliers]
+Which measures of center and spread differ drastically between the $x_i$s and the $y_i$s? Which ones are the same?
+\begin{align*}
+x_i:& 0, 1, 1, 2, 3, 5 \\
+y_i:& 0, 1, 1, 2, 3, 817263489
+\end{align*}
+\end{ex}
+
+\newpage
+
 ### Statistics and parameters
 
+It's important now to stop and talk about terminology and notation.
+
+\vspace{.2in}
+\begin{df}
+Numerical summarizations of sample data are called (sample) \emph{statistics}. Numerical summarizations of population and theoretical distributions are called (population or model) \emph{parameters}. 
+\end{df}
+
+\vspace{1in}
+\begin{df}
+If a data set, $x_1, \dots, x_N$, represents an entire population, then the \emph{population (or true) mean} is defined as
+$$
+\mu = \frac{1}{N}\sum\limits_{i = 1}^N x_i.
+$$
+\end{df}
+
+\vspace{.2in}
+\begin{df}
+If a data set, $x_1, \dots, x_N$, represents an entire population, then the \emph{population (or true) variance} is defined as
+$$
+\sigma^2 = \frac{1}{N}\sum\limits_{i=1}^N(x_i - \mu)^2.
+$$
+The \emph{population (or true) standard deviation}, $\sigma$ is the nonnegative square root of $\sigma^2$.
+\end{df}
+
+
+\newpage
+
 ## Categorical and count data
+
+So far we have talked mainly about summarizing quantitative, or measurement, data. Sometimes, we have categorical or count data to summarize. In this case, we can revisit the *frequency table* and introduce a new type of plot.
+
+\vspace{.2in}
+
+\begin{ex}[Cars]
+Fuel consumption and 10 aspects of automobile design and performance are available for 32 automobiles (1973–74 models) from 1974 Motor Trend US Magazine.
+
+\vspace{.1in}
+
+```{r, results='asis'}
+head(mtcars) %>%
+  rbind(c(rep("...", 11))) -> cars_tab
+
+rownames(cars_tab)[7] <- "..."
+
+xtable(cars_tab, caption = "Car data for 1973-1974 models.")
+```
+
+We can construct a frequency table for the \texttt{cylinder} variable.
+
+\vspace{.1in}
+
+```{r cyl-tab, results='asis'}
+mtcars %>%
+  group_by(cyl) %>%
+  summarise(Frequency = n(),
+            `Relative Frequency` = n()/nrow(mtcars)) %>%
+  mutate(`Cumulative Frequency` = cumsum(`Relative Frequency`)) %>%
+  xtable(caption = "Frequency table for car cylinders.") %>%
+  print(include.rownames = FALSE)
+```
+
+\end{ex}
+
+From this frequency data, we can summarize the categorical data graphically.
+
+\newpage
+\begin{df}
+A \emph{bar plot} presents categorical data with rectangular bars with lengths proportional to the values that they represent (usually frequency of occurrence).
+\end{df}
+
+\vspace{.2in}
+
+\begin{ex}[Cars, cont'd]
+
+\end{ex}
