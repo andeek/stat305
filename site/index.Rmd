@@ -20,7 +20,7 @@ Office hours: T 11:00-11:50am, W 9:00-9:50am or by appointment in Snedecor Hall 
 
 [Yifan Zhu](http://stat.iastate.edu/people/yifan-zhu)  
 Email: yifanzhu at iastate (Put "[STAT 305 C]" in the subject.)  
-Office hours: ??? or by appointment in Snedecor Hall 3418.   
+Office hours: M 2:10-3:00pm, Th 3:10-4:00pm or by appointment in Snedecor Hall 2404.  
 
 # Course Coordinator
 
@@ -81,9 +81,9 @@ Rules for completing homework assignments:
  - Show your work. Without work, no partial credit is possible.
  - You are encouraged to work on homework with your peers. However, your problem sets must be written by you and only you, in your own words, and only with the calculations that you yourself did.
  
-Weekly homework assignments, along with their respective due dates, are be posted at <http://andeekaplan.com/stat305/materials.html>. Homeworks will usually be due on *Thursdays* at the *beginning of class* (unless otherwise notified in class and on the website). Submission must be in hard copy form (printed + stapled) except under extenuating circumstances. Please note, there will be a homework assignment due during *dead week*.
+Weekly homework assignments, along with their respective due dates, are be posted at <http://andeekaplan.com/stat305/materials.html>. Homeworks will be due on **Thursdays at 5pm in Snedecor 2404** (give to the TA, Yifan Zhu), unless otherwise notified in class and/or on the website. Submission must be in hard copy form (printed + stapled) except under extenuating circumstances. Please note, there will be a homework assignment due during *dead week*.
 
-No late homework will be accepted. At the end of the semester, your lowest assignment grade will be dropped. If you are unable to attend class on the day the homework is due it is your responsibility to turn it in *before* the due date.
+No late homework will be accepted. At the end of the semester, your lowest assignment grade will be dropped. If you are unable to attend class or go to office hours on the day the homework is due it is your responsibility to turn it in *before* the due date.
 
 # Exams
 

@@ -554,9 +554,53 @@ towels %>%
 \newpage
 
 \end{ex}
+
 ## Numerical summaries 
 
-### Location and spread
+When we have a large amount of data, it can become important to reduce the amount of data to a few informative numerical summary values. Numerical summaries highlight important features of the data 
+
+\vspace{.5in}
+
+\begin{df}
+A \emph{numerical summary (or statistic)} is a number or list of numbers calculated using the data (and only the data).
+\end{df}
+
+### Measures of location
+
+An "average" represents the center of a quantitative data set. There are several potential technical meanings for the word "average", and they are all *measures of location*.
+
+\vspace{.2in}
+\begin{df}
+The \emph{(arithmetic) mean} of a sample of quantitative data ($x_1, \dots, x_n$) is 
+$$
+\overline{x} = \frac{1}{n} \sum\limits_{i=1}^nx_i.
+$$
+\end{df}
+
+\vspace{.2in}
+\begin{df}
+The \emph{mode} of a discrete or categorical data set is the most frequently-occurring value.
+\end{df}
+
+\vspace{.2in}
+
+We have also seen the *median*, $Q(.5)$, which is another measure of location. A shortcut to calculating $Q(0.5)$ is
+
+- $Q(0.5) = x_{\lceil n/2 \rceil}$ if $n$ is odd 
+- $Q(0.5)$ = $(x_{n/2} + x_{n/2+1})/2$ if $n$ is even.
+
+\newpage 
+
+\begin{ex}[Measure of location]
+Calculate the three measures of location for the following data.
+$$
+0, 1, 1, 2, 3, 5
+$$
+\end{ex}
+
+\vspace{2in}
+
+### Measures of spread
 
 ### Statistics and parameters
 
