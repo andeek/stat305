@@ -33,6 +33,7 @@ Week | Topic | Notes | Comments
 # Homework
 
 1. Homework 1 - due Jan. 19
+<!--
 2. Homework 2 - due Jan. 26
 3. Homework 3 - due Feb. 2
 4. Homework 4 - due Feb. 9
@@ -44,6 +45,7 @@ Week | Topic | Notes | Comments
 10. Homework 10 - due Apr. 13
 11. Homework 11 - due Apr. 20
 12. Homework 12 - due Apr. 27
+-->
 
 # Exams
 
