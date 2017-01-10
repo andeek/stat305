@@ -8,27 +8,27 @@ No class on Tue, March 14 or Thu, March 16 (Spring break).
 
 <iframe src="https://calendar.google.com/calendar/embed?src=iastate.edu_car6h4lm1hgecaiejjuehb3r1c%40group.calendar.google.com&amp;mode=WEEK&amp;height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;ctz=America%2FChicago" style="border-width:0" width="600" height="400" frameborder="0" scrolling="no"></iframe>
 
-# Slides
+# Topics
 
-Week | Topic | Notes | Comments
---- | ---------------------- | -------- | -------------
-1  | Introduction, Data collection (Ch. 1-2) | [blank](notes/blank/01_introduction.pdf) | 
-2  | Data collection, Descriptive statistics (Ch. 2, Ch 3.1 - 3.2) |  |  
-3  | Descriptive statistics (Ch. 3.2-3.4) |  |  
-4  | Line fitting (Ch. 4.1-4.2) |  |  
-5  | Curve and surface fitting, Random variables (Ch. 4.2, 5.1) |  |  
-6  | Random variables (Ch. 5.1-5.2) |  |  
-7  | Random variables (Ch. 5.2, 5.4) |  |  
-8  | Random variables, Simple inference (Ch. 5.5, 6.1) |  |  
-9  | Simple inference (Ch. 6.1-6.3) |  |  
-10  | Spring break |  |  
-11  | Simple inference (Ch. 6.3, 6.6) |  |  
-12  | Inference for SLR (Ch. 9.1) |  |  
-13  | Inference for MLR (Ch. 9.1-9.2) |  |  
-14  | Inference for MLR, One way model (Ch. 9.2, 7.1-7.2) |  |  
-15  | CIs for linear functions of means, One way ANOVA (Ch. 7.2, 7.4) |  |  
-16  | Control charts, Review (Ch. 7.5) |  |  
-17  | Final Exam |  |  
+Week | Topic | Blank Notes | Filled Notes | Comments
+--- | ---------------------- | -------- | -------- | -------- 
+1  | Introduction, Data collection (Ch. 1-2) | [Ch. 1](notes/blank/01_introduction.pdf) | [Tuesday](notes/filled/2017_01_10_01.pdf) |  
+2  | Data collection, Descriptive statistics (Ch. 2, Ch 3.1 - 3.2) |  |  |  
+3  | Descriptive statistics (Ch. 3.2-3.4) |  |  |  
+4  | Line fitting (Ch. 4.1-4.2) |  |  |    
+5  | Curve and surface fitting, Random variables (Ch. 4.2, 5.1) |  |  |    
+6  | Random variables (Ch. 5.1-5.2) |  |  |    
+7  | Random variables (Ch. 5.2, 5.4) |  |  |   
+8  | Random variables, Simple inference (Ch. 5.5, 6.1) |  |  |    
+9  | Simple inference (Ch. 6.1-6.3) |  |  |    
+10  | Spring break |  |  |    
+11  | Simple inference (Ch. 6.3, 6.6) |  |  |    
+12  | Inference for SLR (Ch. 9.1) |  |  |    
+13  | Inference for MLR (Ch. 9.1-9.2) |  |  |    
+14  | Inference for MLR, One way model (Ch. 9.2, 7.1-7.2) |  |  |    
+15  | CIs for linear functions of means, One way ANOVA (Ch. 7.2, 7.4) |  |  |    
+16  | Control charts, Review (Ch. 7.5) |  |  |   
+17  | Final Exam |  |  |    
 
 # Homework
 
