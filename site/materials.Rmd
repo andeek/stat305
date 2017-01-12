@@ -52,7 +52,7 @@ Week | Topic | Blank Notes | Filled Notes | Comments
 ```{r, echo=FALSE}
 exams <- data.frame(Exam = c("Exam 1", "Exam 2", "Final Exam**"),
                     Date = c("Feb. 16", "Mar. 30", "May 4"),
-                    Location = c("Carver Hall 0018", "Carver Hall 0018", "Carver Hall 0018"),
+                    Location = c("MacKay 0117", "MacKay 0117", "MacKay 0117"),
                     Topics = c("Ch. 1-4", "Ch. 5-6", "Ch. 1-7, 9"))
 
 knitr::kable(exams)
