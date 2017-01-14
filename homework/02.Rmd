@@ -13,7 +13,7 @@ Please show all work for full credit. Print and staple your assignment together 
 
 1. [Ch. 2.3 Exercise 2, pg. 47] In general terms, what is the trade-off that must be weighed in deciding whether or not to control a variable in a statistical engineering study?
 
-1. [Ch. 2 Exercise 1, pg. 64] Use the random digits table (Table B.1, available at http://andeekaplan.com/stat305/materials.html#tables) and choose a simple random sample of $n = 8$ out of $N = 491$ widgets. Describe carefully how you label the widgets. Begin in the upper left corner of the table. Then use spreadsheet or statistical software to redo the selection.
+1. [Ch. 2 Exercise 1, pg. 64] Use the random digits table (Table B.1, available at http://andeekaplan.com/stat305/materials.html#tables) and choose a simple random sample of $n = 8$ out of $N = 491$ widgets. Describe carefully how you label the widgets. Begin in the upper left corner of the table. 
 
 1. [Ch 2. Exercise 2, pg. 64] Consider a potential student project concerning the making of popcorn. Possible factors affecting the outcome of popcorn making include at least the following: Brand of corn, Temperature of corn at the beginning of cooking, Popping method (e.g. frying vs. hot air popping), Type of Oil used (if frying), Amount of Oil used (if frying), Batch Size, initial Moisture Content of corn, and Person doing the evaluation of a single batch. Using these factors and/or any others that you can think of, answer the following questions about such a project:
     a) What is a possible response variable in a popcorn project?
