@@ -1,0 +1,26 @@
+---
+title: "Homework 2"
+date: "Due January 26, 2017 at 5pm in Snedecor 2404"
+output: 
+  pdf_document:
+    number_sections: true
+geometry: margin=1in
+---
+
+Please show all work for full credit. Print and staple your assignment together and submit by 5pm of the due date in Snedecor 2404. If you cannot attend class or office hours on the due date, please arrange to submit your homework prior to the due date.
+
+1.  [Ch. 2.3 Exercise 1, pg. 47] Consider the context of a study on making paper airplanes where two different Designs (say delta versus t wing), two different Papers (say construction versus typing) and two different Loading Conditions (with a paper clip versus without a paper clip) are of interest with regard to their impact on flight distance. Describe some variables that you would want to control in such a study. What are the response and experimental variables that would be appropriate in this context? Name a potential concomitant variable here.
+
+1. [Ch. 2.3 Exercise 2, pg. 47] In general terms, what is the trade-off that must be weighed in deciding whether or not to control a variable in a statistical engineering study?
+
+1. [Ch. 2 Exercise 1, pg. 64] Use the random digits table (Table B.1, available at http://andeekaplan.com/stat305/materials.html#tables) and choose a simple random sample of $n = 8$ out of $N = 491$ widgets. Describe carefully how you label the widgets. Begin in the upper left corner of the table. Then use spreadsheet or statistical software to redo the selection.
+
+1. [Ch 2. Exercise 2, pg. 64] Consider a potential student project concerning the making of popcorn. Possible factors affecting the outcome of popcorn making include at least the following: Brand of corn, Temperature of corn at the beginning of cooking, Popping method (e.g. frying vs. hot air popping), Type of Oil used (if frying), Amount of Oil used (if frying), Batch Size, initial Moisture Content of corn, and Person doing the evaluation of a single batch. Using these factors and/or any others that you can think of, answer the following questions about such a project:
+    a) What is a possible response variable in a popcorn project?
+    b) Pick two possible experimental factors in this context and describe a $2 \times 2$ factorial data structure in those variables that might arise in such a study.
+    c) Describe how the concept of randomization might be employed.
+    d) Describe how the concept of blocking might be employed.
+    
+1. [Ch2. Exercise 8, pg. 65] Return to the context of Exercise 6. from Homework 1.
+    a) Name factors and levels that might be used in a three-factor, full factorial study in this situation. Also name two response variables for the study. Suppose that in accord with good engineering data collection practice, you wish to include replication in the study. Make up a data collection sheet, listing all the combinations of levels of the factors to be included, and include blanks where the corresponding observed values of the two responses could be entered for each experimental run.
+    b) Suppose that it is feasible to make the runs listed in your answer to part a) in a completely randomized order. Use a mechanical method (like slips of paper in a hat) to arrive at a random order of experimentation for your study. Carefully describe the physical steps you follow in developing this order for data collection.
