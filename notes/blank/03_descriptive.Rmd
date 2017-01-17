@@ -54,7 +54,7 @@ Almost always, the place to start a data analysis is with appropriate graphical 
 
 ### Dot diagrams and stem-and-leaf plots
 
-When a study produces a small or moderate amount of **univariate quantittative data**, a *dot diagram* can be useful.
+When a study produces a small or moderate amount of **univariate quantitative data**, a *dot diagram* can be useful.
 
 \vspace{.25in}
 \begin{df}
