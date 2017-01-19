@@ -38,3 +38,4 @@ vignettes/*.pdf
 Gemfile
 Gemfile.lock
 _site/
+stat305-solutions/
