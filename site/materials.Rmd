@@ -68,10 +68,11 @@ Coming soon...
 
 # Data
 
+[bolts.csv](data/bolts.csv) 
 [bullets.csv](data/bullets.csv)  
-<!-- [cars.csv](data/cars.csv) 
+[cars.csv](data/cars.csv) 
 [gears.csv](data/gears.csv) 
 [officehours.csv](officehours/gears.csv)  
-[orangetrees.csv](data/orangetrees.csv)  -->
+[orangetrees.csv](data/orangetrees.csv) 
 [paper.csv](data/paper.csv)  
-<!--[towels.csv](data/towels.csv)-->
+[towels.csv](data/towels.csv)
