@@ -1,5 +1,5 @@
 ---
-title: "Homework 2"
+title: "Homework 3"
 date: "Due February 2, 2017 at 5pm in Snedecor 2404"
 output: 
   pdf_document:
