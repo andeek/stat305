@@ -1,0 +1,102 @@
+---
+output: 
+  pdf_document:
+    number_sections: true
+    fig_caption: true
+    includes:
+      in_header: 00_header.tex
+fontsize: 12pt
+geometry: margin=1in
+linestretch: 1.5
+---
+
+```{r setup, echo=FALSE, message=FALSE}
+library(knitr)
+library(tidyverse)
+library(xtable)
+library(MASS)
+
+knitr::opts_chunk$set(echo=FALSE, message=FALSE, warning=FALSE, fig.height = 2)
+theme_set(theme_bw(base_family = "serif"))
+
+set.seed(305)
+```
+
+\setcounter{section}{3}
+
+# Describing relationships between variables
+
+This chapter provides methods that address a more involved problem of describing relationships between variables and require more computation. We start with relationships between two variables and move on to more.
+
+## Fitting a line by least squares
+
+**Goal:**
+
+\vspace{.2in}
+
+We would like to use an equation to describe how a dependent (response) variable, $y$, changes in response to a change in one or more independendent (experimental) variable(s), $x$.
+
+**Line review: ** Recall a linear equation of the form $y = mx + b$
+
+\vspace{.25in}
+
+In statistics, we use the notation $y = \beta_0 + \beta_1 x + \epsilon$ where we assume $\beta_0$ and $\beta_1$ are unknown parameters and $\epsilon$ is some error.
+
+\vspace{.25in}
+
+The goal is to find estimates $b_0$ and $b_1$ for the parameters.
+
+\vspace{.25in}
+
+\begin{ex}[Plastic hardness]
+Eight batches of plastic are made. From each batch one test item is molded and its hardness, $y$, is measured at time $x$. The following are the 8 measurements and times:
+
+\vspace{.2in}
+
+```{r hardness-data, results='asis'}
+hardness <- data.frame(time = c(32, 72, 64, 48, 16, 40, 80, 56),
+                      hardness = c(230, 323, 298, 255, 199, 248, 359, 305))
+
+print(xtable(t(hardness), digits = 0), include.colnames = FALSE, comment = FALSE)
+
+```
+\newpage
+~\\
+\vspace{4in}
+
+How do we find an equation for the line that best fits the data?
+
+\vspace{2.5in}
+
+\end{ex}
+
+\begin{df}
+A \emph{residual} is the vertical distance between the actual data point and a fitted line, $e = y - \hat{y}$.
+\end{df}
+
+\newpage
+
+The *principle of least squares* provides a method of choosing a "best" line to describe the data.
+
+\begin{df}
+To apply the \emph{principle of least squares} in the fitting of an equation for $y$ to an $n$-point data set, values of the equation parameters are choen to minimize
+$$
+\sum\limits_{i = 1}^n(y_i - \hat{y_i})^2
+$$
+where $y_1, y_2, \dots, y_n$ are the observed responses and $\hat{y}_1, \hat{y}_2, \dots, \hat{y}_n$ are corresponding responses predicted or fitted by the equation.
+\end{df}
+
+\vspace{.1in}
+
+We want to choose $b_0$ and $b_1$ to minimize
+$$
+\sum\limits_{i = 1}^n(y_i - \hat{y_i})^2 = \sum\limits_{i = 1}^n(y_i - b_0 - b_1 x_i)^2
+$$
+
+\newpage
+
+## Fitting curves and surfaces by least squares
+
+### Polynomial regression
+
+### Multiple regression (surface fitting)
