@@ -36,7 +36,9 @@ This chapter provides methods that address a more involved problem of describing
 
 We would like to use an equation to describe how a dependent (response) variable, $y$, changes in response to a change in one or more independendent (experimental) variable(s), $x$.
 
-**Line review: ** Recall a linear equation of the form $y = mx + b$
+### Line review 
+
+Recall a linear equation of the form $y = mx + b$
 
 \vspace{.25in}
 
@@ -94,6 +96,243 @@ $$
 $$
 
 \newpage
+
+Solving for $b_0$ and $b_1$, we get
+\vspace{-.5in}
+\begin{align*}
+b_0 &= \overline{y} - b_1 \overline{x} \\
+b_1 &= \frac{\sum(x_i - \overline{x})(y_i - \overline{x})}{\sum(x_i - \overline{x})^2} = \frac{\sum x_i y_i - \frac{1}{n}\sum x_i \sum y_i}{\sum x_i^2 - \frac{1}{n}(\sum x_i)^2}
+\end{align*}
+
+\vspace{.1in}
+
+\begin{ex}[Plastic hardness, cont'd]
+Compute the least squares line for the data in Example 4.1.
+
+```{r hardness-ls, results='asis'}
+hardness %>%
+  rename(x = time,
+         y = hardness) %>%
+  mutate(`$xy$` = x*y,
+         `$x^2$` = x^2,
+         `$y^2$` = y^2) %>%
+  rename(`$x$` = x,
+         `$y$` = y) %>%
+  xtable(digits = 0) %>%
+  print(include.rownames = FALSE, sanitize.colnames.function = identity)
+```
+
+\newpage
+\end{ex}
+
+### Interpreting slope and intercept
+
+\begin{itemize}
+\itemsep .25in
+\item Slope:
+\item Intercept
+\end{itemize}
+
+\vspace{.2in}
+
+Interpreting the intercept is nonsense when
+
+\vspace{2in}
+
+\begin{ex}[Plastic hardness, cont'd]
+Interpret the coefficients in the plastic hardness example. Is the interpretation of the intercept reasonable?
+
+\newpage
+\end{ex}
+
+When making predictions, don't *extrapolate*.
+
+\vspace{.1in}
+\begin{df}
+\emph{Extrapolation} is when a value of $x$ beyond the range of our actual observations is used to find a predicted value for $y$. We don't know the behavior of the line beyond our collected data.
+\end{df}
+
+\vspace{.1in}
+
+\begin{df}
+\emph{Interpolation} is when a value of $x$ within the range of our observations is used to find a predicted value for $y$.
+\end{df}
+
+\vspace{2in}
+
+### Correlation
+
+Visually we can assess if a fitted line does a good job of fitting the data using a scatterplot. However, it is also helpful to have methods of quantifying the quality of that fit.
+
+\vspace{.1in}
+\begin{df}
+\emph{Correlation} gives the strength and direction of the linear relationship between two variables.
+\end{df}
+
+\vspace{.1in}
+\begin{df}
+The \emph{sample correlation} between $x$ and $y$ in a sample of $n$ data points $(x_i, y_i)$ is
+
+$$
+r = \frac{\sum(x_i - \overline{x})(y_i - \overline{y})}{\sqrt{\sum(x_i - \overline{x})^2\sum(y_i - \overline{y})^2}} = \frac{\sum x_i y_i - \frac{1}{n}\sum x_i \sum y_i}{\sqrt{\sum x_i^2 - \frac{1}{n}(\sum x_i)^2}\sqrt{\sum y_i^2 - \frac{1}{n}(\sum y_i)^2}}
+$$
+\end{df}
+
+\newpage
+Properties of the sample correlation:
+
+- $-1 \le r \le 1$
+- $r = -1$ or $r = 1$ if all points lie exactly on the fitted line
+- The closer $r$ is to $0$, the weaker the linear relationship; the closer it is to $1$ or $-1$, the stronger the linear relationship.
+- Negative $r$ indications negative linear relationship; Positive $r$ indications positive linear relationship
+- Interpretation always nees 3 things
+    1. Strength (strong, moderate, weak)
+    2. Direction (positive or negative)
+    3. Form (linear relationship or no linear relationship)
+    
+Note:
+
+\newpage
+
+```{r example_r, fig.height=5}
+example_dat <- data.frame(gamma = c(.98, -.77, -0.2))
+
+example_dat %>%
+  group_by(gamma) %>%
+  do(data.frame(mvrnorm(50, rep(0, 2), matrix(c(1, .$gamma, .$gamma, 1), nrow=2)))) %>%
+  bind_rows(data.frame(gamma = 0, 
+                       X1 = seq(-3, 3, length.out = 20), 
+                       X2 = seq(-3, 3, length.out = 20)^2)) %>%
+  ungroup() %>%
+  mutate(gamma = paste("r = ", gamma)) %>%
+  ggplot() +
+  geom_point(aes(X1, X2)) +
+  facet_wrap(~gamma) +
+  xlab("x") + ylab("y")
+```
+
+\begin{ex}[Plastic hardness, cont'd]
+Compute and interpret the sample correlation for the plastic hardness example. Recall, 
+$$
+\sum x = 408, \sum y = 2217, \sum xy = 120832, \sum x^2 = 24000, \sum y^2 = 634069
+$$
+\newpage
+\end{ex}
+
+### Assessing models
+
+When modeling, it's important to assess the (1) **validity** and (2) **usefulness** of your model.
+
+To assess the validity of the model, we will look to the residuals. If the fitted equation is the good one, the residuals will be:
+
+\begin{enumerate}
+\itemsep .25in
+\item
+\item
+\item
+\end{enumerate}
+
+\vspace{.2in}
+
+To check if these three things hold, we will use two plotting methods.
+
+\vspace{.2in}
+
+\begin{df}
+A \emph{residual plot} is a plot of the residuals, $e = y - \hat{y}$ vs. $x$ (or $\hat{y}$ in the case of multiple regression, Section 4.2).
+\end{df}
+
+\newpage
+```{r residual_plots, results='hold', out.width=".48\\textwidth", fig.height = 2.5, fig.width = 4}
+b0 <- 4.67
+b1 <- .92
+
+perfect <- data.frame(x = seq(10, 52, length.out = 35)) %>%
+  mutate(y = b0 + b1*x + rnorm(n(), 0, 2))
+
+pattern <- data.frame(x = seq(10, 52, length.out = 35)) %>%
+  mutate(y = b0 + b1*x + .05*x^2 + rnorm(n(), 0, 2))
+
+fan <- data.frame(x = seq(10, 52, length.out = 35)) %>%
+  mutate(y = b0 + b1*x + (x/20)^2*rnorm(n(), 0, 2))
+
+ggplot(perfect, aes(x, y)) + geom_point() + geom_smooth(method = "lm", se = FALSE)
+
+qplot(perfect$x, lm(y ~ x, data = perfect)$residuals, geom = "point") + xlab("x") + ylab("e") + geom_hline(aes(yintercept=0), lty=2)
+```
+
+\vspace{.5in}
+
+```{r, results='hold', out.width=".48\\textwidth", fig.height = 2.5, fig.width = 4}
+ggplot(pattern, aes(x, y)) + geom_point() + geom_smooth(method = "lm", se = FALSE)
+
+qplot(pattern$x, lm(y ~ x, data = pattern)$residuals, geom = "point") + xlab("x") + ylab("e") + geom_hline(aes(yintercept=0), lty=2)
+```
+
+\vspace{.5in}
+```{r, results='hold', out.width=".48\\textwidth", fig.height = 2.5, fig.width = 4}
+ggplot(fan, aes(x, y)) + geom_point() + geom_smooth(method = "lm", se = FALSE)
+
+qplot(fan$x, lm(y ~ x, data = fan)$residuals, geom = "point") + xlab("x") + ylab("e") + geom_hline(aes(yintercept=0), lty=2)
+
+
+```
+
+\newpage
+
+To check if residuals have a Normal distribution,
+
+\vspace{2in}
+
+To assess the usefulness of the model, we use $R^2$, the *coefficient of determination*. 
+
+\vspace{.2in}
+
+\begin{df}
+The \emph{coefficient of determination}, $R^2$, is the proportion of variation in the response that is explained by the model.
+\end{df}
+
+
+Total amount of variation in the response
+$$
+Var(y) = \qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad
+$$
+
+Sum of squares breakdown:
+
+
+\newpage
+
+Properties of $R^2$:
+
+- $R^2$ is used to assess the fit of other types of relationships as well (not just linear).
+- Interpretation - fraction of raw variation in $y$ accounted for by the fitted equation.
+- $0 \le R^2 \le 1$
+- The closer $R^2$ is to 1, the better the model.
+- For SLR, $R^2 = (r)^2$
+
+\vspace{.2in}
+
+\begin{ex}[Plastic hardness, contd]
+Compute and interpret $R^2$ for the example of the relationship between plastic hardness and time.
+
+\newpage
+\end{ex}
+
+
+
+
+
+### Precautions
+
+Precautions about Simple Linear Regression (SLR)
+
+- $r$ only measures linear relationships
+- $R^2$ and $r$ can be drastically affected by a few unusual data points.
+
+### Using a computer
+
+You can use JMP (or `R`) to fit a linear model. See BlackBoard for videos on fitting a SLR using JMP.
 
 ## Fitting curves and surfaces by least squares
 
