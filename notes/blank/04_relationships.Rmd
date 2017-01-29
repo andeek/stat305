@@ -2,10 +2,10 @@
 output: 
   pdf_document:
     number_sections: true
-    fig_caption: true
     includes:
       in_header: 00_header.tex
 fontsize: 12pt
+fig_caption: true
 geometry: margin=1in
 linestretch: 1.5
 ---
@@ -34,7 +34,7 @@ This chapter provides methods that address a more involved problem of describing
 
 \vspace{.2in}
 
-We would like to use an equation to describe how a dependent (response) variable, $y$, changes in response to a change in one or more independendent (experimental) variable(s), $x$.
+We would like to use an equation to describe how a dependent (response) variable, $y$, changes in response to a change in one or more independent (experimental) variable(s), $x$.
 
 ### Line review 
 
@@ -81,7 +81,7 @@ A \emph{residual} is the vertical distance between the actual data point and a f
 The *principle of least squares* provides a method of choosing a "best" line to describe the data.
 
 \begin{df}
-To apply the \emph{principle of least squares} in the fitting of an equation for $y$ to an $n$-point data set, values of the equation parameters are choen to minimize
+To apply the \emph{principle of least squares} in the fitting of an equation for $y$ to an $n$-point data set, values of the equation parameters are chosen to minimize
 $$
 \sum\limits_{i = 1}^n(y_i - \hat{y_i})^2
 $$
@@ -185,7 +185,7 @@ Properties of the sample correlation:
 - $r = -1$ or $r = 1$ if all points lie exactly on the fitted line
 - The closer $r$ is to $0$, the weaker the linear relationship; the closer it is to $1$ or $-1$, the stronger the linear relationship.
 - Negative $r$ indications negative linear relationship; Positive $r$ indications positive linear relationship
-- Interpretation always nees 3 things
+- Interpretation always need 3 things
     1. Strength (strong, moderate, weak)
     2. Direction (positive or negative)
     3. Form (linear relationship or no linear relationship)
@@ -332,10 +332,166 @@ Precautions about Simple Linear Regression (SLR)
 
 ### Using a computer
 
-You can use JMP (or `R`) to fit a linear model. See BlackBoard for videos on fitting a SLR using JMP.
+You can use JMP (or `R`) to fit a linear model. See BlackBoard for videos on fitting a model using JMP.
 
 ## Fitting curves and surfaces by least squares
 
+The basic ideas in Section 4.1 can be generalized to produce a powerful tool: **multiple linear regression**.
+
 ### Polynomial regression
+
+In the previous section, a straight line did a reasonable job of describing the relationship between time and plastic hardness. But what to do when there is not a linear relationship between variables?
+
+\newpage
+
+\begin{ex}[Cylinders, pg. 132]
+B. Roth studied the compressive strength of concrete-like fly ash cylinders. These were made using various amounts of ammonium phosphate as an additive. 
+
+\vspace{.1in}
+
+```{r cylinders-data, results='asis'}
+cylinders <- read_csv("../../data/cylinders.csv")
+
+cbind(cylinders[1:9,], cylinders[10:18,]) %>%
+  xtable(caption="Additive concentrations and compressive strengths for fly ash cylinders.") %>%
+  print(comment=FALSE, include.rownames=FALSE)
+```
+
+\vspace{.25in}
+
+```{r cylinders-plot, fig.show='hide', results='asis', fig.height=3}
+ggplot(cylinders, aes(ammonium.phosphate, strength)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE)
+```
+\begin{figure}[H]
+\centering
+\includegraphics{04_relationships_files/figure-latex/cylinders-plot-1.pdf}
+\caption{Scatterplot of compressive strength of concrete-like fly ash cylinders for various amounts of ammonium phosphate as an additive with a fitted line.}
+\end{figure}
+
+\newpage
+
+```{r cylinders-resid, fig.show='hide', results='asis', fig.height=2.5, fig.width=3}
+cyl_m0 <- lm(strength ~ ammonium.phosphate, data = cylinders)
+
+qplot(cylinders$ammonium.phosphate, cyl_m0$residuals, geom="point") +
+  geom_hline(aes(yintercept=0)) +
+  ylab("e") + xlab("x")
+
+
+qplot(sample = cyl_m0$residuals)
+
+```
+\begin{figure}[H]
+\centering
+\includegraphics{04_relationships_files/figure-latex/cylinders-resid-1.pdf}
+\includegraphics{04_relationships_files/figure-latex/cylinders-resid-2.pdf}
+\caption{Residual plots for linear fit of cylinder compressive strength on amounts of ammonium phosphate.}
+\end{figure}
+
+\vspace{.5in}
+
+\end{ex}
+
+A natural generalization of the linear equation
+$$
+y \approx \beta_0 + \beta_1 x
+$$
+is the **polynomial equation**
+$$
+y \approx \beta_0 + \beta_1 x + \beta_2 x^2 + \cdots + \beta_{p-1}x^{p-1}.
+$$
+
+The $p$ coefficients are again estimated using the *principle of least squares*, where the function
+
+$$
+S(b_0, \dots, b_{p-1}) = \sum\limits_{i = 1}^n(y_i - \hat{y})^2 = \sum\limits_{i = 1}^n (y_i - \beta_0 - \beta_1 x - \cdots - \beta_{p-1}x^{p-1})^2
+$$
+
+must be minimized to find the estimates $b_0, \dots, b_{p-1}$.
+
+\newpage
+
+\begin{ex}[Cylinders, cont'd]
+
+The linear fit for the relationship between ammonium phosphate and compressive strength of cylinders was not great ($R^2 = `r summary(cyl_m0)$r.squared`$). We can fit a quadratic model.
+
+\vspace{.1in}
+
+\end{ex}
+
+```{r, comment=NA}
+cyl_m1 <- lm(strength ~ ammonium.phosphate + I(ammonium.phosphate^2), data = cylinders)
+
+summary(cyl_m1)
+```
+
+```{r quad-plot, fig.height = 3}
+x <- seq(min(cylinders$ammonium.phosphate), max(cylinders$ammonium.phosphate), length.out = 100)
+y_hat_quad <- predict(cyl_m1, data.frame(ammonium.phosphate = x))
+
+ggplot() +
+  geom_point(aes(ammonium.phosphate, strength), data = cylinders) +
+  geom_line(aes(x, y_hat_quad), colour = "blue") +
+  xlab("Percent ammonium phosphate") +
+  ylab("Compressive strength (psi)")
+```
+
+
+\vspace{.5in}
+
+```{r cylinders-resid-quad, fig.show='hold', fig.height=2.5, fig.width=3, fig.cap="Residual plots for quadratic fit of percent compressive strength of cylinders on percent ammonium phosphate."}
+
+qplot(cylinders$ammonium.phosphate, cyl_m1$residuals, geom="point") +
+  geom_hline(aes(yintercept=0)) +
+  ylab("e") + xlab("x")
+
+
+qplot(sample = cyl_m1$residuals)
+
+```
+
+\newpage
+
+\begin{ex}[Cylinders, cont'd]
+
+How about a cubic model.
+
+\vspace{.1in}
+
+\end{ex}
+
+```{r, comment=NA}
+cyl_m2 <- lm(strength ~ ammonium.phosphate + I(ammonium.phosphate^2) + I(ammonium.phosphate^3), data = cylinders)
+
+summary(cyl_m2)
+```
+
+```{r cubic-plot, fig.height = 3}
+y_hat_cubic <- predict(cyl_m2, data.frame(ammonium.phosphate = x))
+
+ggplot() +
+  geom_point(aes(ammonium.phosphate, strength), data = cylinders) +
+  geom_line(aes(x, y_hat_cubic), colour = "blue") +
+  xlab("Percent ammonium phosphate") +
+  ylab("Compressive strength (psi)")
+```
+
+
+\vspace{.5in}
+
+```{r cylinders-resid-cubic, fig.show='hold', fig.height=2.5, fig.width=3, fig.cap="Residual plots for cubic fit of percent compressive strength of cylinders on percent ammonium phosphate."}
+
+qplot(cylinders$ammonium.phosphate, cyl_m2$residuals, geom="point") +
+  geom_hline(aes(yintercept=0)) +
+  ylab("e") + xlab("x")
+
+
+qplot(sample = cyl_m2$residuals)
+
+```
+
+\newpage
 
 ### Multiple regression (surface fitting)
