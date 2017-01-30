@@ -406,7 +406,7 @@ $$
 The $p$ coefficients are again estimated using the *principle of least squares*, where the function
 
 $$
-S(b_0, \dots, b_{p-1}) = \sum\limits_{i = 1}^n(y_i - \hat{y})^2 = \sum\limits_{i = 1}^n (y_i - \beta_0 - \beta_1 x - \cdots - \beta_{p-1}x^{p-1})^2
+S(b_0, \dots, b_{p-1}) = \sum\limits_{i = 1}^n(y_i - \hat{y})^2 = \sum\limits_{i = 1}^n (y_i - \beta_0 - \beta_1 x_i - \cdots - \beta_{p-1}x_i^{p-1})^2
 $$
 
 must be minimized to find the estimates $b_0, \dots, b_{p-1}$.
@@ -495,3 +495,192 @@ qplot(sample = cyl_m2$residuals)
 \newpage
 
 ### Multiple regression (surface fitting)
+
+The next generalization from fitting a line or a polynomial curve is to use the same methods to summarize the effects of several different quantitative variables $x_1, \dots, x_{p-1}$ on a response $y$.
+$$
+y \approx \beta_0 + \beta_1 x_1 + \cdots \beta_{p-1}x_{p-1}
+$$
+
+Where we estimate $\beta_0, \dots, \beta_{p-1}$ using the *least squares principle*. The function
+$$
+S(b_0, \dots, b_{p-1}) = \sum\limits_{i = 1}^n(y_i - \hat{y})^2 = \sum\limits_{i = 1}^n (y_i - \beta_0 - \beta_1 x_{1,i} - \cdots - \beta_{p-1}x_{p-1,i})^2
+$$
+
+must be minimized to find the estimates $b_0, \dots, b_{p-1}$.
+
+\vspace{.2in}
+
+\begin{ex}[New York rivers]
+Nitrogen content is a measure of river pollution. We have data from 20 New York state rivers concerning their nitrogen content as well as other characteristics. The goal is to find a relationship that explains the variability in nitrogen content for rivers in New York state.
+
+\vspace{.2in}
+
+\begin{table}[H]
+\begin{tabular}{ l | p{.85\textwidth} }
+\hline
+Variable & Description \\
+\hline
+$Y$ & Mean nitrogen concentration (mg/liter) based on samples taken at regular intervals during the spring, summer, and fall months\\
+$X_1$ & Agriculture: percentage of land area currently in agricultural use\\
+$X_2$ & Forest: percentage of forest land\\
+$X_3$ & Residential: percentage of land area in residential use\\
+$X_4$ & Commercial/Industrial: percentage of land area in either commercial or industrial use \\
+\hline
+\end{tabular}
+\caption{Variables present in the New York rivers dataset.}
+\end{table}
+
+\newpage
+
+We will fit each of
+
+\begin{align*}
+\hat{y} &= b_0 + b_1 x_1 \\
+\hat{y} &= b_0 + b_1 x_1 + b_2 x_2 + b_3 x_3 + b_4 x_4
+\end{align*}
+
+and evaluate fit quality.
+
+\end{ex}
+
+
+```{r}
+rivers <- read_csv("../../data/rivers.csv")
+```
+
+```{r, comment=NA}
+rivers_m0 <- lm(Y ~ X1, data = rivers)
+
+summary(rivers_m0)
+```
+
+```{r base-model-plot, fig.height = 3}
+ggplot(aes(X1, Y), data = rivers) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE) +
+  xlab("Percent agriculture") +
+  ylab("Mean nitrogen concentration (mg/liter)")
+```
+
+
+\vspace{.5in}
+
+```{r rivers-resid, fig.show='hold', fig.height=2.5, fig.width=3}
+
+qplot(rivers$X1, rivers_m0$residuals, geom="point") +
+  geom_hline(aes(yintercept=0)) +
+  ylab("e") + xlab("x")
+
+
+qplot(sample = rivers_m0$residuals)
+
+```
+
+\newpage
+
+```{r, comment=NA}
+rivers_m1 <- lm(Y ~ X1 + X2 + X3 + X4, data = rivers)
+
+summary(rivers_m1)
+```
+
+```{r big-model-plot, fig.height = 3}
+
+rivers_pred <- data.frame(Y_hat = rivers_m1$fitted.values,
+                          e = rivers_m1$residuals) %>%
+  bind_cols(rivers)
+
+
+ggplot(aes(Y_hat, Y), data = rivers_pred) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE) +
+  xlab("Predicted Mean nitrogen concentration (mg/liter)") +
+  ylab("Mean nitrogen concentration (mg/liter)")
+```
+
+
+\vspace{.5in}
+
+```{r rivers-resid-2, fig.show='hold', fig.height=2.5, fig.width=3}
+
+rivers_pred %>%
+  dplyr::select(-river, -Y) %>%
+  gather(variable, value, -e) %>%
+  ggplot() +
+  geom_point(aes(value, e)) +
+  geom_hline(aes(yintercept=0), lty=2) +
+  facet_wrap(~variable, scales = "free_x") 
+  
+
+qplot(sample = rivers_m1$residuals)
+
+```
+
+\vspace{.2in}
+
+There are some more residual plots we can look at for multiple regression that are helpful:
+
+1. 
+2.
+3.
+4.
+5.
+
+\newpage
+
+Bonus model:
+
+```{r, comment=NA}
+rivers_m2 <- lm(Y ~ X1 + X2 + X3 + X4 + I(X4^2), data = rivers)
+
+summary(rivers_m2)
+```
+
+```{r bigger-model-plot, fig.height = 3}
+
+rivers_pred2 <- data.frame(Y_hat = rivers_m2$fitted.values,
+                          e = rivers_m2$residuals) %>%
+  bind_cols(rivers)
+
+
+ggplot(aes(Y_hat, Y), data = rivers_pred2) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE) +
+  xlab("Predicted Mean nitrogen concentration (mg/liter)") +
+  ylab("Mean nitrogen concentration (mg/liter)")
+```
+
+
+\vspace{.5in}
+
+```{r rivers-resid-3, fig.show='hold', fig.height=2.5, fig.width=3}
+
+rivers_pred2 %>%
+  dplyr::select(-river, -Y) %>%
+  mutate(X4_square = X4^2) %>%
+  gather(variable, value, -e) %>%
+  ggplot() +
+  geom_point(aes(value, e)) +
+  geom_hline(aes(yintercept=0), lty=2) +
+  facet_wrap(~variable, scales = "free_x") 
+  
+
+qplot(sample = rivers_m2$residuals)
+
+```
+
+\newpage
+
+### Overfitting
+
+Equation simplicity (*parsimony*) is important for
+
+\vspace{3in}
+
+```{r wiggle, fig.height=3}
+dat <- mvrnorm(10, c(0, 0), Sigma = matrix(c(1,.9,.9, 1), nrow=2))
+qplot(dat[,1], dat[,2]) +
+  xlab("x") + ylab("y")
+```
+
+
