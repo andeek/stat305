@@ -34,7 +34,7 @@ theme_set(theme_bw(base_family = "serif"))
     d) These data came from an experiment where the investigator managed the value of $x$. There is a fairly glaring weakness in the experimenter's data collection efforts. What is is?
     e) Based on your analysis of these data, what average molecular weight would you predict for an additional reaction run at $188$°C? At $200$°C? Why would or wouldn't you be willing to make a similar prediction of average molecular weight if the reaction is run at $70$°C?
     
-2. Upon changing measurement scales, nonlinear relationships between two variables can sometimes be made linear. The article "The Effect of Experimental Error on Determination of the Optimum Metal-Cutting Conditions" by Ermer and Wu (*The Journal of Engineering for Industry*, 1967) contains a data set gathered in a study of tool life in a turning operation. The data here (and on the website as `tool_life.csv`) are part of that data set.
+2. [Ch. 4.1 Exercise 4, pg. 140] Upon changing measurement scales, nonlinear relationships between two variables can sometimes be made linear. The article "The Effect of Experimental Error on Determination of the Optimum Metal-Cutting Conditions" by Ermer and Wu (*The Journal of Engineering for Industry*, 1967) contains a data set gathered in a study of tool life in a turning operation. The data here (and on the website as `tool_life.csv`) are part of that data set.
 
     ```{r}
     tool_life <- read_csv("../data/tool_life.csv")
