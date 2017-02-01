@@ -15,7 +15,7 @@ Week | Topic | Blank Notes | Filled Notes | Comments
 1  | Introduction, Data collection (Ch. 1-2) | [Ch. 1](notes/blank/01_introduction.pdf) <br/> [Ch. 2](notes/blank/02_collection.pdf)| [Tuesday](notes/filled/2017_01_10_01.pdf) <br/> [Thursday Pt. 1](notes/filled/2017_01_12_01.pdf) [Thursday Pt. 2](notes/filled/2017_01_12_02.pdf)| [Homework 1](homework/01.pdf) assigned
 2  | Data collection, Descriptive statistics (Ch. 2, Ch 3.1 - 3.2) | [Ch. 3](notes/blank/03_descriptive.pdf) | [Tuesday Pt. 1](notes/filled/2017_01_17_01.pdf) [Tuesday Pt. 2](notes/filled/2017_01_17_02.pdf) [Thursday](notes/filled/2017_01_19_01.pdf) | [Homework 2](homework/02.pdf) assigned
 3  | Descriptive statistics (Ch. 3.2-3.4) |  | [Tuesday Pt. 1](notes/filled/2017_01_24_01.pdf) [Tuesday Pt. 2](notes/filled/2017_01_24_02.pdf) [Tuesday Pt. 3](notes/filled/2017_01_24_03.pdf) [Thursday](notes/filled/2017_01_26_01.pdf)  | [Homework 3](homework/03.pdf) assigned  
-4  | Line fitting (Ch. 4.1-4.2) | [Ch. 4](notes/blank/04_relationships.pdf) | [Tuesday Pt. 1](notes/filled/2017_01_31_01.pdf) [Tuesday Pt. 2](notes/filled/2017_01_31_02.pdf) |    
+4  | Line fitting (Ch. 4.1-4.2) | [Ch. 4](notes/blank/04_relationships.pdf) | [Tuesday Pt. 1](notes/filled/2017_01_31_01.pdf) [Tuesday Pt. 2](notes/filled/2017_01_31_02.pdf) | [Homework 4](homework/04.pdf) assigned     
 5  | Curve and surface fitting, Random variables (Ch. 4.2, 5.1) |  |  |    
 6  | Random variables (Ch. 5.1-5.2) |  |  |    
 7  | Random variables (Ch. 5.2, 5.4) |  |  |   
@@ -34,9 +34,9 @@ Week | Topic | Blank Notes | Filled Notes | Comments
 
 1. [Homework 1](homework/01.pdf) - due Jan. 19
 2. [Homework 2](homework/02.pdf) - due Jan. 26
-3. [Homework 3](homeowork/03.pdf) - due Feb. 2
+3. [Homework 3](homework/03.pdf) - due Feb. 2
+4. [Homework 4](homework/04.pdf) - due Feb. 9
 <!--
-4. Homework 4 - due Feb. 9
 5. Homework 5 - due Feb. 23
 6. Homework 6 - due Mar. 2
 7. Homework 7 - due Mar. 9
