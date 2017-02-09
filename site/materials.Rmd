@@ -58,6 +58,13 @@ exams <- data.frame(Exam = c("Exam 1", "Exam 2", "Final Exam**"),
 knitr::kable(exams)
 ```
 
+
+### Exam 1
+
+[Topic outline](exams/practice/exam_1_topics.pdf)  
+[Practice exam](exams/practice/exam_1_practice.pdf)
+
+
 # JMP
 
 [Installation instructions](admin/jmp_install.pdf)
