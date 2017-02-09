@@ -44,7 +44,7 @@ theme_set(theme_bw(base_family = "serif"))
     
     h) What terminology (for data structures) introduced in section 1.2 describes this data set? It turns out that since the data set has this special structure and all nine sample sizes are the same (i.e., all are $1$), some special relationships hold between the equation fit in a) and what you get by separately fitting linear equations in $x_1$ and $x_2$ to the $y$ data. Fit such one-variable linear equations and compare coefficients and $R^2$ values to what you obtained in a). What relationships exist between these?
     
-2. [Ch. 4, Exercise 12, pg. 208] The article referred to in Homework 4, #2 (Ch. 4.1 Exercise 4, pg. 140) actually considers the effects of both cutting speed and feed rate on tool life. The whole data set from the article follows and is on the website as `tool_life_full.csv`. (The data for the previous assignment are the $x_2 = .01725$ data only.)
+3. [Ch. 4, Exercise 12, pg. 208] The article referred to in Homework 4, #2 (Ch. 4.1 Exercise 4, pg. 140) actually considers the effects of both cutting speed and feed rate on tool life. The whole data set from the article follows and is on the website as `tool_life_full.csv`. (The data for the previous assignment are the $x_2 = .01725$ data only.)
 
     ```{r}
     tool_life_full <- read_csv("../data/tool_life_full.csv")
