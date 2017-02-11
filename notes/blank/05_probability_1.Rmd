@@ -72,7 +72,7 @@ A \emph{continuous random variable} is one that can be idealized as having an en
 To specify a \emph{probability distribution} for a random variable is to give its set of possible values and (in one way or another) consistently assign numbers between $0$ and $1$ - called \emph{probabilities} - as measures of the likelihood that the various numerical values will occur
 \end{df}
 
-\begin{ex}[Roll of a die]
+\begin{ex}[Roll of a die, cont'd]
 
 \end{ex}
 \vspace{3in}
@@ -277,6 +277,101 @@ Draw the cdf.
 \newpage
 
 ### Summaries
+
+Almost all of the devices for describing relative frequency (empirical) distributions in Ch. 3 have versions that can describe (theoretical) probability distributions.
+
+1. 
+2. 
+3.
+
+\vspace{.5in}
+
+\begin{df}
+The \emph{mean} or \emph{expected value} of a discrete random variable $X$ is
+
+$$
+\text{E}X = \sum\limits_x xf(x)
+$$
+\end{df}
+
+\newpage
+
+\begin{ex}[Roll of a die, cont'd]
+
+Calculate the expected value of a toss of a fair and unfair die.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{c c c c c c c }
+$x$ & 1 & 2 & 3 & 4 & 5 & 6 \\
+\hline
+$P[X = x]$ & $1/6$ & $1/6$ & $1/6$ & $1/6$ & $1/6$ & $1/6$
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{c c c c c c c }
+$y$ & 1 & 2 & 3 & 4 & 5 & 6 \\
+\hline
+$P[Y = y]$ & $5/22$ & $7/44$ & $1/22$ & $7/44$ & $2/11$ & $5/22$
+\end{tabular}
+\end{table}
+\end{ex}
+
+\newpage
+
+\begin{ex}[Torque, cont'd]
+Let $Z = $ the torque, rounded to the nearest integer, required to loosen the next bolt on an apparatus.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{c c c c c c c c c c c }
+$z$ & $11$ & $12$ & $13$ & $14$ & $15$ & $16$ & $17$ & $18$ & $19$ & $20$ \\
+\hline
+$f(z)$ & $0.03$ & $0.03$ & $0.03$ & $0.06$ & $0.26$ & $0.09$ & $0.12$ & $0.20$ & $0.15$ & $0.03$
+\end{tabular}
+\end{table}
+
+Calculate the expected torque required to loosen the next bolt.
+\end{ex}
+
+\vspace{3in}
+
+\begin{df}
+The \emph{variance} of a discrete random variable $X$ is
+$$
+\text{Var}X = \sum\limits_x(x - \text{E}X)^2f(x) = \sum\limits_x x^2f(x) - (\text{E}X)^2.
+$$
+The \emph{standard deviation} of $X$ is $\sqrt{\text{Var}X}$. 
+\end{df}
+\newpage
+
+\begin{ex}
+Say we have a random variable $Q$ with pmf:
+
+\begin{table}[H]
+\centering
+\begin{tabular}{c c}
+$q$ & $f(q)$ \\
+\hline
+$1$ & $0.34$ \\
+$2$ & $0.1$ \\
+$3$ & $0.22$ \\
+$7$ & $0.34$
+\end{tabular}
+\end{table}
+
+Calculate the variance and the standard deviation.
+\end{ex}
+
+\newpage
+
+\begin{ex}[Roll of a die, cont'd]
+Calculate the variance and standard deviation of a roll of a fair die.
+\end{ex}
+
+\vspace{4in}
 
 ### Special discrete distributions
 
