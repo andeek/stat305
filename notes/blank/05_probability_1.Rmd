@@ -375,3 +375,206 @@ Calculate the variance and standard deviation of a roll of a fair die.
 
 ### Special discrete distributions
 
+Discrete probability distributions are sometimes developed from past experience with a particular physical phenomenon. 
+
+On the other hand, sometimes an easily manipulated set of mathematical assumptions having the potential to describe a variety of real situations can be put together.
+
+One set of assumptions is that of independent identical success-failure trials where
+
+1. 
+2.
+
+\newpage
+
+Consider a variable
+$$
+X = \text{ the number of successes in } n  \text{ independent identicall success-failure trials}
+$$
+
+\begin{df}
+The \emph{binomial($n, p$) distribution} is a discrete probability distribution with pmf
+$$
+f(x) = \left\{\begin{matrix}\frac{n!}{x!(n-x)!} p^x (1-p)^{n -x} & x = 0, 1, \dots, n \\ 0 & \text{otherwise}\end{matrix}\right.
+$$
+for $n$ a positive integer and $0 < p < 1$.
+\end{df}
+
+Examples that could follow a binomial($n, p$) distribution:
+
+\vspace{2in}
+
+```{r, fig.height = 4}
+expand.grid(n = c(5, 10, 20), p = c(.2, .5, .8)) %>%
+  group_by(n, p) %>%
+  do(data.frame(data = rbinom(200, .$n, .$p))) %>%
+  ggplot() +
+  geom_histogram(aes(data), binwidth = 1) +
+  facet_grid(n ~ p)
+```
+
+\newpage
+
+For $X$ a binomial($n, p$) random variable,
+\begin{align*}
+\mu &= \text{E}X = \sum\limits_{x = 0}^n x \frac{n!}{x!(n-x)!}p^x(1-p)^{n-x}) = np \\
+\sigma^2 &= \text{Var}X = \sum\limits_{x = 0}^n (x-np)^2 \frac{n!}{x!(n-x)!}p^x(1-p)^{n-x}) = np(1-p)
+\end{align*}
+
+\begin{ex}[10 component machine]
+Suppose you have a machine with 10 independent components in series. The machine only works if all the components work. Each component succeeds with probability $p = 0.95$ and fails with probability $1 - p = 0.05$.
+
+Let $Y$ be the number of components that succeed in a given run of the machine. Then
+$$
+Y \sim  \text{Binomial}(n = 10, p = 0.95)
+$$
+Question: what is the probability of the machine working properly?
+\end{ex}
+
+\newpage
+
+\begin{ex}[10 component machine, cont'd]
+What if I arrange these 10 components in parallel? This machine succeeds if at least 1 of the components succeeds.
+
+What is the probability that the new machine succeeds?
+\end{ex}
+
+\vspace{5in}
+
+\begin{ex}[10 component machine, cont'd]
+Calculate the expected number of components to succeed and the variance.
+\end{ex}
+
+\newpage
+
+Consider a variable
+$$
+X = \text{ the number of trials required to first obtain a success result }
+$$
+
+\begin{df}
+The \emph{geometric($p$) distribution} is a discrete probability distribution with pmf
+$$
+f(x) = \left\{\begin{matrix}p(1-p)^{x-1} & x = 0, 1, \dots \\ 0 & \text{otherwise}\end{matrix}\right.
+$$
+for $0 < p < 1$.
+\end{df}
+
+Examples that could follow a binomial($n, p$) distribution:
+
+\vspace{2in}
+
+```{r, fig.height = 4}
+expand.grid(p = c(.2, .5, .8)) %>%
+  group_by(p) %>%
+  do(data.frame(data = rgeom(200, .$p))) %>%
+  ggplot() +
+  geom_histogram(aes(data), binwidth = 1) +
+  facet_grid(~ p)
+```
+
+\newpage
+
+For $X$ a geometric($p$) random variable,
+\begin{align*}
+\mu &= \text{E}X = \sum\limits_{x = 0}^n x p(1-p)^{x-1} = \frac{1}{p} \\
+\sigma^2 &= \text{Var}X = \sum\limits_{x = 0}^n \left(x-\frac{1}{p}\right)^2 p(1-p)^{x-1} = \frac{1-p}{p^2}
+\end{align*}
+
+
+Cdf derivation:
+\newpage
+
+\begin{ex}[NiCad batteries]
+An experimental program was successful in reducing the percentage of manufactured NiCad cells with internal shorts to around 1%. Let $T$ be the test number at which the first short is discovered. Then, $T \sim \text{Geom}(p)$.
+
+Calculate
+
+\begin{itemize}
+\itemsep 2in
+\item[] $P(\text{1st or 2nd cell tested has the 1st short})$
+\item[] $P(\text{at least 50 cells tested w/o finding a short})$
+\end{itemize}
+
+\vspace{2in}
+Calculate the expected test number at which the first short is discovered and the variance in test numbers at which the first short is discovered.
+\end{ex}
+
+\newpage
+
+It's often important to keep track of the total number of occurences of some relatively rare phenomenon.
+
+Consider a variable
+$$
+X = \text{ the count of occurences of a phenomenon across a specified interval of time or space }
+$$
+
+\begin{df}
+The \emph{Poisson($\lambda$) distribution} is a discrete probability distribution with pmf
+$$
+f(x) = \left\{\begin{matrix}\frac{e^{-\lambda}\lambda^x}{x!} & x = 0, 1, \dots \\ 0 & \text{otherwise}\end{matrix}\right.
+$$
+for $\lambda > 0$.
+\end{df}
+
+These occurences must:
+
+1.
+2.
+3.
+
+\vspace{1in}
+
+Examples that could follow a Poisson($\lambda$) distribution:
+
+\vspace{2in}
+
+```{r, fig.height = 4}
+expand.grid(lambda = c(0.5, 2, 5)) %>%
+  group_by(lambda) %>%
+  do(data.frame(data = rpois(200, .$lambda))) %>%
+  ggplot() +
+  geom_histogram(aes(data), binwidth = 1) +
+  facet_grid(~ lambda)
+```
+\vspace{.5in}
+
+For $X$ a Poisson($\lambda$) random variable,
+\begin{align*}
+\mu &= \text{E}X = \sum\limits_{x = 0}^n x \frac{e^{-\lambda}\lambda^x}{x!} = \lambda \\
+\sigma^2 &= \text{Var}X = \sum\limits_{x = 0}^n \left(x-\lambda\right)^2 \frac{e^{-\lambda}\lambda^x}{x!} = \lambda
+\end{align*}
+
+\newpage
+
+\begin{ex}[Arrivals at the library]
+Some students' data indicate that between 12:00 and 12:10pm on Monday through Wednesday, an average of around 125 students entered Parks Library at ISU. Consider modeling
+$$
+M = \text{the number of students entering the ISU library between 12:00 and 12:01pm next Tuesday}
+$$
+Model $M \sim \text{Poisson}(\lambda)$. What would a reasonable choice of $\lambda$ be?
+
+\vspace{1in}
+
+Under this model, the probability that between $10$ and $15$ students arrive at the library between 12:00 and 12:01 PM is:
+
+\end{ex}
+
+\newpage
+
+\begin{ex}[Shark attacks]
+Let $X$ be the number of unprovoked shark attacks that will occur off the coast of Florida next year. Model $X \sim \text{Poisson}(\lambda)$. From the shark data at http://www.flmnh.ufl.edu/fish/sharks/statistics/FLactivity.htm, 246 unprovoked shark attacks occurred from 2000 to 2009.
+
+What would a reasonable choice of $\lambda$ be?
+
+\vspace{1in}
+
+Under this model, calculate the following:
+
+\begin{itemize}
+\itemsep 1.5in
+\item[]$P[\text{no attacks next year}]$
+\item[]$P[\text{at least 5 attacks}]$
+\item[]$P[\text{more than 10 attacks}]$
+\end{itemize}
+
+\end{ex}
