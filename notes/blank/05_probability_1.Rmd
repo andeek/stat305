@@ -141,7 +141,7 @@ The tool most often used to describe a discrete probability distribution is the 
 
 \vspace{.1in}
 \begin{df}
-A \emph{probability mass function (pmf)} for a discrete random variable $X$, having possible values $x_1, x_2, \dots$, is a nonnegative function $f(x)$ with $f(x_1) = P[X = x_1]$, the probability that $X$ takes the value $x_1$.
+A \emph{probability mass function (pmf)} for a discrete random variable $X$, having possible values $x_1, x_2, \dots$, is a non-negative function $f(x)$ with $f(x_1) = P[X = x_1]$, the probability that $X$ takes the value $x_1$.
 \end{df}
 
 \newpage
@@ -155,7 +155,7 @@ Properties of a mathematically valid probability mass function:
 \end{enumerate}
 
 \vspace{.2in}
-A probability mass function $f(x)$ gives probabilities of occurence for individual values. Adding the appropriate values gives probabilities associated with the occurence of multiple values.
+A probability mass function $f(x)$ gives probabilities of occurrence for individual values. Adding the appropriate values gives probabilities associated with the occurrence of multiple values.
 \vspace{.2in}
 
 \begin{ex}[Torque]
@@ -501,7 +501,7 @@ Calculate the expected test number at which the first short is discovered and th
 
 \newpage
 
-It's often important to keep track of the total number of occurences of some relatively rare phenomenon.
+It's often important to keep track of the total number of occurrences of some relatively rare phenomenon.
 
 Consider a variable
 $$
@@ -516,7 +516,7 @@ $$
 for $\lambda > 0$.
 \end{df}
 
-These occurences must:
+These occurrences must:
 
 1.
 2.
