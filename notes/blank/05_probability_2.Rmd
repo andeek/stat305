@@ -1,0 +1,60 @@
+---
+output: 
+  pdf_document:
+    number_sections: true
+    includes:
+      in_header: 00_header.tex
+fontsize: 12pt
+fig_caption: true
+geometry: margin=1in
+linestretch: 1.5
+---
+
+```{r setup, echo=FALSE, message=FALSE}
+library(knitr)
+library(tidyverse)
+library(xtable)
+library(MASS)
+
+knitr::opts_chunk$set(echo=FALSE, message=FALSE, warning=FALSE, fig.height = 2)
+theme_set(theme_bw(base_family = "serif"))
+
+set.seed(305)
+```
+
+\setcounter{section}{5}
+\setcounter{subsection}{1}
+
+## Continuous random variables
+
+### Probability density functions and cumulative distribution functions
+
+### Means and variances for continuous distributions
+
+### Quantiles
+
+### The Normal distribution
+
+### Other special continuous distributions
+
+
+\setcounter{subsection}{3}
+
+## Joint distributions and independence (discrete)
+
+### Joint distributions
+
+### Maginal distributions
+
+### Conditional distributions
+
+### Independence
+
+## Functions of several random variables
+
+### Linear combinations
+
+### Central limit theorem
+
+
+

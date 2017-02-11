@@ -1,0 +1,46 @@
+---
+output: 
+  pdf_document:
+    number_sections: true
+    includes:
+      in_header: 00_header.tex
+fontsize: 12pt
+fig_caption: true
+geometry: margin=1in
+linestretch: 1.5
+---
+
+```{r setup, echo=FALSE, message=FALSE}
+library(knitr)
+library(tidyverse)
+library(xtable)
+library(MASS)
+
+knitr::opts_chunk$set(echo=FALSE, message=FALSE, warning=FALSE, fig.height = 2)
+theme_set(theme_bw(base_family = "serif"))
+
+set.seed(305)
+```
+
+\setcounter{section}{4}
+
+# Probability: the mathematics of randomness
+
+The theory of probability is the mathematician's description of random variation. This chapter introduces enough probability to serve as a minimum background for making formal statistical inferences.
+
+\vspace{2in}
+
+## (Discrete) random variables
+
+The concept of a random variable is introduced in general terms and the special case of discrete data is considered.
+
+\vspace{1in}
+
+### Random variables and distributions
+
+### Probability mass functions and cumulative distribution functions
+
+### Summaries
+
+### Special discrete distributions
+
