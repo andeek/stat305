@@ -130,7 +130,8 @@ That is, $f(x)$ is obtained from $F(x)$ by differentiation.
 As with discrete random variables, $F$ has the following properties:
 
 \begin{enumerate}
-\itemsep 1in
+\itemsep .75in
+\item
 \item
 \item
 \item
