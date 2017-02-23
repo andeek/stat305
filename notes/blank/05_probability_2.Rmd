@@ -173,12 +173,280 @@ $P[\frac{\pi}{3} < Y \le \frac{\pi}{2}]$
 
 \end{ex}
 
-### Means and variances for continuous distributions
+\newpage
 
 ### Quantiles
 
+**Recall:** 
+
+\vspace{.5in}
+
+\begin{df}
+The \emph{$p$-quantile of a random variable}, $X$, is the number $Q(p)$ such that $P[X \le Q(p)] = p$.
+\end{df}
+
+\vspace{.2in}
+
+In terms of the cumulative distribution function (for a continuous random variable), 
+
+\vspace{1in}
+
+\begin{ex}[Compass needle, cont'd]
+Recall the compass needle example, with
+$$
+f(x) = \begin{cases} \frac{1}{2\pi} & 0 \le y \le 2\pi \\ 0 & \text{otherwise}\end{cases}
+$$
+$Q(.95)$:
+
+\newpage
+
+You can also calculate quantiles directly from the cdf.
+
+$$
+F(x) = \begin{cases} 0 & y < 0 \\
+\frac{1}{2\pi}y & 0 \le y \le 2\pi \\ 1 & \text{otherwise}\end{cases}
+$$
+$Q(.25)$:
+
+\vfill
+
+$Q(.5)$
+
+\vfill
+
+\end{ex}
+
+\newpage
+
+### Means and variances for continuous distributions
+
+It is possible to summarize continuous probability distributions using
+
+1.
+2.
+3.
+
+\vspace{.2in}
+
+\begin{df}
+The \emph{mean} or \emph{expected value} of a continuous random variable $X$ is
+$$
+\text{E}X = \int\limits_{-\infty}^{\infty} x f(x)dx.
+$$
+\end{df}
+
+\vspace{.4in}
+
+\begin{ex}[Compass needle, cont'd]
+Calculate $\text{E}Y$ where $Y$ is the angle from vertical in radians that a spun needle lands on.
+
+$$
+f(y) = \begin{cases} \frac{1}{2\pi} &0 \le y \le 2\pi \\ 0 & \text{otherwise}\end{cases}
+$$
+\end{ex}
+
+\newpage
+
+\begin{ex}
+Calculate $\text{E}X$ where $X$ follows the following distribution
+
+$$
+f(x) = \begin{cases} 0 & x < 0 \\ \frac{1}{3}e^{-x/3} & x \ge 0 \end{cases}
+$$
+\end{ex}
+\vspace{5in}
+
+\begin{df}
+The \emph{variance} of a continuous random variable $X$ is 
+
+$$
+\text{Var} X = \int\limits_{-\infty}^\infty(x - \text{E}X)^2 f(x)dx = \int\limits_{-\infty}^\infty x^2 f(x)dx - (\text{E}X)^2.
+$$
+
+The \emph{standard deviation} of $X$ is $\sqrt{\text{Var}X}$.
+\end{df}
+
+\newpage
+
+\begin{ex}[Library books]
+Let $X$ denote the amount of time for which a book on $2$-hour hold reserve at a college library is checked out by a randomly selected student and suppose its density function is
+$$
+f(x) = \begin{cases}0.5x & 0 \le x \le 2\\ 0 & \text{otherwise} \end{cases}
+$$
+Calculate $\text{E}X$ and $\text{Var}X$.
+\end{ex}
+
+\newpage
+
+\begin{ex}[Ecology]
+An ecologist wishes to mark off a circular sampling region having radius $10$m. However, the radius of the resulting region is actually a random variable $R$ with pdf
+$$
+f(r) = \begin{cases} \frac{3}{2}(10 - r)^2 & 9 \le r \le 11 \\ 0 & \text{otherwise}\end{cases}
+$$
+Calculate $\text{E}R$ and $\text{SD}(R)$.
+\end{ex}
+
+\newpage
+
+Why does $\text{E}X^2 = \int\limits_{-\infty}^\infty x^2f(x) dx$?
+\vspace{5in}
+
+\begin{ex}[Ecology, cont'd]
+Calculate the expected \emph{area} of the circular sampling region.
+
+\end{ex}
+\newpage
+
+For a linear function, $g(x) = ax + b$, where $a$ and $b$ are constants,
+
+$\text{E}(ax + b)$
+
+\vspace{2.5in}
+
+$\text{Var}(ax + b)$
+
+\vspace{3in}
+
+\begin{ex}[Ecology, cont'd]
+Calculate the expected value and variance of the \emph{diameter} of the circular sampling region.
+\end{ex}
+
+\newpage
+
+\begin{df}
+\emph{Standardization} is the process of transforming a random variable, $X$, into the signed number of standard deviations by which it is is above its mean value.
+$$
+Z = \frac{X - \text{E}X}{\text{SD}(X)}
+$$
+\end{df}
+
+\vspace{.2in}
+
+$Z$ has mean $0$
+
+\vfill
+
+$Z$ has variance (and standard deviation) $1$
+
+\vfill
+
+
+\newpage
+
 ### The Normal distribution
+
+Just as there are a number of useful discrete distributions commonly applied to engineering problems, there are a number of standard continuous probability distributions. 
+
+\vspace{.2in}
+
+\begin{df}
+The \emph{normal} or \emph{Gaussian}$(\mu, \sigma^2)$ distribution is a continuous probability distribution with probability density
+$$
+f(x) = \frac{1}{\sqrt{2\pi\sigma^2}}e^{-(x - \mu)^2/{2\sigma^2}} \qquad \text{for all } x
+$$
+for $\sigma > 0$.
+\end{df}
+
+A normal random variable is (often) a finite average of many repeated, independent, identical trials.
+
+\vfill
+
+It is not obvious, but
+\begin{enumerate}
+\itemsep .5in
+\item $\int\limits_{-\infty}^\infty f(x) dx = \int\limits_{-\infty}^\infty \frac{1}{\sqrt{2\pi\sigma^2}}e^{-(x - \mu)^2/{2\sigma^2}} dx = $
+\item $\text{E}X = \int\limits_{-\infty}^\infty x \frac{1}{\sqrt{2\pi\sigma^2}}e^{-(x - \mu)^2/{2\sigma^2}} dx = $
+\item $\text{Var}X = \int\limits_{-\infty}^\infty (x - \mu)^2 \frac{1}{\sqrt{2\pi\sigma^2}}e^{-(x - \mu)^2/{2\sigma^2}} dx = $
+\end{enumerate}
+
+
+\newpage
+The Calc I methods of evaluating integrals via antidifferentiation will fail when it comes to normal densities. They do not have antiderivatives that are expressible in terms of elementary functions.
+
+\vspace{.5in}
+
+The use of tables for evaluating normal probabilities depends on the following relationship. If $X \sim \text{Normal}(\mu, \sigma^2)$,
+$$
+P[a \le X \le b] = \int\limits_a^b\frac{1}{\sqrt{2\pi\sigma^2}} e^{-(x - \mu)^2/{2\sigma^2}}dx = \int\limits_{(a- \mu)/\sigma}^{(b-\mu)/\sigma}\frac{1}{\sqrt{2\pi}} e^{-z^2/2}dz = P\left[\frac{a - \mu}{\sigma} \le Z \le \frac{b - \mu}{\sigma}\right]
+$$
+where $Z \sim \text{Normal}(0, 1)$.
+
+\vfill
+
+\begin{df}
+The normal distribution with $\mu = 0$ and $\sigma = 1$ is called the \emph{standard normal distribution}.
+\end{df}
+
+So, we can find probabilities for all normal distributions by tabulating probabilities for only the standard normal distribution. We will use a table of the **standard normal cumulative probability function**.
+
+$$
+\Phi(z) = F(z) = \int\limits_{-\infty}^z\frac{1}{\sqrt{2\pi}}e^{-t^2}dt.
+$$
+
+\newpage
+
+\begin{ex}[Standard normal probabilities]
+$P[Z < 1.76]$
+\vfill
+$P[.57 < Z < 1.32]$
+\vfill
+We can also do it in reverse, find $z$ such that $P[-z < Z < z] = .95$.
+\end{ex}
+
+\newpage
+
+\begin{ex}[Baby food]
+J. Fisher, in his article Computer Assisted Net Weight Control (\emph{Quality Progress}, June 1983), discusses the filling of food containers with strained plums and tapioca by weight. The mean of the values portrayed is about $137.2$g, the standard deviation is about $1.6$g, and data look bell-shaped. Let 
+$$
+W = \text{the next fill weight.}
+$$
+
+\vspace{.5in}
+
+Let's find the probability that the next jar contains less food by mass than it's supposed to (declared weight = $135.05$g).
+
+\vspace{3in}
+
+\includegraphics{images/head_normal_cdf.png}
+\end{ex}
+
+\newpage
+
+\begin{ex}[More normal probabilities]
+Using the standard normal table, calculate the following:
+
+$P(X \le 3), X \sim \text{Normal}(2, 64)$
+\vfill
+$P(X > 7), X \sim \text{Normal}(6, 9)$
+\vfill
+$P(|X - 1| > 0.5), X \sim \text{Normal}(2, 4)$
+\vfill
+\end{ex}
+
+\newpage
+We can find standard normal quantiles by using the standard normal table in reverse.
+
+\begin{ex}[Baby food, cont'd]
+For the jar weights $X \sim \text{Normal}(137.2, 1.62^2)$, find $Q(0.1)$.
+\vfill
+\includegraphics{images/head_normal_cdf.png}
+\end{ex}
+\newpage
+
+\begin{ex}[Normal quantiles]
+Find:
+
+
+$Q(0.95)$ of $X \sim \text{Normal}(9, 3)$ .
+\vfill
+
+$c$ such that $P(|X - 2| > c) = 0.01$, $X \sim \text{Normal}(2, 4)$ 
+\vfill
+
+\end{ex}
+
+\newpage
 
 ### Other special continuous distributions
 
-
+\includepdf[pages=-]{../../tables/standard-normal.pdf}
