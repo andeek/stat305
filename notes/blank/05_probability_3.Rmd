@@ -26,6 +26,7 @@ set.seed(305)
 \setcounter{subsection}{3}
 \setcounter{ex}{16}
 \setcounter{df}{11}
+\setcounter{page}{24}
 
 ## Joint distributions and independence (discrete)
 
