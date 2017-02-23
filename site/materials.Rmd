@@ -18,7 +18,7 @@ Week | Topic | Blank Notes | Filled Notes | Comments
 4  | Line fitting (Ch. 4.1-4.2) | [Ch. 4](notes/blank/04_relationships.pdf) | [Tuesday Pt. 1](notes/filled/2017_01_31_01.pdf) [Tuesday Pt. 2](notes/filled/2017_01_31_02.pdf) [Thursday](notes/filled/2017_02_02_01.pdf) | [Homework 4](homework/04.pdf) assigned     
 5  | Curve and surface fitting, Random variables (Ch. 4.2, 5.1) |  | [Tuesday](notes/filled/2017_02_07_01.pdf) [Thursday](notes/filled/2017_02_09_01.pdf) | [Homework 5](homework/05.pdf) assigned   
 6  | Random variables (Ch. 5.1-5.2) | [Ch. 5 part 1](notes/blank/05_probability_1.pdf) | [Tuesday](notes/filled/2017_02_14_01.pdf) | [Exam 1](#exams) Thursday   
-7  | Random variables (Ch. 5.2, 5.4) |  | [Tuesday](notes/filled/2017_02_21_01.pdf)  |   
+7  | Random variables (Ch. 5.2, 5.4) | [Ch. 5 part 2](notes/blank/05_probability_2.pdf) | [Tuesday](notes/filled/2017_02_21_01.pdf)  |   
 8  | Random variables, Simple inference (Ch. 5.5, 6.1) |  |  |    
 9  | Simple inference (Ch. 6.1-6.3) |  |  |    
 10  | Spring break |  |  |    
