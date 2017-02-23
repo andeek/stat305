@@ -75,7 +75,7 @@ qplot(x, f, geom = "line") +
 \newpage
 
 \begin{ex}[Compass needle]
-Consider a de-magnetised compass needle mounted at its centre so that it can spin freely.  It is spun clockwise and when it comes to rest the angle, $\theta$, from the vertical, is measured. Let 
+Consider a de-magnetized compass needle mounted at its center so that it can spin freely.  It is spun clockwise and when it comes to rest the angle, $\theta$, from the vertical, is measured. Let 
 $$
 Y = \text{the angle measured after each spin in radians}
 $$
@@ -118,7 +118,7 @@ F(x) = P[X \le x] = \int\limits_{-\infty}^x f(t) dt
 $$
 \end{df}
 
-$F(x)$ is obtained from $f(x)$ by integrtion, and applying the fundamental theorem of calculus yields
+$F(x)$ is obtained from $f(x)$ by integration, and applying the fundamental theorem of calculus yields
 
 $$
 \frac{d}{dx}F(x) = f(x).
@@ -333,9 +333,78 @@ $Z$ has variance (and standard deviation) $1$
 
 \newpage
 
-### The Normal distribution
+### A special continuous distribution
 
 Just as there are a number of useful discrete distributions commonly applied to engineering problems, there are a number of standard continuous probability distributions. 
+
+\vspace{.2in}
+
+\begin{df}
+The \emph{exponential$(\alpha)$ distribution} is a continuous probability distribution with probability density function
+$$
+f(x) = \begin{cases} \frac{1}{\alpha}e^{-x/\alpha} & x > 0 \\ 0 & \text{otherwise}\end{cases}
+$$
+for $\alpha > 0$.
+\end{df}
+
+```{r, fig.height=3}
+data.frame(x = seq(0, 5, length.out = 200)) %>%
+  mutate(`0.5` = dexp(x, 1/.5),
+         `1` = dexp(x, 1),
+         `2` = dexp(x, 1/2)) %>%
+  gather(alpha, f, -x) %>%
+  ggplot() +
+  geom_line(aes(x, f, colour = alpha, lty = alpha)) +
+  scale_colour_discrete(expression(alpha)) +
+  scale_linetype_discrete(expression(alpha)) +
+  ylab("f(x)")
+
+
+```
+
+An $\text{Exp}(\alpha)$ random variable measures the waiting time until a specific event that has an equal chance of happening at any point in time.
+
+Examples: 
+
+\newpage
+
+It is straightforward to show for $X \sim \text{Exp}(\alpha)$, 
+\begin{enumerate}
+\itemsep .2in
+\item $\mu = \text{E}X = \int\limits_{0}^\infty x \frac{1}{\alpha}e^{-x/\alpha} dx = $
+\item $\sigma^2 = \text{Var}X = \int\limits_{0}^\infty (x - \alpha)^2 \frac{1}{\alpha}e^{-x/\alpha} dx = $
+\end{enumerate}
+
+\vspace{.2in}
+
+Further, $F(x)$ has a simple formulation:
+
+
+
+\newpage
+
+\begin{ex}[Library arrivals, cont'd]
+Recall the example the arrival rate of students at Parks library between 12:00 and 12:10pm early in the week to be about $12.5$ students per minute. That translates to a $1/12.5 = .08$ minute average waiting time between student arrivals. 
+
+Consider observing the entrance to Parks library at exactly noon next Tuesday and define the random variable
+
+$$
+T = \text{the waiting time (min) until the first student passes through the door.}
+$$
+
+Using $T \sim \text{Exp}(.08)$, what is the probability of waiting more than $10$ seconds (1/6 min) for the first arrival?
+
+\vfill
+
+What is the probability of waiting less than $5$ seconds?
+\vfill
+
+\end{ex}
+
+\newpage
+### The Normal distribution
+
+We have already seen the normal distribution as a "bell shaped" distribution, but we can formalize this.
 
 \vspace{.2in}
 
@@ -361,7 +430,7 @@ It is not obvious, but
 
 
 \newpage
-The Calc I methods of evaluating integrals via antidifferentiation will fail when it comes to normal densities. They do not have antiderivatives that are expressible in terms of elementary functions.
+The Calculus I methods of evaluating integrals via anti-differentiation will fail when it comes to normal densities. They do not have anti-derivatives that are expressible in terms of elementary functions.
 
 \vspace{.5in}
 
@@ -446,7 +515,5 @@ $c$ such that $P(|X - 2| > c) = 0.01$, $X \sim \text{Normal}(2, 4)$
 \end{ex}
 
 \newpage
-
-### Other special continuous distributions
 
 \includepdf[pages=-]{../../tables/standard-normal.pdf}
