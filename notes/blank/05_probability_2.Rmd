@@ -24,12 +24,154 @@ set.seed(305)
 
 \setcounter{section}{5}
 \setcounter{subsection}{1}
-\setcounter{ex}{2}
-\setcounter{df}{2}
+\setcounter{ex}{16}
+\setcounter{df}{11}
 
 ## Continuous random variables
 
+It is often convenient to think of a random variable as having a whole (continuous) interval for its set of possible values.
+
+The devices used to describe continuous probability distributions differ from those that describe discrete probability distributions.
+
+Examples of continuous random variables:
+
+\newpage
+
 ### Probability density functions and cumulative distribution functions
+
+A *probability density function (pdf)* is the continuous analogue of a discrete random variable's probability mass function (pmf).
+
+\vspace{.1in}
+\begin{df}
+A \emph{probability density function (pdf)} for a continuous random variable $X$ is a nonnegative function $f(x)$ with
+$$
+\int\limits_{-\infty}^{\infty} f(x) = 1
+$$
+and such that for all $a \le b$,
+$$
+P[a \le X \le b] = \int\limits_a^bf(x)dx.
+$$
+\end{df}
+
+\vspace{.2in}
+
+1. 
+2. 
+3. 
+
+\vfill
+
+```{r, fig.height=3}
+x <- seq(-5, 22, length.out = 200)
+f <- .6*dnorm(x, 3, 2) + .3*dnorm(x, 9, 1) + .1*dnorm(x, 19, .4)
+shade <- rbind(data.frame(x = x[x >= 2 & x <= 6], y = f[x >= 2 & x <= 6]),
+               data.frame(x = rev(x[x >= 2 & x <= 6]), y = 0))
+
+qplot(x, f, geom = "line") +
+  geom_polygon(aes(x, y), data = shade, fill = "blue", alpha = .4) +
+  ylab(expression("f(x)"))
+```
+
+\newpage
+
+\begin{ex}[Compass needle]
+Consider a de-magnetised compass needle mounted at its centre so that it can spin freely.  It is spun clockwise and when it comes to rest the angle, $\theta$, from the vertical, is measured. Let 
+$$
+Y = \text{the angle measured after each spin in radians}
+$$
+
+\vspace{.2in}
+
+What values can $Y$ take?
+
+\vspace{.2in}
+
+What form makes sense for $f(y)$?
+
+\vspace{3in}
+
+If this form is adopted, that what must the pdf be?
+
+\newpage
+
+Using this pdf, calculate the following probabilities:
+
+\begin{enumerate}
+\itemsep 1.5in 
+\item $P[Y < \frac{\pi}{2}]$
+\item $P[\frac{\pi}{2} < Y < 2\pi]$
+\item $P[\frac{\pi}{6} < Y < \frac{\pi}{4}]$
+\item $P[Y = \frac{\pi}{6}]$
+\end{enumerate}
+\vspace{1in}
+
+
+
+\end{ex}
+
+\newpage
+
+\begin{df}
+The \emph{cumulative distribution function (cdf)} of a continuous random variable $X$ is a function $F$ such that
+$$
+F(x) = P[X \le x] = \int\limits_{-\infty}^x f(t) dt
+$$
+\end{df}
+
+$F(x)$ is obtained from $f(x)$ by integrtion, and applying the fundamental theorem of calculus yields
+
+$$
+\frac{d}{dx}F(x) = f(x).
+$$
+
+That is, $f(x)$ is obtained from $F(x)$ by differentiation.
+
+As with discrete random variables, $F$ has the following properties:
+
+\begin{enumerate}
+\itemsep 1in
+\item
+\item
+\item
+\end{enumerate}
+
+\newpage
+
+\begin{ex}[Compass needle, cont'd]
+Recall the compass needle example, with
+$$
+f(x) = \begin{cases} \frac{1}{2\pi} & 0 \le y \le 2\pi \\ 0 & \text{otherwise}\end{cases}
+$$
+Find the cdf.
+
+\vspace{.2in}
+For $y < 0$
+
+\vspace{1in}
+For $0 \le y \le 2\pi$
+
+\vspace{1in}
+For $y > 2\pi$
+\vfill
+
+
+\newpage
+
+Calculate the following using the cdf:
+
+$F(1.5)$
+
+\vfill
+
+$P[Y \le \frac{4\pi}{5}]$
+
+\vfill
+
+$P[Y > 5]$
+
+$P[\frac{\pi}{3} < Y \le \frac{\pi}{2}]$
+
+\end{ex}
 
 ### Means and variances for continuous distributions
 
@@ -38,25 +180,5 @@ set.seed(305)
 ### The Normal distribution
 
 ### Other special continuous distributions
-
-
-\setcounter{subsection}{3}
-
-## Joint distributions and independence (discrete)
-
-### Joint distributions
-
-### Maginal distributions
-
-### Conditional distributions
-
-### Independence
-
-## Functions of several random variables
-
-### Linear combinations
-
-### Central limit theorem
-
 
 
