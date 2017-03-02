@@ -18,7 +18,7 @@ knitr::opts_chunk$set(echo=FALSE, message=FALSE, warning=FALSE, fig.height = 2)
 theme_set(theme_bw(base_family = "serif"))
 ```
 
-1. [Ch. 5.1, Exercise 6, pg. 244] Suppose that an eddy current nondestructive evaluation technique for identifying cracks in critical metal parts has a probability of abound $.20$ of detecting a single crack of length $.003$in. in a certain material. Let $Y$ be the number of specimens inspected in order to obtain the first crack detection. Use an appropriate probability model and evaluate all of the following:
+1. [Ch. 5.1, Exercise 6, pg. 244] Suppose that an eddy current nondestructive evaluation technique for identifying cracks in critical metal parts has a probability of about $.20$ of detecting a single crack of length $.003$in. in a certain material. Let $Y$ be the number of specimens inspected in order to obtain the first crack detection. Use an appropriate probability model and evaluate all of the following:
     a) $P[Y = 5]$
     b) $P[Y \le 4]$
     c) $\text{E}Y$
@@ -34,7 +34,7 @@ theme_set(theme_bw(base_family = "serif"))
         and assess $P[X = 0]$
     b) Now consider the random variable
         $$
-        Y = \text{the number of weeks in the next four in which there are no interruptions}
+        Y = \text{the number of work weeks in the next four in which there are no interruptions}
         $$
         What is a reasonable probability model for $Y$? Assess $P[Y = 2]$.
 
