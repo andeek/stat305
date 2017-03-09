@@ -24,19 +24,287 @@ set.seed(305)
 
 \setcounter{section}{5}
 \setcounter{subsection}{3}
-\setcounter{ex}{16}
-\setcounter{df}{11}
-\setcounter{page}{24}
+\setcounter{ex}{31}
+\setcounter{df}{20}
+\setcounter{page}{53}
 
 ## Joint distributions and independence (discrete)
 
+Most applications of probability to engineering statistics involve not one but several random variables. In some cases, the application is intrinsically multivariate.
+
+\vspace{.2in}
+
+\begin{ex}
+Consider the assembly of a ring bearing with nominal inside diameter $1.00$ in. on a rod with nominal diameter $.99$ in. If
+\begin{align*}
+X &= \text{the ring bearing inside diameter} \\
+Y &= \text{the rod diameter}
+\end{align*}
+One might be interested in
+$$
+P[\text{there is an interference in assembly}] = \qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad
+$$
+\end{ex}
+
+\vspace{.2in}
+
+Even when a situation is univariate, samples larger than size $1$ are essentially always used in engineering applications. The $n$ data values in a sample are usually thought of as subject to chance and their simultaneous behavior must then be modeled.
+
+\vfill
+
+This is actually a very broad and difficult subject, we will only cover a brief introduction to the topic: **jointly discrete random variables**.
+
+\newpage
+
 ### Joint distributions
+
+For several discrete random variable, the device typically used to specify probabilities is a *joint probability function*. The two-variable version of this is defined.
+
+\vspace{.2in}
+
+\begin{df}
+A \emph{joint probability function (joint pmf)} for discrete random variables $X$ and $Y$ is a nonnegative function $f(x, y)$, giving the probability that (simultaneously) $X$ takes the values $x$ and $Y$ takes the values $y$. That is,
+$$
+f(x, y) = P[X = x \text{ and } Y = y]
+$$
+\end{df}
+
+\vspace{.2in}
+
+Properties:
+
+\begin{enumerate}
+\itemsep .5in
+\item
+\item
+\end{enumerate}
+
+\vspace{.3in}
+
+For the discrete case, it is useful to give $f(x,y)$ in a **table**.
+
+\newpage
+
+\begin{ex}[Two bolt torques, cont'd]
+Recall the example of measure the bolt torques on the face plates of a heavy equipment component to the nearest integer. With
+
+\begin{align*}
+X &= \text{the next torque recorded for bolt }3\\
+Y &= \text{the next torque recorded for bolt }4
+\end{align*}
+the joint probability function, $f(x,y)$, is
+
+```{r, results='asis'}
+bolt <- expand.grid(x = 11:20, y = 20:13)
+bolt$f <- c(rep(0, 7), "2/34", "2/34", "1/34",
+            rep(0, 6), "2/34", rep(0, 3),
+            rep(0, 2), "1/34", "1/34", 0, 0, "1/34", "1/34", "1/34", 0,
+            rep(0, 4), "2/34", "1/34", "1/34", "2/34", 0, 0,
+            rep(0, 3), "1/34", "2/34", "2/34", 0, 0, "2/34", 0,
+            rep("1/34", 2), rep(0, 2), "3/34", rep(0, 5),
+            rep(0, 4), "1/34", 0, 0, "2/34", 0, 0,
+            rep(0, 4), "1/34", rep(0, 5))
+
+bolt %>%
+  spread(x, f) %>%
+  arrange(desc(y)) %>%
+  rename(`y\\x` = y) %>%
+  xtable() %>%
+  print(include.rownames = FALSE, comment = FALSE)
+
+```
+\vspace{.2in}
+$P[X = 18 \text{ and } Y = 17]$
+
+
+\vspace{.4in}
+$P[X = 14 \text{ and } Y = 19]$
+\vspace{.4in}
+
+By summing up certain values of $f(x, y)$, probabilities associated with $X$ and $Y$ with patterns of interest can be obtained.
+
+\newpage
+
+Consider:
+$$
+P[X \ge Y]
+$$
+
+```{r, results='asis'}
+bolt %>% dplyr::select(-f) %>%
+  mutate(g = "") %>%
+  spread(x, g) %>%
+  arrange(desc(y)) %>%
+  rename(`y\\x` = y) %>%
+  xtable(align = paste0("|", paste(rep("c", ncol(.) + 1), collapse = "|"), "|")) %>%
+  print(include.rownames = FALSE, comment = FALSE, hline.after = -1:nrow(.))
+```
+$$
+P[|X - Y| \le 1]
+$$
+
+```{r, results='asis'}
+bolt %>% dplyr::select(-f) %>%
+  mutate(g = "") %>%
+  spread(x, g) %>%
+  arrange(desc(y)) %>%
+  rename(`y\\x` = y) %>%
+  xtable(align = paste0("|", paste(rep("c", ncol(.) + 1), collapse = "|"), "|")) %>%
+  print(include.rownames = FALSE, comment = FALSE, hline.after = -1:nrow(.))
+```
+
+$$
+P[X = 17]
+$$
+```{r results='asis'}
+bolt %>% dplyr::select(-f) %>%
+  mutate(g = "") %>%
+  spread(x, g) %>%
+  arrange(desc(y)) %>%
+  rename(`y\\x` = y) %>%
+  xtable(align = paste0("|", paste(rep("c", ncol(.) + 1), collapse = "|"), "|")) %>%
+  print(include.rownames = FALSE, comment = FALSE, hline.after = -1:nrow(.))
+
+```
+
+\end{ex}
 
 ### Maginal distributions
 
+In a bivariate problem, once can add down columns in the (two-way) table of $f(x, y)$ to get values for the probability function of $X$, $f_X(x)$ and across rows in the same table to get values for the probability distribution of $Y$, $f_Y(y)$.
+
+\begin{df}
+The individual probability functions for discrete random variables $X$ and $Y$ with joint probability function $f(x, y)$ are called \emph{marginal probability functions}. They are obtained by summing $f(x, y)$ values over all possible values of the other variable.
+
+\begin{align*}
+f_X(x) &= \sum\limits_y f(x, y) \\
+f_Y(y) &= \sum\limits_x f(x, y)
+\end{align*}
+\end{df}
+
+\begin{ex}[Torques, cont'd]
+Find the marginal probability functions for $X$ and $Y$ from the following joint pmf.
+
+
+```{r, results='asis'}
+bolt %>%
+  spread(x, f) %>%
+  arrange(desc(y)) %>%
+  rename(`y\\x` = y) %>%
+  xtable() %>%
+  print(include.rownames = FALSE, comment = FALSE)
+
+```
+\end{ex}
+
+\newpage
+
+Getting marginal probability functions from joint probability functions begs the question whether the process can be reversed. **Can we find joint probability functions from marginal probability functions?**
+
+\vspace{2in}
+
+
 ### Conditional distributions
 
+When working with several random variables, it is often useful to think about what is expected of one of the variables, given the values assumed by all others.
+
+\vspace{1in}
+
+\begin{df}
+For discrete random variables $X$ and $Y$ with joint probability function $f(x, y)$, the \emph{conditional probability function of $X$ given $Y = y$} is the function of $x$
+$$
+f_{X|Y}(x|y) = \frac{f(x, y)}{f_{Y}(y)} = \frac{f(x, y)}{\sum\limits_{x}f(x, y)}
+$$
+and the \emph{conditional probability function of $Y$ given $X = x$} is the function of $y$
+$$
+f_{Y|X}(y|x) = \frac{f(x, y)}{f_{X}(x)} = \frac{f(x, y)}{\sum\limits_{y}f(x, y)}.
+$$
+\end{df}
+
+\newpage
+
+\begin{ex}[Torque, cont'd]
+
+For the torque example with the following joint distribution, find the following:
+\begin{enumerate}
+\item $f_{Y|X}(20|18)$
+\item $f_{Y|X}(y|15)$
+\item $f_{Y|X}(y|20)$
+\item $f_{X|Y}(x|18)$
+\end{enumerate}
+
+```{r, results='asis'}
+bolt %>%
+  mutate(f = vapply(f, function(num) eval(parse(text = num)), numeric(1))*34) %>%
+  spread(x, f) %>%
+  arrange(desc(y)) %>%
+  rename(`$y\\backslash x$` = y) %>%
+  rbind(colSums(.)) %>%
+  bind_cols(data.frame(rowSums(.[,-1]))) -> bolt_dsn
+
+names(bolt_dsn)[ncol(bolt_dsn)] <- "$f_Y(y)$"
+
+bolt_dsn_table <- bolt_dsn
+bolt_dsn_table[, -1] <- apply(bolt_dsn[, -1], 2, function(col) paste0(col, "/34"))
+bolt_dsn_table[nrow(bolt_dsn_table), 1] <- "$f_X(x)$"
+
+bolt_dsn_table %>%
+  xtable(align = paste0(paste(rep("c", ncol(.)), collapse = ""), "|c")) %>%
+  print(include.rownames = FALSE, comment = FALSE, 
+        sanitize.text.function = function(x){x},
+        hline.after = c(-1, 0, nrow(.) - 1, nrow(.)))
+
+
+```
+
+\end{ex}
+
+\newpage
+
 ### Independence
+
+Recall the following joint distribution:
+
+```{r, results='asis'}
+toy <- expand.grid(x = 1:3, y = 1:3)
+toy$f <- c(.16, .16, .08, .16, .16, .08, .08, .08, .04)
+
+toy %>%
+  spread(x, f) %>%
+  arrange(desc(y)) %>%
+  rename(`$y\\backslash x$` = y) -> toy_dsn
+
+toy_dsn$`$f_Y(y)$` <- rowSums(toy_dsn[, -1])
+toy_dsn[nrow(toy_dsn) + 1, -1] <- colSums(toy_dsn[, -1])
+toy_dsn[nrow(toy_dsn), 1] <- "$f_X(x)$"
+
+toy_dsn %>%
+  xtable(align = paste0(paste(rep("c", ncol(.)), collapse = ""), "|c")) %>%
+  print(include.rownames = FALSE, comment = FALSE, 
+        sanitize.text.function = function(x){x},
+        hline.after = c(-1, 0, nrow(.) - 1, nrow(.)))
+
+```
+
+**What do you notice?**
+
+\vfill
+
+\begin{df}
+Discrete random variables $X$ and $Y$ are \emph{independent} if their joint distribution function $f(x, y)$ is the product of their respective marginal probability functions. This is, independence means that
+$$
+f(x, y) = f_X(x)f_Y(y) \qquad \text{for all } x, y.
+$$
+If this does not hold, then $X$ and $Y$ are \emph{dependent.}
+\end{df}
+
+**Alternatively**, discrete random variables $X$ and $Y$ are independent if for all $x$ and $y$,
+
+\vspace{.5in}
+
+If $X$ and$Y$ are not only independent but also have the same marginal distribution, then they are **independent and identically distributed (iid)**.
+
+\newpage
 
 ## Functions of several random variables
 
