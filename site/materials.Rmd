@@ -22,7 +22,7 @@ Week | Topic | Blank Notes | Filled Notes | Comments
 8  | Random variables, Simple inference (Ch. 5.5, 6.1) |  | [Tuesday](notes/filled/2017_02_28_01.pdf)  [Thursday](notes/filled/2017_03_02_01.pdf) | [Homework 7](homework/07.pdf) assigned  
 9  | Simple inference (Ch. 6.1-6.3) | [Ch. 5 Pt. 3](notes/blank/05_probability_3.pdf) | [Tuesday](notes/filled/2017_03_07_01.pdf) [Thursday Pt. 1](notes/filled/2017_03_09_01.pdf) [Thursday Pt. 2](notes/filled/2017_03_09_02.pdf) | [Homework 8](homework/08.pdf) assigned  
 10  | Spring break |  |  |    
-11  | Simple inference (Ch. 6.3, 6.6) |  | [Tuesday](notes/filled/2017_03_21_01.pdf) |    
+11  | Simple inference (Ch. 6.3, 6.6) |  | [Tuesday](notes/filled/2017_03_21_01.pdf) | [Homework 9](homework/09.pdf) assigned  
 12  | Inference for SLR (Ch. 9.1) |  |  |    
 13  | Inference for MLR (Ch. 9.1-9.2) |  |  |    
 14  | Inference for MLR, One way model (Ch. 9.2, 7.1-7.2) |  |  |    
@@ -40,8 +40,8 @@ Week | Topic | Blank Notes | Filled Notes | Comments
 6. [Homework 6](homework/06.pdf) - due Mar. 2
 7. [Homework 7](homework/07.pdf) - due Mar. 9
 8. [Homework 8](homework/08.pdf) - due Mar. 23
+9. [Homework 9](homework/09.pdf) - due Apr. 6
 <!--
-9. Homework 9 - due Apr. 6
 10. Homework 10 - due Apr. 13
 11. Homework 11 - due Apr. 20
 12. Homework 12 - due Apr. 27
