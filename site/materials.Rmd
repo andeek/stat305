@@ -22,7 +22,7 @@ Week | Topic | Blank Notes | Filled Notes | Comments
 8  | Random variables, Simple inference (Ch. 5.5, 6.1) |  | [Tuesday](notes/filled/2017_02_28_01.pdf)  [Thursday](notes/filled/2017_03_02_01.pdf) | [Homework 7](homework/07.pdf) assigned  
 9  | Simple inference (Ch. 6.1-6.3) | [Ch. 5 Pt. 3](notes/blank/05_probability_3.pdf) | [Tuesday](notes/filled/2017_03_07_01.pdf) [Thursday Pt. 1](notes/filled/2017_03_09_01.pdf) [Thursday Pt. 2](notes/filled/2017_03_09_02.pdf) | [Homework 8](homework/08.pdf) assigned  
 10  | Spring break |  |  |    
-11  | Simple inference (Ch. 6.3, 6.6) | [Ch. 6 Pt. 1](notes/blank/06_inference_1.pdf) | [Tuesday](notes/filled/2017_03_21_01.pdf) | [Homework 9](homework/09.pdf) assigned  
+11  | Simple inference (Ch. 6.3, 6.6) | [Ch. 6 Pt. 1](notes/blank/06_inference_1.pdf) | [Tuesday](notes/filled/2017_03_21_01.pdf) [Thursday](notes/filled/2017_03_23_01.pdf) | [Homework 9](homework/09.pdf) assigned  
 12  | Inference for SLR (Ch. 9.1) |  |  |    
 13  | Inference for MLR (Ch. 9.1-9.2) |  |  |    
 14  | Inference for MLR, One way model (Ch. 9.2, 7.1-7.2) |  |  |    
@@ -77,7 +77,7 @@ knitr::kable(exams)
 # Tables
 
 [Random digits](tables/random-digits.pdf)  
-[Standard Normal cumulative probabilities](tables/standard-normal.pdf)
+[Standard Normal cumulative probabilities](tables/standard-normal.pdf)  
 [Student's t quantiles](tables/t.pdf)
 
 # Data
