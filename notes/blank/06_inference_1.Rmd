@@ -123,7 +123,7 @@ $$
 \newpage
 
 \begin{ex}[Fill weight of jars]
-Suppose a manufacturer fills jars of food using a stable fillin gprocess with a known standard deviation of $\sigma = 1.6$g. We take a sample of $n=47$ jars and measure the sample mean weight $\overline{x} = 138.2$g. A two-sided $90$\% confidence interval ($\alpha = 0.1$) for the true mean weight $\mu$ is:
+Suppose a manufacturer fills jars of food using a stable filling process with a known standard deviation of $\sigma = 1.6$g. We take a sample of $n=47$ jars and measure the sample mean weight $\overline{x} = 138.2$g. A two-sided $90$\% confidence interval ($\alpha = 0.1$) for the true mean weight $\mu$ is:
 \vfill
 Interpretation:
 \vspace{2in}
@@ -133,7 +133,7 @@ What if we just want to be sure that the true mean fill weight is high enough?
 \end{ex}
 
 \begin{ex}[Hard disk failures]
-F. Willett, in the article "The Case of the Derailed Disk Drives?" (\emph{Mechanical Engineering}, 1988), discusses a study done to isolate the cause of link code A failure in a model of Winchester harddisk drive. For each disk, the investigator measured the breakaway torque (in. oz.) required to loosen the drive's interrupter flag on the stepper motor shaft. Breakaway torques for $26$ disk drives were recorded, with a sample mean of $11.5$ in. oz. Suppose you know the true standard deviation of the breakaway torques is $5.1$ in. oz. Calculate and interpret:
+F. Willett, in the article "The Case of the Derailed Disk Drives?" (\emph{Mechanical Engineering}, 1988), discusses a study done to isolate the cause of link code A failure in a model of Winchester hard disk drive. For each disk, the investigator measured the breakaway torque (in. oz.) required to loosen the drive's interrupter flag on the stepper motor shaft. Breakaway torques for $26$ disk drives were recorded, with a sample mean of $11.5$ in. oz. Suppose you know the true standard deviation of the breakaway torques is $5.1$ in. oz. Calculate and interpret:
 \begin{enumerate}
 \item A two-sided $90$\% confidence interval for the true mean breakaway torque of the relevant type of Winchester drive.
 \vfill
@@ -188,22 +188,135 @@ The sample mean breaking strength is $`r round(mean(wire), 2)`$ kg and the sampl
 
 ## Small-sample confidence intervals for a mean
 
+The most important practical limitation on the use of the methods of the previous sections is
+
+\vspace{.5in}
+
+That restriction comes from the fact that without it,
+
+\vspace{1in}
+
+So, if one mechanically uses the large-$n$ interval formula $\overline{x} \pm z \frac{s}{\sqrt{n}}$ with a small sample,
+
+\vspace{1in}
+
+**If** it is sensible to model the observations as iid normal random variables, then we can arrive at inference methods for small-$n$ sample means.
+
+
+\newpage
+
 ### The Student $t$ distribution
+
+\vspace{.2in}
+
+\begin{df}
+The \emph{(Student) $t$ distribution with degrees of freedom parameter $\nu$} is a continuous probability distribution with probability density
+$$
+f(t) = \frac{\Gamma\left(\frac{\nu + 1}{2}\right)}{\Gamma\left(\frac{\nu}{2}\right)\sqrt{\pi \nu}}\left(1 + \frac{t^2}{\nu}\right)^{-(\nu + 1)/2} \qquad \qquad \text{for all }t.
+$$
+\end{df}
+
+The $t$ distribution
+ 
+- is bell-shaped and symmetric about $0$
+- has fatter tails than the normal, but approaches the shape of the normal as $\nu \rightarrow \infty$.
+
+We use the $t$ table (Table B.4 in Vardeman and Jobe) to calculate quantiles. 
+
+\vspace{.5in}
+
+```{r, fig.height=4}
+expand.grid(x = seq(-3, 3, length.out = 200),
+            df = c(1, 2, 5, 11, 20)) %>%
+  mutate(f = dt(x, df)) %>% 
+  mutate(df = as.character(df)) %>%
+  bind_rows(data.frame(x = seq(-3, 3, length.out = 200), df = "Standard normal") %>%
+            mutate(f = dnorm(x))) %>%
+  mutate(df = factor(df, levels = c("1", "2", "5", "11", "20", "Standard normal"))) %>%
+  ggplot() +
+  geom_line(aes(x, f, group = df, linetype = df, colour = df)) +
+  xlab("t") + ylab("f(t)") + 
+  scale_colour_discrete(expression(nu)) +
+  scale_linetype_discrete(expression(nu))
+
+
+```
+
+\newpage
+
+\begin{ex}[$t$ quantiles]
+Say $T \sim t_5$. Find $c$ such that $P(T \le c) = 0.9$.
+\end{ex}
+
+![Student's $t$ distribution quantiles.](images/head_t_quantiles.png)
+
+\vspace{2in}
 
 ### Small-sample confidence intervals, $\sigma$ unknown
 
-## Large-sample significance tests for a mean
+**If** we can assume that $X_1,\dots,X_n$ are iid with mean $\mu$ and variance $\sigma^2$, and are also normally distributed,
 
-### Hypothesis testing using the CI
+\vspace{2in}
 
-## Inference for matched pairs and two-sample data
+We can then use $t_{n-1,1-\alpha/2}$ instead of $z_{1-\alpha/2}$ in the confidence intervals.
 
-### Matched pairs
+\vspace{2in}
 
-### Two-sample data
+\begin{itemize}
+\itemsep 1in 
+\item Two-sided $1-\alpha$ confidence interval for $\mu$
+\item One-sided $1-\alpha$ confidence interval for $\mu$ with a upper confidence bound
+\item One-sided $1-\alpha$ confidence interval for $\mu$ with a lower confidence bound
+\end{itemize}
 
-### Small samples
+\newpage
 
-## Prediction intervals
+\begin{ex}[Concrete beams]
+10 concrete beams were each measured for flexural strength (MPa). Assuming the flexural strengths are iid normal, calculate and interpret a two-sided $99$\% CI for the flexural strength of the beams. 
+
+```{r, comment = NA, results='asis'}
+beams <- c(8.2, 8.7, 7.8, 9.7, 7.4, 7.8, 7.7, 11.6, 11.3, 11.8)
+print(beams)
+```
+
+\vfill
+
+Is the true mean flexural strength below the minimum requirement of 11 MPa?  Find out with the appropriate 95\% CI.
+
+\vfill
+
+\end{ex}
+\newpage
 
 
+\begin{ex}[Paint thickness]
+Consider the following sample of observations on coating thickness for low-viscosity paint.
+\end{ex}
+
+```{r, comment=NA}
+paint <- c(0.83, 0.88, 0.88, 1.04, 1.09, 1.12, 1.29, 1.31, 1.48, 1.49, 1.59, 1.62, 1.65, 1.71, 1.76, 1.83)
+paint
+```
+
+A normal QQ plot shows that they are close enough to normally distributed.
+
+```{r}
+y <- quantile(paint[!is.na(paint)], c(0.25, 0.75))
+x <- qnorm(c(0.25, 0.75))
+slope <- diff(y)/diff(x)
+int <- y[1L] - slope * x[1L]
+
+d <- data.frame(resids = paint)
+
+ggplot(d, aes(sample = resids)) + 
+  stat_qq() + 
+  geom_abline(slope = slope, intercept = int)
+
+
+```
+
+Calculate and interpret a two-sided $90$% confidence interval for the true mean thickness.
+
+\newpage
+
+\includepdf[pages=-]{../../tables/t.pdf}
