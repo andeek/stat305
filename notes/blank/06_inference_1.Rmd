@@ -51,7 +51,7 @@ Many important engineering applications of statistics fit the following mold. Va
 A \emph{confidence interval} for a parameter (or function of one or more parameters) is a data-based interval of numbers thought likely to contain the parameter (or function of one or more parameters) possessing a stated probability-based confidence or reliability.
 \end{df}
 
-A confidence interval is a **random interval**, an interval on the real line with a random variable at one or both of the endpoints.
+A confidence interval is a realization of a **random interval**, an interval on the real line with a random variable at one or both of the endpoints.
 
 \vspace{.2in}
 
