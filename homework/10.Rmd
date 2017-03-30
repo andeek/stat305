@@ -1,0 +1,41 @@
+---
+title: "Homework 10"
+date: "Due April 13, 2017 at 5pm in Snedecor 2404"
+output: 
+  pdf_document:
+    number_sections: true
+geometry: margin=1in
+---
+
+Please show all work for full credit. Print and staple your assignment together and submit by 5pm of the due date in Snedecor 2404. If you cannot attend class or office hours on the due date, please arrange to submit your homework prior to the due date.
+
+```{r setup, echo=FALSE, message=FALSE}
+library(knitr)
+library(tidyverse)
+library(xtable)
+
+knitr::opts_chunk$set(echo=FALSE, message=FALSE, warning=FALSE, fig.height = 2)
+theme_set(theme_bw(base_family = "serif"))
+```
+
+1. [Ch. 6.1, Exercise 2, pg. 344] We have a data set consisting of the aluminum contents of 26 bihourly samples of recycled PET plastic from a recycling facility. Those 26 measurements have $\overline{y} = 142.77$ ppm and $s \approx 98.2$ ppm. Use these facts to respond to the following.
+    a) Make a 90% two-sided confidence interval for the mean aluminum content of such speciments over the whole study period.
+    b) Make a 95% two-sided confidence interval for the mean aluminum content of such speciments over the whole study period. How does this compare to your answer in part a)?
+    c) Make a 90% upper confidence bound for the mean aluminum content of such speciments over the whole study period. (Find a # such that $(\infty, \#)$ is a 90% confidence interval.) How does this value compare to the upper endpoint of your interval from part a)?
+    d) Make a 95% upper confidence bound for the mean aluminum content of such speciments over the whole study period. (Find a # such that $(\infty, \#)$ is a 95% confidence interval.) How does this value compare to the upper endpoint of your interval from part c)?
+    e) Interpret your interval from a) for someone with little statistical background.
+    
+2. [Ch 6.1, Exercise 4, pg. 344] DuToit, Hansen, and Osborne measured the diameters of some no. 10 machine screws with two different calipers (digital and vernier scale). Part of their data are recorded here. Given in the small frequency table are the measurements obtained on 50 screws by one of the students using the digital calipers.
+
+    ```{r}
+    freq <- data.frame(Diameter = c(4.52, 4.66, 4.67, 4.68, 4.69, 4.70, 4.71, 4.72),
+                       Frequency = c(1, 4, 7, 7, 14, 9, 4, 4))
+    kable(freq)
+    ```
+    
+    a) Compute the sample mean and standard deviation for these data.
+    b) Use your sample values from a) and make a 98% two-sided confidence interval for the mean diameter of such screws as measured by this students with these calipers.
+    c) Repeat part b) using 99% confidence. How does this interval compare with the one from b)?
+    d) Use your values from a) and find a 98% lower confidence bound for the mean diameter. (Find a # such that $(\#, \infty)$ is a 98% confidence interval.) How does this value compare to the lower endpoint of your interval from b)?
+    e) Repeat part d) using 99% confidence. How does the value computed here compare with your answer for d)?
+    f) Interpret your interval from b) for someone with little statistical background.
