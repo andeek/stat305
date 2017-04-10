@@ -24,7 +24,7 @@ Week | Topic | Blank Notes | Filled Notes | Comments
 10  | Spring break |  |  |    
 11  | Simple inference (Ch. 6.3, 6.6) | [Ch. 6 Pt. 1](notes/blank/06_inference_1.pdf) | [Tuesday](notes/filled/2017_03_21_01.pdf) [Thursday](notes/filled/2017_03_23_01.pdf) | [Homework 9](homework/09.pdf) assigned  
 12  | Inference for SLR (Ch. 9.1) |  | [Tuesday](notes/filled/2017_03_28_01.pdf) | [Exam 2](#exams) Thursday 
-13  | Inference for MLR (Ch. 9.1-9.2) | [Ch. 6 Pt. 2](notes/blank/06_inference_2.pdf) | [Tuesday](notes/filled/2017_04_04_01.pdf) [Thursday Pt. 1](notes/filled/2017_04_06_01.pdf) [Thursday Pt. 2](notes/filled/2017_04_06_02.pdf) | [Homework 9](homework/09.pdf) assigned      
+13  | Inference for MLR (Ch. 9.1-9.2) | [Ch. 6 Pt. 2](notes/blank/06_inference_2.pdf) | [Tuesday](notes/filled/2017_04_04_01.pdf) [Thursday Pt. 1](notes/filled/2017_04_06_01.pdf) [Thursday Pt. 2](notes/filled/2017_04_06_02.pdf) | [Homework 10](homework/10.pdf) assigned      
 14  | Inference for MLR, One way model (Ch. 9.2, 7.1-7.2) |  |  |    
 15  | CIs for linear functions of means, One way ANOVA (Ch. 7.2, 7.4) |  |  |    
 16  | Control charts, Review (Ch. 7.5) |  |  |   
