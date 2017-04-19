@@ -1,0 +1,200 @@
+---
+output: 
+  pdf_document:
+    number_sections: true
+    includes:
+      in_header: 00_header.tex
+fontsize: 12pt
+fig_caption: true
+geometry: margin=1in
+linestretch: 1.5
+---
+
+```{r setup, echo=FALSE, message=FALSE}
+library(knitr)
+library(tidyverse)
+library(xtable)
+library(MASS)
+
+knitr::opts_chunk$set(echo=FALSE, message=FALSE, warning=FALSE, fig.height = 2)
+theme_set(theme_bw(base_family = "serif"))
+
+set.seed(305)
+```
+
+\setcounter{section}{8}
+
+# Inference for curve and surface fitting
+
+Previously, we have discussed how to describe relationships between variables (Ch. 4). We now move into formal inference for these relationships starting with relationships between two variables and moving on to more.
+
+## Simple linear regression
+
+Recall, in Ch. 4, we wanted an equation to describe how a dependent (response) variable, $y$, changes in response to a change in one or more independent (experimental) variable(s), $x$.
+
+We used the notation 
+$$
+y = \beta_0 + \beta_1 x + \epsilon
+$$ 
+where $\beta_0$ is the intercept. 
+
+\vspace{.5in}
+
+$\beta_1$ is the slope.
+
+\vspace{.5in}
+
+$\epsilon$ is some error. In fact, 
+
+\vfill
+
+**Goal:** We want to use inference to get interval estimates for our slope and predicted values and significance tests that the slope is not equal to zero.
+
+\newpage
+
+
+### Variance estimation
+
+What are the parameters in our model, and how do we estimate them?
+
+\vspace{2in}
+
+We need an estimate for $\sigma^2$ in a regression, or "line-fitting" context.
+
+\vspace{.2in}
+
+\begin{df}
+For a set of data pairs $(x_1, y_1), \dots, (x_n, y_n)$ where least squares fitting of a line produces fitted values $\hat{y}_i = b_0 + b_1x_i$ and residuals $e_i = y_i - \hat{y}_i$,
+$$
+s_{LF}^2 = \frac{1}{n-2} \sum\limits_{i = 1}^n(y_i - \hat{y}_i)^2 = \frac{1}{n-2} \sum\limits_{i = 1}^ne_i^2
+$$
+is the \emph{line-fitting sample variance}. Associated with it are $\nu = n-2$ degrees of freedom and an estimated standard deviation of response $s_{LF} = \sqrt{s_{LF}^2}$.
+\end{df}
+
+\vfill
+
+$s_{LF}^2$ estimates the level of basic background variation $\sigma^2$, whenever the model is an adequate description of the data.
+
+\newpage
+
+### Inference for parameters
+
+We are often interested in testing if $\beta_1 = 0$. This tests whether or not there is a *significant linear relationship* between $x$ and $y$. We can do this using
+
+1.
+\vspace{.3in}
+2.
+
+Both of these require
+
+\vspace{.5in}
+
+It can be shown that since $y_i = \beta_0 + \beta_1 x_i + \epsilon_i$ and $\epsilon_i \stackrel{\text{iid}}{\sim}N(0, \sigma^2)$, then
+$$
+b_1 \sim N\left(\beta_1, \frac{\sigma^2}{\sum(x - \bar{x})^2}\right)
+$$
+So, a $(1-\alpha)100$% CI for $\beta_1$ is
+\vfill
+and the test statistic for $\text{H}_0: \beta_1 = \#$ is
+\vfill
+\newpage
+
+\begin{ex}[Ceramic powder pressing]
+A mixture of $\text{Al}_2\text{O}_3$, polyvinyl alcohol, and water was prepared, dried overnight, crushed, and sieved to obtain 100 mesh size grains. These were pressed into cylinders at pressures from 2,000 psi to 10,000 psi, and cylinder densities were calculated. Consider a pressure/density study of $n = 15$ data pairs representing
+\begin{align*}
+x &= \text{ the pressure setting used (psi)} \\
+y &=  \text{ the density obtained (g/cc)}
+\end{align*}
+in the dry pressing of a ceramic compound into cylinders.
+\end{ex}
+
+```{r}
+ceramics <- read.csv("../../data/ceramics.csv")
+kable(cbind(ceramics[1:8, ], rbind(ceramics[9:15, ], c("", ""))))
+
+ggplot(ceramics) +
+  geom_point(aes(pressure, density))
+
+```
+\vfill
+
+A line has been fit in JMP using the method of least squares.
+
+\newpage
+
+\begin{figure}[H]
+\includegraphics[height=6in]{images/ceramics_regression.png} 
+\includegraphics[width=3in]{images/ceramics_qqplot.png} \\
+\includegraphics{images/ceramics_residuals.png}
+\caption{Least squares regression of density on pressure of ceramic cylinders.}
+\end{figure}
+
+\newpage
+
+1. Write out the model with the appropriate estimates.
+
+\vfill
+
+2. Are the assumptions for the model met?
+
+\vfill
+
+3. What is the fraction of raw variation in $y$ accounted for by the fitted equation?
+
+\vfill
+
+4. What is the correlation between $x$ and $y$?
+
+\vfill
+
+5. Estimate $\sigma^2$.
+\vfill
+
+6. Estimate $\text{Var}(b_1)$.
+
+\vfill
+
+\newpage
+
+7. Calculate and interpret the 95% CI for $\beta_1$
+
+\vfill
+
+8. Conduct a formal hypothesis test at the $\alpha= .05$ significance level to determine if the relationship between density and pressure is significant.
+
+\vspace{5in}
+
+\newpage
+
+### Inference for mean response
+
+Recall our model
+
+$$
+y_1 = \beta_0 + \beta_1 x_i + \epsilon_i, \quad \epsilon_i \stackrel{\text{iid}}{\sim}N(0, \sigma^2).
+$$
+
+Under the model, the true mean response at some observed covariate value $x_i$ is
+
+\vspace{1in}
+
+Now, if some new covariate value $x$ is within the range of the $x_i$'s, we can estimate the true mean response at this new $x$
+
+\vspace{1in}
+
+But how good is the estimate?
+
+\newpage
+
+
+
+
+## Multiple regression
+
+### Variance estimation 
+
+### Standardized residuals
+
+### Inference for parameters
+
+### Inference for mean response
