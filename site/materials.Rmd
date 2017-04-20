@@ -26,7 +26,7 @@ Week | Topic | Blank Notes | Filled Notes | Comments
 12  | Inference for SLR (Ch. 9.1) |  | [Tuesday](notes/filled/2017_03_28_01.pdf) | [Exam 2](#exams) Thursday 
 13  | Inference for MLR (Ch. 9.1-9.2) | [Ch. 6 Pt. 2](notes/blank/06_inference_2.pdf) | [Tuesday](notes/filled/2017_04_04_01.pdf) [Thursday Pt. 1](notes/filled/2017_04_06_01.pdf) [Thursday Pt. 2](notes/filled/2017_04_06_02.pdf) | [Homework 10](homework/10.pdf) assigned      
 14  | Inference for MLR, One way model (Ch. 9.2, 7.1-7.2) | [Ch. 6 Pt. 3](notes/blank/06_inference_3.pdf) | [Tuesday](notes/filled/2017_04_11_01.pdf) [Thursday Pt. 1](notes/filled/2017_04_13_01.pdf) [Thursday Pt. 2](notes/filled/2017_04_13_02.pdf)|    
-15  | CIs for linear functions of means, One way ANOVA (Ch. 7.2, 7.4) | [Ch. 9](notes/blank/09_regression.pdf) | [Tuesday](notes/filled/2017_04_18_01.pdf) | [Homework 11](homework/11.pdf) assigned 
+15  | CIs for linear functions of means, One way ANOVA (Ch. 7.2, 7.4) | [Ch. 9](notes/blank/09_regression.pdf) | [Tuesday](notes/filled/2017_04_18_01.pdf) [Thursday Pt. 1](notes/filled/2017_04_20_01.pdf) [Thursday Pt. 2](notes/filled/2017_04_20_02.pdf) | [Homework 11](homework/11.pdf) assigned 
 16  | Control charts, Review (Ch. 7.5) |  |  |   
 17  | Final Exam |  |  |    
 
