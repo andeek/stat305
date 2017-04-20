@@ -186,7 +186,39 @@ But how good is the estimate?
 
 \newpage
 
+Under the model,
 
+\vspace{2in}
+
+So we can construct a $N(0,1)$ random variable by standardizing.
+
+\vspace{2in}
+
+And when $\sigma$ is unknown (i.e. basically always),
+
+\newpage
+
+To test $H_0: \mu_{y|x}  = \#$, we can use the test statistics
+
+$$K = \qquad \qquad \qquad \qquad \qquad$$
+
+which has a $t_{n-2}$ distribution if $\text{H}_0$ is true and the model is correct.
+
+\vspace{1in}
+
+A 2-sided $(1-\alpha)100$% CI for $\mu_{y|x}$ is
+
+\newpage
+
+\begin{ex}[Ceramic powder pressing]
+Return to the ceramic density problem. We will make a 2-sided 95\% confidence interval for the true mean density of ceramics at 4000 psi and interpret it.
+
+\newpage
+
+Now calculate and interpret a 2-sided 95\% confidence interval for the true mean density at 5000 psi.
+\end{ex}
+
+\newpage
 
 
 ## Multiple regression
