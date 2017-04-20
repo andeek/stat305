@@ -223,10 +223,148 @@ Now calculate and interpret a 2-sided 95\% confidence interval for the true mean
 
 ## Multiple regression
 
+Recall the summarization the effects of several different quantitative variables $x_1, \dots, x_{p-1}$ on a response $y$.
+$$
+y_i  \approx \beta_0 + \beta_1 x_{1i} + \cdots \beta_{p-1}x_{p-1,i}
+$$
+
+Where we estimate $\beta_0, \dots, \beta_{p-1}$ using the *least squares principle* by minimizing the function
+$$
+S(b_0, \dots, b_{p-1}) = \sum\limits_{i = 1}^n(y_i - \hat{y})^2 = \sum\limits_{i = 1}^n (y_i - \beta_0 - \beta_1 x_{1,i} - \cdots - \beta_{p-1}x_{p-1,i})^2
+$$
+to find the estimates $b_0, \dots, b_{p-1}$.
+
+We can formalize this now as 
+$$
+Y_i  = \beta_0 + \beta_1 x_{1i} + \cdots \beta_{p-1}x_{p-1,i} + \epsilon_i
+$$
+where we assume $\epsilon_i \stackrel{\text{iid}}{\sim}N(0, \sigma^2)$.
+
+\newpage
+
 ### Variance estimation 
 
-### Standardized residuals
+Based on our multiple regression model, the residuals are of the form
+
+$$
+e_i = y_i - \hat{y}_i
+$$
+
+\vspace{.5in}
+
+And we can estimate the variance similarly to the SLR case.
+
+\vspace{.2in}
+
+\begin{df}
+For a set of $n$ data vectors $(x_{11}, x_{21}, \dots, x_{p-11}, y), \dots, (x_{1n}, x_{2n}, \dots, x_{p-1n}, y)$ where least squares fitting is used to fit a surface,
+$$
+s_{SF}^2 = \frac{1}{n - p}\sum(y - \hat{y})^2 = \frac{1}{n-p}\sum e_i^2
+$$
+is the \emph{surface-fitting sample variance}. Associated with it are $\nu = n - p$ degrees of freedom and an estimated standard deviation of response $s_{SF} = \sqrt{s_{SF}^2}$.
+\end{df}
+
+\vspace{.2in}
+
+**Note:** the SLR fitting sample variance $s_{LF}^2$ is the special case of $s_{SF}^2$ for $p = 2$.
+
+\vspace{.2in}
+\begin{ex}[Stack loss]
+Consider a chemical plant that makes nitric acid from ammonia. We want to predict stack loss ($y$, 10 times the \% of ammonia lost) using
+\begin{itemize}
+\item $x_1$: air flow into the plant
+\item $x_2$: inlet temperature of the cooling water
+\item $x_3$: modified acid concentration (\% circulating acid -50\% ) $\times$ 10
+\end{itemize}
+\end{ex}
+
+\newpage
+
+```{r}
+stackloss <- read_csv("../../data/stackloss.csv")
+```
+
+\begin{figure}[H]
+\includegraphics[width=3in]{images/stackloss_model.png} 
+\includegraphics[width=3in]{images/stackloss_resid.png} \\
+\includegraphics[height=3in]{images/stackloss_qqplot.png}
+\caption{Least squares regression of stack loss on air flow, inlet temperature, and modified acid concentration.}
+\end{figure}
+
+\newpage
 
 ### Inference for parameters
 
+We are often interested in answering questions (doing formal inference) for $\beta_0, \dots, \beta_{p-1}$ individually. For example, we may want to know if there is a significant relationship between $y$ and $x_2$ (holding all else constant).
+
+\vspace{.2in}
+
+Under our model assumptions, 
+$$
+b_i \sim N(\beta_i, d_i\sigma^2)
+$$
+for some positive constant $d_i, i = 0, 1, \dots, p-1$.
+
+\vspace{.2in}
+
+That means
+
+\vspace{1in}
+
+So, a test statistic for $\text{H}_0: \beta_i = \#$ is
+
+\vspace{1in}
+
+and a 2-sided $(1-\alpha)100$% CI for $\beta_i$ is
+
+\newpage
+
+\begin{ex}[Stack loss, cont'd]
+Using the model fit on page 15, answer the following questions:
+\end{ex}
+
+1. Is the average change in stack loss ($y$) for a one unit change in air flow into the plant ($x_1$) less than 1 (holding all else constant)? Use a significance testing framework with $\alpha = .1$.
+2. Is the there a significant relationship between stack loss ($y$) and modified acid concentation ($x_3$) (holding all else constant)? Use a significance testing framework with $\alpha = .05$.
+3. Construct and interpret a 99% confidence interval for $\beta_3$.
+4. Construct and interpret a 90% confidence interval for $\beta_2$.
+
+\newpage
+\null
+
+\newpage
+
 ### Inference for mean response
+
+We can also estimate the mean response at the set of covariate values, $(x_1,x_2,\dots,x_{p-1})$. Under the model assumptions, the estimated mean response, $\mu_{y|x}$, at $\boldsymbol x=(x_1,x_2,\dots,x_{p-1})$ is 
+
+\vspace{.5in}
+
+with:
+
+\vspace{1in}
+
+Then, under the model assumptions
+
+\vspace{1in}
+
+And a test statistic for testing $\text{H}_0: \mu_{y|\boldsymbol x} = \#$ is
+
+\vspace{1in}
+
+A 2-sided $(1-\alpha)100$% CI for $\mu_{y|\boldsymbol x}$ is
+
+\newpage
+
+\begin{ex}[Stack loss, cont'd]
+We can use JMP to compute a 2-sided 95\% CI around the mean response at point 3:
+$$
+x_1 = 62, x_2= 23, x_3 = 87,y = 18
+$$
+\end{ex}
+
+![How to get predicted values and standard errors.](images/get_multi_sterror.png)
+
+\newpage
+
+![Predicted values and standard errors.](images/stackloss_pred_error.png)
+
