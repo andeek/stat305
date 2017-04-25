@@ -15,19 +15,19 @@ Week | Topic | Blank Notes | Filled Notes | Comments
 1  | Introduction, Data collection (Ch. 1-2) | [Ch. 1](notes/blank/01_introduction.pdf) <br/> [Ch. 2](notes/blank/02_collection.pdf)| [Tuesday](notes/filled/2017_01_10_01.pdf) <br/> [Thursday Pt. 1](notes/filled/2017_01_12_01.pdf) [Thursday Pt. 2](notes/filled/2017_01_12_02.pdf)| [Homework 1](homework/01.pdf) assigned
 2  | Data collection, Descriptive statistics (Ch. 2, Ch 3.1 - 3.2) | [Ch. 3](notes/blank/03_descriptive.pdf) | [Tuesday Pt. 1](notes/filled/2017_01_17_01.pdf) [Tuesday Pt. 2](notes/filled/2017_01_17_02.pdf) [Thursday](notes/filled/2017_01_19_01.pdf) | [Homework 2](homework/02.pdf) assigned
 3  | Descriptive statistics (Ch. 3.2-3.4) |  | [Tuesday Pt. 1](notes/filled/2017_01_24_01.pdf) [Tuesday Pt. 2](notes/filled/2017_01_24_02.pdf) [Tuesday Pt. 3](notes/filled/2017_01_24_03.pdf) [Thursday](notes/filled/2017_01_26_01.pdf)  | [Homework 3](homework/03.pdf) assigned  
-4  | Line fitting (Ch. 4.1-4.2) | [Ch. 4](notes/blank/04_relationships.pdf) | [Tuesday Pt. 1](notes/filled/2017_01_31_01.pdf) [Tuesday Pt. 2](notes/filled/2017_01_31_02.pdf) [Thursday](notes/filled/2017_02_02_01.pdf) | [Homework 4](homework/04.pdf) assigned     
-5  | Curve and surface fitting, Random variables (Ch. 4.2, 5.1) |  | [Tuesday](notes/filled/2017_02_07_01.pdf) [Thursday](notes/filled/2017_02_09_01.pdf) | [Homework 5](homework/05.pdf) assigned   
+4  | Line fitting (Ch. 4.1) | [Ch. 4](notes/blank/04_relationships.pdf) | [Tuesday Pt. 1](notes/filled/2017_01_31_01.pdf) [Tuesday Pt. 2](notes/filled/2017_01_31_02.pdf) [Thursday](notes/filled/2017_02_02_01.pdf) | [Homework 4](homework/04.pdf) assigned     
+5  | Curve and surface fitting (Ch. 4.2 ) |  | [Tuesday](notes/filled/2017_02_07_01.pdf) [Thursday](notes/filled/2017_02_09_01.pdf) | [Homework 5](homework/05.pdf) assigned   
 6  | Random variables (Ch. 5.1-5.2) | [Ch. 5 Pt. 1](notes/blank/05_probability_1.pdf) | [Tuesday](notes/filled/2017_02_14_01.pdf) | [Exam 1](#exams) Thursday   
-7  | Random variables (Ch. 5.2, 5.4) | [Ch. 5 Pt. 2](notes/blank/05_probability_2.pdf) | [Tuesday](notes/filled/2017_02_21_01.pdf) [Thursdy Pt. 1](notes/filled/2017_02_23_01.pdf) [Thursdy Pt. 2](notes/filled/2017_02_23_02.pdf)  | [Homework 6](homework/06.pdf) assigned 
-8  | Random variables, Simple inference (Ch. 5.5, 6.1) |  | [Tuesday](notes/filled/2017_02_28_01.pdf)  [Thursday](notes/filled/2017_03_02_01.pdf) | [Homework 7](homework/07.pdf) assigned  
-9  | Simple inference (Ch. 6.1-6.3) | [Ch. 5 Pt. 3](notes/blank/05_probability_3.pdf) | [Tuesday](notes/filled/2017_03_07_01.pdf) [Thursday Pt. 1](notes/filled/2017_03_09_01.pdf) [Thursday Pt. 2](notes/filled/2017_03_09_02.pdf) | [Homework 8](homework/08.pdf) assigned  
+7  | Random variables (Ch. 5.2) | [Ch. 5 Pt. 2](notes/blank/05_probability_2.pdf) | [Tuesday](notes/filled/2017_02_21_01.pdf) [Thursdy Pt. 1](notes/filled/2017_02_23_01.pdf) [Thursdy Pt. 2](notes/filled/2017_02_23_02.pdf)  | [Homework 6](homework/06.pdf) assigned 
+8  | Random variables (Ch. 5.4) |  | [Tuesday](notes/filled/2017_02_28_01.pdf)  [Thursday](notes/filled/2017_03_02_01.pdf) | [Homework 7](homework/07.pdf) assigned  
+9  | Random variables (Ch. 5.4) | [Ch. 5 Pt. 3](notes/blank/05_probability_3.pdf) | [Tuesday](notes/filled/2017_03_07_01.pdf) [Thursday Pt. 1](notes/filled/2017_03_09_01.pdf) [Thursday Pt. 2](notes/filled/2017_03_09_02.pdf) | [Homework 8](homework/08.pdf) assigned  
 10  | Spring break |  |  |    
-11  | Simple inference (Ch. 6.3, 6.6) | [Ch. 6 Pt. 1](notes/blank/06_inference_1.pdf) | [Tuesday](notes/filled/2017_03_21_01.pdf) [Thursday](notes/filled/2017_03_23_01.pdf) | [Homework 9](homework/09.pdf) assigned  
-12  | Inference for SLR (Ch. 9.1) |  | [Tuesday](notes/filled/2017_03_28_01.pdf) | [Exam 2](#exams) Thursday 
-13  | Inference for MLR (Ch. 9.1-9.2) | [Ch. 6 Pt. 2](notes/blank/06_inference_2.pdf) | [Tuesday](notes/filled/2017_04_04_01.pdf) [Thursday Pt. 1](notes/filled/2017_04_06_01.pdf) [Thursday Pt. 2](notes/filled/2017_04_06_02.pdf) | [Homework 10](homework/10.pdf) assigned      
-14  | Inference for MLR, One way model (Ch. 9.2, 7.1-7.2) | [Ch. 6 Pt. 3](notes/blank/06_inference_3.pdf) | [Tuesday](notes/filled/2017_04_11_01.pdf) [Thursday Pt. 1](notes/filled/2017_04_13_01.pdf) [Thursday Pt. 2](notes/filled/2017_04_13_02.pdf)|    
-15  | CIs for linear functions of means, One way ANOVA (Ch. 7.2, 7.4) | [Ch. 9](notes/blank/09_regression.pdf) | [Tuesday](notes/filled/2017_04_18_01.pdf) [Thursday Pt. 1](notes/filled/2017_04_20_01.pdf) [Thursday Pt. 2](notes/filled/2017_04_20_02.pdf) | [Homework 11](homework/11.pdf) assigned 
-16  | Control charts, Review (Ch. 7.5) |  |  |   
+11  | Random variables (Ch. 5.5) | [Ch. 6 Pt. 1](notes/blank/06_inference_1.pdf) | [Tuesday](notes/filled/2017_03_21_01.pdf) [Thursday](notes/filled/2017_03_23_01.pdf) | [Homework 9](homework/09.pdf) assigned  
+12  | Simple inference, Confidence intervals (Ch. 6.1) |  | [Tuesday](notes/filled/2017_03_28_01.pdf) | [Exam 2](#exams) Thursday 
+13  | Simple inference, Hypothesis testing (Ch. 6.2-6.3) | [Ch. 6 Pt. 2](notes/blank/06_inference_2.pdf) | [Tuesday](notes/filled/2017_04_04_01.pdf) [Thursday Pt. 1](notes/filled/2017_04_06_01.pdf) [Thursday Pt. 2](notes/filled/2017_04_06_02.pdf) | [Homework 10](homework/10.pdf) assigned      
+14  | Hypothesis testing (Ch.6.3, 6.6) | [Ch. 6 Pt. 3](notes/blank/06_inference_3.pdf) | [Tuesday](notes/filled/2017_04_11_01.pdf) [Thursday Pt. 1](notes/filled/2017_04_13_01.pdf) [Thursday Pt. 2](notes/filled/2017_04_13_02.pdf)|    
+15  | Inference for SLR (Ch. 9.1) | [Ch. 9](notes/blank/09_regression.pdf) | [Tuesday](notes/filled/2017_04_18_01.pdf) [Thursday Pt. 1](notes/filled/2017_04_20_01.pdf) [Thursday Pt. 2](notes/filled/2017_04_20_02.pdf) | [Homework 11](homework/11.pdf) assigned 
+16  | Inference for MLR (Ch. 9.2) |  |  |   [Homework 12](homework/12.pdf) available (not to be turned in)
 17  | Final Exam |  |  |    
 
 # Homework
@@ -43,9 +43,8 @@ Week | Topic | Blank Notes | Filled Notes | Comments
 9. [Homework 9](homework/09.pdf) - due Apr. 6
 10. [Homework 10](homework/10.pdf) - due Apr. 18
 11. [Homework 11](homework/11.pdf) - due Apr. 25
-<!--
-12. Homework 12 - due Apr. 27
--->
+12. [Homework 12](homework/12.pdf) - Not due, only for practice
+
 
 # Exams
 
@@ -53,7 +52,7 @@ Week | Topic | Blank Notes | Filled Notes | Comments
 exams <- data.frame(Exam = c("Exam 1", "Exam 2", "Final Exam**"),
                     Date = c("Feb. 16", "Mar. 30", "May 4"),
                     Location = c("MacKay 0117", "MacKay 0117", "MacKay 0117"),
-                    Topics = c("Ch. 1-4", "Ch. 5-6", "Ch. 1-7, 9"))
+                    Topics = c("Ch. 1-3", "Ch. 4-5", "Ch. 1-6, 9"))
 
 knitr::kable(exams)
 ```
