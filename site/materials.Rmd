@@ -68,6 +68,10 @@ knitr::kable(exams)
 [Topic outline](exams/practice/exam_2_topics.pdf)  
 [Practice exam](exams/practice/exam_2_practice.pdf)
 
+### Final Exam
+
+[Topic outline](exams/practice/exam_3_topics.pdf)  
+[Practice exam](exams/practice/exam_3_practice.pdf)
 
 # JMP
 
