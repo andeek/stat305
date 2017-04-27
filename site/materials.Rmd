@@ -27,7 +27,7 @@ Week | Topic | Blank Notes | Filled Notes | Comments
 13  | Simple inference, Hypothesis testing (Ch. 6.2-6.3) | [Ch. 6 Pt. 2](notes/blank/06_inference_2.pdf) | [Tuesday](notes/filled/2017_04_04_01.pdf) [Thursday Pt. 1](notes/filled/2017_04_06_01.pdf) [Thursday Pt. 2](notes/filled/2017_04_06_02.pdf) | [Homework 10](homework/10.pdf) assigned      
 14  | Hypothesis testing (Ch.6.3, 6.6) | [Ch. 6 Pt. 3](notes/blank/06_inference_3.pdf) | [Tuesday](notes/filled/2017_04_11_01.pdf) [Thursday Pt. 1](notes/filled/2017_04_13_01.pdf) [Thursday Pt. 2](notes/filled/2017_04_13_02.pdf)|    
 15  | Inference for SLR (Ch. 9.1) | [Ch. 9](notes/blank/09_regression.pdf) | [Tuesday](notes/filled/2017_04_18_01.pdf) [Thursday Pt. 1](notes/filled/2017_04_20_01.pdf) [Thursday Pt. 2](notes/filled/2017_04_20_02.pdf) | [Homework 11](homework/11.pdf) assigned 
-16  | Inference for MLR (Ch. 9.2) |  | [Tuesday](notes/filled/2017_04_25_01.pdf) | [Homework 12](homework/12.pdf) available (not to be turned in)
+16  | Inference for MLR (Ch. 9.2) |  | [Tuesday](notes/filled/2017_04_25_01.pdf) [Thursday](notes/filled/2017_04_27_01.pdf) | [Homework 12](homework/12.pdf) available (not to be turned in)
 17  | Final Exam |  |  |    
 
 # Homework
@@ -97,6 +97,7 @@ knitr::kable(exams)
 [polyols.csv](data/polyols.csv)  
 [pulp.csv](data/pulp.csv)  
 [rivers.csv](data/rivers.csv)  
+[stackloss.csv](data/stackloss.csv)  
 [tool_life.csv](data/tool_life.csv)  
 [tool_life_full.csv](data/tool_life_full.csv)  
 [towels.csv](data/towels.csv)
