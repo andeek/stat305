@@ -236,7 +236,7 @@ to find the estimates $b_0, \dots, b_{p-1}$.
 
 We can formalize this now as 
 $$
-Y_i  = \beta_0 + \beta_1 x_{1i} + \cdots + \beta_{p-1}x_{p-1,i} + \epsilon_i
+Y_i  = \beta_0 + \beta_1 x_{1i} + \cdots \beta_{p-1}x_{p-1,i} + \epsilon_i
 $$
 where we assume $\epsilon_i \stackrel{\text{iid}}{\sim}N(0, \sigma^2)$.
 
@@ -335,7 +335,7 @@ Using the model fit on page 15, answer the following questions:
 
 ### Inference for mean response
 
-We can also estimate the mean response at the set of covariate values, $(x_1,x_2,\dots,x_{p-1})$. Under the model assumptions, the estimated mean response, $\hat{\mu}_{y|\boldsymbol x}$, at $\boldsymbol x=(x_1,x_2,\dots,x_{p-1})$ is 
+We can also estimate the mean response at the set of covariate values, $(x_1,x_2,\dots,x_{p-1})$. Under the model assumptions, the estimated mean response, $\mu_{y|x}$, at $\boldsymbol x=(x_1,x_2,\dots,x_{p-1})$ is 
 
 \vspace{.5in}
 
@@ -362,7 +362,7 @@ x_1 = 62, x_2= 23, x_3 = 87,y = 18
 $$
 \end{ex}
 
-![How to get predicted values and standard errors.](images/get_multi_sterror.png){height=6in}
+![How to get predicted values and standard errors.](images/get_multi_sterror.png)
 
 \newpage
 

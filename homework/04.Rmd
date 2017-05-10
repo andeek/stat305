@@ -1,13 +1,13 @@
 ---
 title: "Homework 4"
-date: "Due February 9, 2017 at 5pm in Snedecor 2404"
+date: "Due June 12, 2017 in class"
 output: 
   pdf_document:
     number_sections: true
 geometry: margin=1in
 ---
 
-Please show all work for full credit. Print and staple your assignment together and submit by 5pm of the due date in Snedecor 2404. If you cannot attend class or office hours on the due date, please arrange to submit your homework prior to the due date.
+Please show all work for full credit. Print and staple your assignment together and submit by end of class the due date. If you cannot attend class on the due date, please arrange to submit your homework prior to the due date.
 
 ```{r setup, echo=FALSE, message=FALSE}
 library(knitr)
@@ -18,33 +18,66 @@ knitr::opts_chunk$set(echo=FALSE, message=FALSE, warning=FALSE, fig.height = 2)
 theme_set(theme_bw(base_family = "serif"))
 ```
 
-1.  [Ch. 4.1 Exercise 3, pg. 140] The article "Polyglycol Modified Poly (Ethylene EtherCarbonate) Polyols by Molecular Weight Advancement" by R. Harris (*Journal of Applied Polymer Science*, 1990) contains some data on the effect of reaction temperature on the molecular weight of resulting poly polyols. The data for eight experimental runs at temperature 165°C and above are as follows (see website for `polyols.csv`):
+1. [Ch. 5.1, Exercise 6, pg. 244] Suppose that an eddy current nondestructive evaluation technique for identifying cracks in critical metal parts has a probability of about $.20$ of detecting a single crack of length $.003$in. in a certain material. Let $Y$ be the number of specimens inspected in order to obtain the first crack detection. Use an appropriate probability model and evaluate all of the following:
+    a) $P[Y = 5]$
+    b) $P[Y \le 4]$
+    c) $\text{E}Y$
+    d) $\text{Var}Y$
+    e) $\text{SD}(Y)$
+    
+1. [Ch. 5.1, Exercise 9, pg. 244] Transmission line interruptions in a telecommunication network occur at an average rate of one per day.
+    a) Use a Poisson distribution as a model for
+        $$
+        X = \text{the number of interruptions in the next five-day work week}
+        $$
+        
+        and assess $P[X = 0]$
+    b) Now consider the random variable
+        $$
+        Y = \text{the number of work weeks in the next four in which there are no interruptions}
+        $$
+        What is a reasonable probability model for $Y$? Assess $P[Y = 2]$.
 
-    ```{r}
-    polyols <- read_csv("../data/polyols.csv")
+1. [Ch. 5.2, Exercise 1, pg. 263] The random number generator supplied on a calculator is not terribly well chosen, in that values it generates are not adequately described by a uniform distribution on the interval $(0,1)$. Suppose instead that a probability density
+    $$
+    f(x) = \begin{cases} k(5 - x) & 0 < x< 1 \\ 0 & \text{otherwise}\end{cases}
+    $$
     
-    kable(polyols, col.names = c("Pot temperature (°C)", "Average molecular weight"))
-    ```
+    is a more appropriate model for $X =$ the next value produced by this random number generator.
     
-    Use a statistical package (JMP or `R`) to help you complete the following (plots and computation):
+    a) Find the value of $k$
+    b) Sketch the probability density involved here.
+    c) Evaluate $P[.25 < X < .75]$
+    d) Compute and graph the cumulative probability distribution function for $X$, $F(x)$.
+    e) Calculate $\text{E}X$ and the standard deviation of $X$.
     
-    a) What fraction of the observed raw variation in molecular weight of resulting poly polyols ($y$) is accounted for by a linear equation in reaction temperature ($x$)?
-    b) Fit a linear relationship $y \approx \beta_0 + \beta_1 x$ to these data via least squares. About what change in average molecular weight seems to accompany a $1$°C increase in pot temperature (at least over the experimental range of temperatures)?
-    c) Compute and plot residuals from the linear relationship fit in b). Discuss what they suggest about the appropriateness of that fitted equation.
-    d) These data came from an experiment where the investigator managed the value of $x$. There is a fairly glaring weakness in the experimenter's data collection efforts. What is is?
-    e) Based on your analysis of these data, what average molecular weight would you predict for an additional reaction run at $188$°C? At $200$°C? Why would or wouldn't you be willing to make a similar prediction of average molecular weight if the reaction is run at $70$°C?
+1. The mileage to first failure for a model of military personnel carrier can be modeled as exponential with mean $1,000$ miles.
+    a) Evaluate the probability that a vehicle of this type gives less than $500$ miles of service before first failure. Evaluate the probability that a vehicle of this type gives less than $2000$ miles of service before first failure. 
+    b) Find the $.05$ quantile of the distribution of mileage to first failure. Then find the $.9$ quantile of the distribution.
     
-2. [Ch. 4.1 Exercise 4, pg. 140] Upon changing measurement scales, nonlinear relationships between two variables can sometimes be made linear. The article "The Effect of Experimental Error on Determination of the Optimum Metal-Cutting Conditions" by Ermer and Wu (*The Journal of Engineering for Industry*, 1967) contains a data set gathered in a study of tool life in a turning operation. The data here (and on the website as `tool_life.csv`) are part of that data set.
-
-    ```{r}
-    tool_life <- read_csv("../data/tool_life.csv")
+1. [Ch. 5.2, Exercise 2, pg. 263] Suppose that $Z$ is a standard normal random variable. Evaluate the following probabilities involving $Z$:
+    a) $P[Z < -.62]$
+    a) $P[Z > 1.06]$
+    a) $P[-.37 < Z < .51]$
+    a) $P[|Z| \le .47]$
+    a) $P[|Z| > .93]$
+    a) $P[-3.0 < Z < 3.0]$
     
-    tool_life %>%
-      group_by(speed) %>%
-      summarise(life = paste(life, collapse = ", ")) %>%
-      kable(col.names = c("Cutting speed (sfpm)", "Tool life (min)"))
-    ```
+    Now find numbers # such that the following statements involving $Z$ are true:
     
-    a) Plot tool life ($y$) by cutting speed ($x$) and calculate $R^2$ fir fitting a linear function of $x$ to $y$. Does the relationship $y \approx \beta_0 + \beta_1 x$ look like a reasonable explanation of tool life in terms of cutting speed?
-    b) Take natural logs of both $x$ and $y$ and repeat part a) with these $\log$ cutting speeds and $\log$ tool lives.
-    c) Using the logged variables as in b), fit a linear relationship between the two variables using least squares. Based on this fitted equation, what tool life would you predict for a cutting speed of $550$? What approximate relationship between $x$ and $y$ is implied by a linear approximate relationship between $\ln(x)$ and $\ln(y)$? (Give an equation for the relationship.) As an aside, Taylor's equation for tool life is $yx^\alpha = C$.
+    g) $P[Z \le \#] = .90$
+    g) $P[|Z| \le \#] = .90$
+    g) $P[|Z| > \#] = .03$
+    
+1. [Ch. 5.2, Exercise 3, pg. 263] Suppose that $X$ is a normal random variable with mean $43$ and standard deviation $3.6$. Evaluate the following probabilities involving $X$:
+    a) $P[X < 45.2]$
+    a) $P[X \le 41.7]$
+    a) $P[43.8 < X \le 47.0]$
+    a) $P[|X - 43| \le 2]$
+    a) $P[|X - 43| > 1.7]$
+    
+    Now find numbers # such that the following statements involving $X$ are true:
+    
+    f) $P[X < \#] = .95$
+    g) $P[X \ge \#] = .30$
+    h) $P[|X - 43| > \#] = .05$

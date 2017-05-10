@@ -1,7 +1,7 @@
 name: "stat-305"
 output_dir: ".."
 navbar:
-  title: "Stat 305 C Engineering Statistics"
+  title: "Stat 305 A Engineering Statistics"
   left:
     - text: "Syllabus"
       href: index.html

@@ -13,19 +13,19 @@ MATH 165 (or MATH 165H)
 # Instructor
 
 [Andee Kaplan](http://andeekaplan.com)  
-Email: ajkaplan at iastate (Put "[STAT 305 C]" in the subject.)  
+Email: ajkaplan at iastate (Put "[STAT 305 A]" in the subject.)  
 Office hours: TBD
 
 # Teaching Assistant
 
 [Yifan Wang](http://stat.iastate.edu/people/yifan-wang)  
-Email: wangyf at iastate (Put "[STAT 305 C]" in the subject.)  
+Email: wangyf at iastate (Put "[STAT 305 A]" in the subject.)  
 Office hours: TBD
 
 # Course Coordinator
 
 [Arka Ghosh](http://www.public.iastate.edu/~apghosh/index.html)  
-Email: apghosh at iastate (Put "[STAT 305 C]" in the subject.)  
+Email: apghosh at iastate (Put "[STAT 305 A]" in the subject.)  
 
 # Lectures
 
