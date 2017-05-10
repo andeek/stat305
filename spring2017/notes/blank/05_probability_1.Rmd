@@ -1,0 +1,580 @@
+---
+output: 
+  pdf_document:
+    number_sections: true
+    includes:
+      in_header: 00_header.tex
+fontsize: 12pt
+fig_caption: true
+geometry: margin=1in
+linestretch: 1.5
+---
+
+```{r setup, echo=FALSE, message=FALSE}
+library(knitr)
+library(tidyverse)
+library(xtable)
+library(MASS)
+
+knitr::opts_chunk$set(echo=FALSE, message=FALSE, warning=FALSE, fig.height = 2)
+theme_set(theme_bw(base_family = "serif"))
+
+set.seed(305)
+```
+
+\setcounter{section}{4}
+
+# Probability: the mathematics of randomness
+
+The theory of probability is the mathematician's description of random variation. This chapter introduces enough probability to serve as a minimum background for making formal statistical inferences.
+
+\vspace{2in}
+
+## (Discrete) random variables
+
+The concept of a random variable is introduced in general terms and the special case of discrete data is considered.
+
+\vspace{1in}
+
+### Random variables and distributions
+
+It is helpful to think of data values as subject to chance influences. Chance is commonly introduced into the data collection process through 
+
+1. 
+2.
+3.
+
+\vspace{.1in}
+\begin{df}
+A \emph{random variable} is a quantity that (prior to observation) can be thought of as dependent on chance phenomena.
+\end{df}
+
+\vspace{2in}
+
+\begin{df}
+A \emph{discrete random variable} is one that has isolated or separated possible values (rather than a continuum of available outcomes).
+\end{df}
+
+\vspace{.1in}
+
+\begin{df}
+A \emph{continuous random variable} is one that can be idealized as having an entire (continuous) interval of numbers as its set of values.
+\end{df}
+
+\vspace{1in}
+
+\begin{ex}[Roll of a die]
+
+\end{ex}
+\newpage
+
+\begin{df}
+To specify a \emph{probability distribution} for a random variable is to give its set of possible values and (in one way or another) consistently assign numbers between $0$ and $1$ - called \emph{probabilities} - as measures of the likelihood that the various numerical values will occur
+\end{df}
+
+\begin{ex}[Roll of a die, cont'd]
+
+\end{ex}
+\vspace{3in}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{c c c c c c c }
+$x$ & 1 & 2 & 3 & 4 & 5 & 6 \\
+\hline
+$P[X = x]$ & $1/6$ & $1/6$ & $1/6$ & $1/6$ & $1/6$ & $1/6$
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{c c c c c c c }
+$y$ & 1 & 2 & 3 & 4 & 5 & 6 \\
+\hline
+$P[Y = y]$ & $5/22$ & $7/44$ & $1/22$ & $7/44$ & $2/11$ & $5/22$
+\end{tabular}
+\end{table}
+
+```{r, fig.show='hold', fig.width=3}
+x <- rep(1/6, 6)
+y <- c(5/22, 7/44, 1/22, 7/44, 2/11, 5/22)
+
+ggplot() +
+  geom_bar(aes(factor(1:6), x), stat = "identity") +
+  xlab("x") + ylab("P[X = x]")
+
+ggplot() +
+  geom_bar(aes(factor(1:6), y), stat = "identity") +
+  xlab("y") + ylab("P[Y = y]")
+```
+
+\newpage
+
+\begin{ex}[Shark attacks]
+Suppose $S$ is the number of provoked shark attacks off FL next year. This has an infinite number of possible values. Here is one possible (made up) distribution:
+\end{ex}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{c c c c c c c}
+$s$ & 1 & 2 & 3 & $\cdots$ & k & $\cdots$ \\
+\hline
+$P[S = s]$ & $\frac{6}{\pi^2}$ & $\frac{1}{2^2}\frac{6}{\pi^2}$ & $\frac{1}{3^2}\frac{6}{\pi^2}$ & $\cdots$ & $\frac{1}{k^2}\frac{6}{\pi^2}$ & $\cdots$
+\end{tabular}
+\end{table}
+
+
+```{r}
+s <- 1/(1:10)^2*(6/pi^2)
+ggplot() +
+  geom_bar(aes(factor(1:10), s), stat = "identity") +
+  xlab("s") + ylab("P[S = s]")
+```
+
+\vspace{1in}
+
+
+
+### Probability mass functions and cumulative distribution functions
+
+The tool most often used to describe a discrete probability distribution is the *probability mass function*.
+
+\vspace{.1in}
+\begin{df}
+A \emph{probability mass function (pmf)} for a discrete random variable $X$, having possible values $x_1, x_2, \dots$, is a non-negative function $f(x)$ with $f(x_1) = P[X = x_1]$, the probability that $X$ takes the value $x_1$.
+\end{df}
+
+\newpage
+
+Properties of a mathematically valid probability mass function:
+
+\begin{enumerate}
+\itemsep .2in
+\item 
+\item
+\end{enumerate}
+
+\vspace{.2in}
+A probability mass function $f(x)$ gives probabilities of occurrence for individual values. Adding the appropriate values gives probabilities associated with the occurrence of multiple values.
+\vspace{.2in}
+
+\begin{ex}[Torque]
+Let $Z = $ the torque, rounded to the nearest integer, required to loosen the next bolt on an apparatus.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{c c c c c c c c c c c }
+$z$ & $11$ & $12$ & $13$ & $14$ & $15$ & $16$ & $17$ & $18$ & $19$ & $20$ \\
+\hline
+$f(z)$ & $0.03$ & $0.03$ & $0.03$ & $0.06$ & $0.26$ & $0.09$ & $0.12$ & $0.20$ & $0.15$ & $0.03$
+\end{tabular}
+\end{table}
+
+Calculate the following probabilities:
+
+\vspace{.2in}
+
+\begin{itemize}
+\itemsep .7in
+\item[] $P(Z \le 14)$
+\item[] $P(Z > 16)$
+\item[] $P(Z \text{ is even})$
+\item[] $P(Z \text{ in } \{15, 16, 18\})$
+\end{itemize}
+\end{ex}
+
+\newpage
+
+Another way of specifying a discrete probability distribution is sometimes used.
+
+\vspace{.2in}
+\begin{df}
+The \emph{cumulative probability distribution (cdf)} for a random variable $X$ is a function $F(x)$ that for each number $x$ gives the probability that $X$ takes that value or a smaller one, $F(x) = P[X \le x]$.
+\end{df}
+\vspace{.2in}
+
+Since (for discrete distributions) probabilities are calculated by summing values of $f(x)$,
+
+$$
+F(x) = P[X \le x] = \sum\limits_{y \le x} f(y)
+$$
+
+\vspace{.2in}
+
+Properties of a mathematically valid cumulative distribution function:
+
+\begin{enumerate}
+\itemsep .2in
+\item 
+\item
+\item
+\item
+\end{enumerate}
+
+\newpage
+
+\begin{ex}[Torque, cont'd]
+
+Let $Z = $ the torque, rounded to the nearest integer, required to loosen the next bolt on an apparatus.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{c c c c c c c c c c c }
+$z$ & $11$ & $12$ & $13$ & $14$ & $15$ & $16$ & $17$ & $18$ & $19$ & $20$ \\
+\hline
+$F(z)$ & $0.03$ & $0.06$ & $0.09$ & $0.15$ & $0.41$ & $0.50$ & $0.62$ & $0.82$ & $0.97$ & $1$
+\end{tabular}
+\end{table}
+
+```{r torque_cdf, fig.show='hide', results='asis'}
+z <- 10:20
+F_z <- c(0, 0.03, 0.06, 0.09, 0.15, 0.41, 0.50, 0.62, 0.82, 0.97, 1)
+
+ggplot() +
+  geom_segment(aes(x = z, xend = z + 1), y = F_z, yend = F_z) +
+  geom_point(aes(z[-1], F_z[-1])) +
+  geom_point(aes(z[-length(z)] + 1, F_z[-length(F_z)]), pch = 1) +
+  ylab(expression("F(z)"))
+```
+\begin{figure}[H]
+\centering
+\includegraphics{05_probability_1_files/figure-latex/torque_cdf-1.pdf}
+\caption{Cdf function for torques.}
+\end{figure}
+
+Calculate the following probabilities using the {\bf cdf only}:
+
+\vspace{.1in}
+
+\begin{itemize}
+\itemsep .7in
+\item[] $F(10.7)$
+\item[] $P(Z \le 15.5)$
+\item[] $P(12.1 < Z \le 14)$
+\item[] $P(15 \le Z < 18)$
+\end{itemize}
+\end{ex}
+
+\newpage
+
+\begin{ex}
+Say we have a random variable $Q$ with pmf:
+
+\begin{table}[H]
+\centering
+\begin{tabular}{c c}
+$q$ & $f(q)$ \\
+\hline
+$1$ & $0.34$ \\
+$2$ & $0.1$ \\
+$3$ & $0.22$ \\
+$7$ & $0.34$
+\end{tabular}
+\end{table}
+
+Draw the cdf.
+\end{ex}
+\newpage
+
+### Summaries
+
+Almost all of the devices for describing relative frequency (empirical) distributions in Ch. 3 have versions that can describe (theoretical) probability distributions.
+
+1. 
+2. 
+3.
+
+\vspace{.5in}
+
+\begin{df}
+The \emph{mean} or \emph{expected value} of a discrete random variable $X$ is
+
+$$
+\text{E}X = \sum\limits_x xf(x)
+$$
+\end{df}
+
+\newpage
+
+\begin{ex}[Roll of a die, cont'd]
+
+Calculate the expected value of a toss of a fair and unfair die.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{c c c c c c c }
+$x$ & 1 & 2 & 3 & 4 & 5 & 6 \\
+\hline
+$P[X = x]$ & $1/6$ & $1/6$ & $1/6$ & $1/6$ & $1/6$ & $1/6$
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{c c c c c c c }
+$y$ & 1 & 2 & 3 & 4 & 5 & 6 \\
+\hline
+$P[Y = y]$ & $5/22$ & $7/44$ & $1/22$ & $7/44$ & $2/11$ & $5/22$
+\end{tabular}
+\end{table}
+\end{ex}
+
+\newpage
+
+\begin{ex}[Torque, cont'd]
+Let $Z = $ the torque, rounded to the nearest integer, required to loosen the next bolt on an apparatus.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{c c c c c c c c c c c }
+$z$ & $11$ & $12$ & $13$ & $14$ & $15$ & $16$ & $17$ & $18$ & $19$ & $20$ \\
+\hline
+$f(z)$ & $0.03$ & $0.03$ & $0.03$ & $0.06$ & $0.26$ & $0.09$ & $0.12$ & $0.20$ & $0.15$ & $0.03$
+\end{tabular}
+\end{table}
+
+Calculate the expected torque required to loosen the next bolt.
+\end{ex}
+
+\vspace{3in}
+
+\begin{df}
+The \emph{variance} of a discrete random variable $X$ is
+$$
+\text{Var}X = \sum\limits_x(x - \text{E}X)^2f(x) = \sum\limits_x x^2f(x) - (\text{E}X)^2.
+$$
+The \emph{standard deviation} of $X$ is $\sqrt{\text{Var}X}$. 
+\end{df}
+\newpage
+
+\begin{ex}
+Say we have a random variable $Q$ with pmf:
+
+\begin{table}[H]
+\centering
+\begin{tabular}{c c}
+$q$ & $f(q)$ \\
+\hline
+$1$ & $0.34$ \\
+$2$ & $0.1$ \\
+$3$ & $0.22$ \\
+$7$ & $0.34$
+\end{tabular}
+\end{table}
+
+Calculate the variance and the standard deviation.
+\end{ex}
+
+\newpage
+
+\begin{ex}[Roll of a die, cont'd]
+Calculate the variance and standard deviation of a roll of a fair die.
+\end{ex}
+
+\vspace{4in}
+
+### Special discrete distributions
+
+Discrete probability distributions are sometimes developed from past experience with a particular physical phenomenon. 
+
+On the other hand, sometimes an easily manipulated set of mathematical assumptions having the potential to describe a variety of real situations can be put together.
+
+One set of assumptions is that of independent identical success-failure trials where
+
+1. 
+2.
+
+\newpage
+
+Consider a variable
+$$
+X = \text{ the number of successes in } n  \text{ independent identicall success-failure trials}
+$$
+
+\begin{df}
+The \emph{binomial($n, p$) distribution} is a discrete probability distribution with pmf
+$$
+f(x) = \left\{\begin{matrix}\frac{n!}{x!(n-x)!} p^x (1-p)^{n -x} & x = 0, 1, \dots, n \\ 0 & \text{otherwise}\end{matrix}\right.
+$$
+for $n$ a positive integer and $0 < p < 1$.
+\end{df}
+
+Examples that could follow a binomial($n, p$) distribution:
+
+\vspace{2in}
+
+```{r, fig.height = 4}
+expand.grid(n = c(5, 10, 20), p = c(.2, .5, .8)) %>%
+  group_by(n, p) %>%
+  do(data.frame(data = rbinom(200, .$n, .$p))) %>%
+  ggplot() +
+  geom_histogram(aes(data), binwidth = 1) +
+  facet_grid(n ~ p)
+```
+
+\newpage
+
+For $X$ a binomial($n, p$) random variable,
+\begin{align*}
+\mu &= \text{E}X = \sum\limits_{x = 0}^n x \frac{n!}{x!(n-x)!}p^x(1-p)^{n-x}) = np \\
+\sigma^2 &= \text{Var}X = \sum\limits_{x = 0}^n (x-np)^2 \frac{n!}{x!(n-x)!}p^x(1-p)^{n-x}) = np(1-p)
+\end{align*}
+
+\begin{ex}[10 component machine]
+Suppose you have a machine with 10 independent components in series. The machine only works if all the components work. Each component succeeds with probability $p = 0.95$ and fails with probability $1 - p = 0.05$.
+
+Let $Y$ be the number of components that succeed in a given run of the machine. Then
+$$
+Y \sim  \text{Binomial}(n = 10, p = 0.95)
+$$
+Question: what is the probability of the machine working properly?
+\end{ex}
+
+\newpage
+
+\begin{ex}[10 component machine, cont'd]
+What if I arrange these 10 components in parallel? This machine succeeds if at least 1 of the components succeeds.
+
+What is the probability that the new machine succeeds?
+\end{ex}
+
+\vspace{5in}
+
+\begin{ex}[10 component machine, cont'd]
+Calculate the expected number of components to succeed and the variance.
+\end{ex}
+
+\newpage
+
+Consider a variable
+$$
+X = \text{ the number of trials required to first obtain a success result }
+$$
+
+\begin{df}
+The \emph{geometric($p$) distribution} is a discrete probability distribution with pmf
+$$
+f(x) = \left\{\begin{matrix}p(1-p)^{x-1} & x = 0, 1, \dots \\ 0 & \text{otherwise}\end{matrix}\right.
+$$
+for $0 < p < 1$.
+\end{df}
+
+Examples that could follow a binomial($n, p$) distribution:
+
+\vspace{2in}
+
+```{r, fig.height = 4}
+expand.grid(p = c(.2, .5, .8)) %>%
+  group_by(p) %>%
+  do(data.frame(data = rgeom(200, .$p))) %>%
+  ggplot() +
+  geom_histogram(aes(data), binwidth = 1) +
+  facet_grid(~ p)
+```
+
+\newpage
+
+For $X$ a geometric($p$) random variable,
+\begin{align*}
+\mu &= \text{E}X = \sum\limits_{x = 0}^n x p(1-p)^{x-1} = \frac{1}{p} \\
+\sigma^2 &= \text{Var}X = \sum\limits_{x = 0}^n \left(x-\frac{1}{p}\right)^2 p(1-p)^{x-1} = \frac{1-p}{p^2}
+\end{align*}
+
+
+Cdf derivation:
+\newpage
+
+\begin{ex}[NiCad batteries]
+An experimental program was successful in reducing the percentage of manufactured NiCad cells with internal shorts to around 1%. Let $T$ be the test number at which the first short is discovered. Then, $T \sim \text{Geom}(p)$.
+
+Calculate
+
+\begin{itemize}
+\itemsep 2in
+\item[] $P(\text{1st or 2nd cell tested has the 1st short})$
+\item[] $P(\text{at least 50 cells tested w/o finding a short})$
+\end{itemize}
+
+\vspace{2in}
+Calculate the expected test number at which the first short is discovered and the variance in test numbers at which the first short is discovered.
+\end{ex}
+
+\newpage
+
+It's often important to keep track of the total number of occurrences of some relatively rare phenomenon.
+
+Consider a variable
+$$
+X = \text{ the count of occurences of a phenomenon across a specified interval of time or space }
+$$
+
+\begin{df}
+The \emph{Poisson($\lambda$) distribution} is a discrete probability distribution with pmf
+$$
+f(x) = \left\{\begin{matrix}\frac{e^{-\lambda}\lambda^x}{x!} & x = 0, 1, \dots \\ 0 & \text{otherwise}\end{matrix}\right.
+$$
+for $\lambda > 0$.
+\end{df}
+
+These occurrences must:
+
+1.
+2.
+3.
+
+\vspace{1in}
+
+Examples that could follow a Poisson($\lambda$) distribution:
+
+\vspace{2in}
+
+```{r, fig.height = 4}
+expand.grid(lambda = c(0.5, 2, 5)) %>%
+  group_by(lambda) %>%
+  do(data.frame(data = rpois(200, .$lambda))) %>%
+  ggplot() +
+  geom_histogram(aes(data), binwidth = 1) +
+  facet_grid(~ lambda)
+```
+\vspace{.5in}
+
+For $X$ a Poisson($\lambda$) random variable,
+\begin{align*}
+\mu &= \text{E}X = \sum\limits_{x = 0}^n x \frac{e^{-\lambda}\lambda^x}{x!} = \lambda \\
+\sigma^2 &= \text{Var}X = \sum\limits_{x = 0}^n \left(x-\lambda\right)^2 \frac{e^{-\lambda}\lambda^x}{x!} = \lambda
+\end{align*}
+
+\newpage
+
+\begin{ex}[Arrivals at the library]
+Some students' data indicate that between 12:00 and 12:10pm on Monday through Wednesday, an average of around 125 students entered Parks Library at ISU. Consider modeling
+$$
+M = \text{the number of students entering the ISU library between 12:00 and 12:01pm next Tuesday}
+$$
+Model $M \sim \text{Poisson}(\lambda)$. What would a reasonable choice of $\lambda$ be?
+
+\vspace{1in}
+
+Under this model, the probability that between $10$ and $15$ students arrive at the library between 12:00 and 12:01 PM is:
+
+\end{ex}
+
+\newpage
+
+\begin{ex}[Shark attacks]
+Let $X$ be the number of unprovoked shark attacks that will occur off the coast of Florida next year. Model $X \sim \text{Poisson}(\lambda)$. From the shark data at http://www.flmnh.ufl.edu/fish/sharks/statistics/FLactivity.htm, 246 unprovoked shark attacks occurred from 2000 to 2009.
+
+What would a reasonable choice of $\lambda$ be?
+
+\vspace{1in}
+
+Under this model, calculate the following:
+
+\begin{itemize}
+\itemsep 1.5in
+\item[]$P[\text{no attacks next year}]$
+\item[]$P[\text{at least 5 attacks}]$
+\item[]$P[\text{more than 10 attacks}]$
+\end{itemize}
+
+\end{ex}

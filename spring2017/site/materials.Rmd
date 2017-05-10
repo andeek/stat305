@@ -1,0 +1,98 @@
+<br/>
+
+# Lectures
+
+[Carver Hall 0274](http://www.fpm.iastate.edu/roomscheduling/room.asp?room_id=51)  
+Mon Tue Wed Thu Fri 9:50 AM - 10:50 AM
+No class on Mon, May 29 or Tues, July 4 (University Holiday).   
+
+<iframe src="https://calendar.google.com/calendar/embed?src=iastate.edu_car6h4lm1hgecaiejjuehb3r1c%40group.calendar.google.com&amp;mode=WEEK&amp;height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;ctz=America%2FChicago" style="border-width:0" width="600" height="400" frameborder="0" scrolling="no"></iframe>
+
+# Topics
+
+Week | Topic | Blank Notes | Filled Notes | Comments
+--- | ---------------------- | -------- | -------- | -------- 
+1  | Introduction, Data collection, Descriptive statistics (Ch. 1-2, 3.1-3.2) |  |  |
+2  | Descriptive statistics, Line fitting (Ch. 3.2-3.4, 4.1) |  |  |
+3  | Curve and surface fitting, Random variables (Ch. 4.2, 5.1) |  |  |
+4  | Random variables (Ch. 5.2, 5.4) |  |  |
+5  | Random variables (Ch. 5.4, 5.5) |  |  |
+6  | Simple inference, (Ch. 6.1-6.2) |  |  |
+7  | Hypothesis testing, Inference for SLR (Ch.6.3, 6.6, 9.1) |  |  |   
+8  | Inference for MLR (Ch. 9.2) |  |  | 
+
+# Homework
+
+1. [Homework 1](homework/01.pdf) - due May 22
+<!--
+2. [Homework 2](homework/02.pdf) - due May 30
+3. [Homework 3](homework/03.pdf) - due June 2
+4. [Homework 4](homework/04.pdf) - due June 12
+5. [Homework 5](homework/05.pdf) - due June 19
+6. [Homework 6](homework/06.pdf) - due June 23
+7. [Homework 7](homework/07.pdf) - due July 3 
+-->
+
+# Exams
+
+Exams will be held on the evening (6 - 8pm) of the follwing dates. On exam days there will be no in-class lecture. If you have a conflict, please notify the instructor at least **one week in advance** to reschedule.
+
+```{r, echo=FALSE}
+exams <- data.frame(Exam = c("Exam 1", "Exam 2", "Final Exam**"),
+                    Date = c("June 5", "June 26", "July 7"),
+                    Location = c("Carver 0274", "Carver 0274", "Carver 0274"),
+                    Topics = c("Ch. 1-3", "Ch. 4-5", "Ch. 1-6, 9"))
+
+knitr::kable(exams)
+```
+
+<!--
+### Exam 1
+
+[Topic outline](exams/practice/exam_1_topics.pdf)  
+[Practice exam](exams/practice/exam_1_practice.pdf)
+
+### Exam 2
+
+[Topic outline](exams/practice/exam_2_topics.pdf)  
+[Practice exam](exams/practice/exam_2_practice.pdf)
+
+### Final Exam
+
+[Topic outline](exams/practice/exam_3_topics.pdf)  
+[Practice exam](exams/practice/exam_3_practice.pdf)
+-->
+
+# JMP
+
+[Installation instructions](admin/jmp_install.pdf)
+
+# Tables
+
+[Random digits](tables/random-digits.pdf)  
+
+<!--
+[Standard Normal cumulative probabilities](tables/standard-normal.pdf)  
+[Student's t quantiles](tables/t.pdf)
+-->
+
+# Data
+[bullets.csv](data/bullets.csv)    
+[cars.csv](data/cars.csv)   
+[gears.csv](data/gears.csv)   
+[paper.csv](data/paper.csv)  
+
+<!--
+[bolts.csv](data/bolts.csv)  
+[cylinders.csv](data/cylinders.csv)    
+[officehours.csv](data/officehours.csv)  
+[orangetrees.csv](data/orangetrees.csv)   
+[plastics.csv](data/plastics.csv)  
+[polyols.csv](data/polyols.csv)  
+[pulp.csv](data/pulp.csv)  
+[rivers.csv](data/rivers.csv)  
+[stackloss.csv](data/stackloss.csv)  
+[tool_life.csv](data/tool_life.csv)  
+[tool_life_full.csv](data/tool_life_full.csv)  
+[towels.csv](data/towels.csv)
+-->

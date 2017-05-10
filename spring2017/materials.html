@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<title></title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-1.1/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-1.1/highlight.js"></script>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs && document.readyState && document.readyState === "complete") {
+   window.setTimeout(function() {
+      hljs.initHighlighting();
+   }, 0);
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+
+
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Stat 305 C Engineering Statistics</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Syllabus</a>
+</li>
+<li>
+  <a href="materials.html">Materials</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+
+</div>
+
+
+<p><br/></p>
+<div id="lectures" class="section level1">
+<h1>Lectures</h1>
+<p><a href="http://www.fpm.iastate.edu/roomscheduling/room.asp?room_id=51">Carver Hall 0274</a><br />
+Mon Tue Wed Thu Fri 9:50 AM - 10:50 AM No class on Mon, May 29 or Tues, July 4 (University Holiday).</p>
+<iframe src="https://calendar.google.com/calendar/embed?src=iastate.edu_car6h4lm1hgecaiejjuehb3r1c%40group.calendar.google.com&amp;mode=WEEK&amp;height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;ctz=America%2FChicago" style="border-width:0" width="600" height="400" frameborder="0" scrolling="no">
+</iframe>
+</div>
+<div id="topics" class="section level1">
+<h1>Topics</h1>
+<table style="width:75%;">
+<colgroup>
+<col width="5%" />
+<col width="31%" />
+<col width="12%" />
+<col width="12%" />
+<col width="12%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Week</th>
+<th>Topic</th>
+<th>Blank Notes</th>
+<th>Filled Notes</th>
+<th>Comments</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Introduction, Data collection, Descriptive statistics (Ch. 1-2, 3.1-3.2)</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Descriptive statistics, Line fitting (Ch. 3.2-3.4, 4.1)</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>Curve and surface fitting, Random variables (Ch. 4.2, 5.1)</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>Random variables (Ch. 5.2, 5.4)</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>Random variables (Ch. 5.4, 5.5)</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>Simple inference, (Ch. 6.1-6.2)</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>Hypothesis testing, Inference for SLR (Ch.6.3, 6.6, 9.1)</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>Inference for MLR (Ch. 9.2)</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="homework" class="section level1">
+<h1>Homework</h1>
+<ol style="list-style-type: decimal">
+<li><a href="homework/01.pdf">Homework 1</a> - due May 22 <!--
+2. [Homework 2](homework/02.pdf) - due May 30
+3. [Homework 3](homework/03.pdf) - due Feb. 2
+4. [Homework 4](homework/04.pdf) - due June 12
+5. [Homework 5](homework/05.pdf) - due June 19
+6. [Homework 6](homework/06.pdf) - due July 3 
+--></li>
+</ol>
+</div>
+<div id="exams" class="section level1">
+<h1>Exams</h1>
+<p>Exams will be held on the evening (6 - 8pm) of the follwing dates. On exam days there will be no in-class lecture. If you have a conflict, please notify the instructor at least <strong>one week in advance</strong> to reschedule.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Exam</th>
+<th align="left">Date</th>
+<th align="left">Location</th>
+<th align="left">Topics</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Exam 1</td>
+<td align="left">June 5</td>
+<td align="left">Carver 0274</td>
+<td align="left">Ch. 1-3</td>
+</tr>
+<tr class="even">
+<td align="left">Exam 2</td>
+<td align="left">June 26</td>
+<td align="left">Carver 0274</td>
+<td align="left">Ch. 4-5</td>
+</tr>
+<tr class="odd">
+<td align="left">Final Exam**</td>
+<td align="left">July 7</td>
+<td align="left">Carver 0274</td>
+<td align="left">Ch. 1-6, 9</td>
+</tr>
+</tbody>
+</table>
+<!--
+### Exam 1
+
+[Topic outline](exams/practice/exam_1_topics.pdf)  
+[Practice exam](exams/practice/exam_1_practice.pdf)
+
+### Exam 2
+
+[Topic outline](exams/practice/exam_2_topics.pdf)  
+[Practice exam](exams/practice/exam_2_practice.pdf)
+
+### Final Exam
+
+[Topic outline](exams/practice/exam_3_topics.pdf)  
+[Practice exam](exams/practice/exam_3_practice.pdf)
+-->
+</div>
+<div id="jmp" class="section level1">
+<h1>JMP</h1>
+<p><a href="admin/jmp_install.pdf">Installation instructions</a></p>
+</div>
+<div id="tables" class="section level1">
+<h1>Tables</h1>
+<p><a href="tables/random-digits.pdf">Random digits</a></p>
+<!--
+[Standard Normal cumulative probabilities](tables/standard-normal.pdf)  
+[Student's t quantiles](tables/t.pdf)
+-->
+</div>
+<div id="data" class="section level1">
+<h1>Data</h1>
+<p><a href="data/bullets.csv">bullets.csv</a><br />
+<a href="data/cars.csv">cars.csv</a><br />
+<a href="data/gears.csv">gears.csv</a><br />
+<a href="data/paper.csv">paper.csv</a></p>
+<!--
+[bolts.csv](data/bolts.csv)  
+[cylinders.csv](data/cylinders.csv)    
+[officehours.csv](data/officehours.csv)  
+[orangetrees.csv](data/orangetrees.csv)   
+[plastics.csv](data/plastics.csv)  
+[polyols.csv](data/polyols.csv)  
+[pulp.csv](data/pulp.csv)  
+[rivers.csv](data/rivers.csv)  
+[stackloss.csv](data/stackloss.csv)  
+[tool_life.csv](data/tool_life.csv)  
+[tool_life_full.csv](data/tool_life_full.csv)  
+[towels.csv](data/towels.csv)
+-->
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
