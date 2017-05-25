@@ -13,7 +13,7 @@ No class on Mon, May 29 or Tues, July 4 (University Holiday).
 Week | Topic | Blank Notes | Filled Notes | Comments
 --- | ---------------------- | -------- | -------- | -------- 
 1  | Introduction, Data collection, Descriptive statistics (Ch. 1-2, 3.1-3.2) | [Ch. 1](notes/blank/01_introduction.pdf) <br/> [Ch. 2](notes/blank/02_collection.pdf) <br/> [Ch. 3](notes/blank/03_descriptive.pdf) | [Monday](notes/filled/05_15_2017_01.pdf) [Tuesday pt. 1](notes/filled/05_16_2017_01.pdf) [Tuesday pt. 2](notes/filled/05_16_2017_02.pdf) [Wednesday](notes/filled/05_17_2017_01.pdf) [Thursday pt. 1](notes/filled/05_18_2017_01.pdf) [Thursday pt. 2](notes/filled/05_18_2017_02.pdf) [Friday](notes/filled/05_19_2017_01.pdf) | [Homework 1](homework/01.pdf) assigned
-2  | Descriptive statistics, Line fitting (Ch. 3.2-3.4, 4.1) |  | [Monday](notes/filled/05_22_2017_01.pdf) [Tuesday](notes/filled/05_23_2017_01.pdf) | [Homework 2](homework/02.pdf) assigned
+2  | Descriptive statistics, Line fitting (Ch. 3.2-3.4, 4.1) |  | [Monday](notes/filled/05_22_2017_01.pdf) [Tuesday](notes/filled/05_23_2017_01.pdf) [Wednesday pt. 1](notes/filled/05_24_2017_01.pdf) [Wednesday pt. 2](notes/filled/05_24_2017_02.pdf) | [Homework 2](homework/02.pdf) assigned
 3  | Curve and surface fitting, Random variables (Ch. 4.2, 5.1) |  |  |
 4  | Random variables (Ch. 5.2, 5.4) |  |  |
 5  | Random variables (Ch. 5.4, 5.5) |  |  |
