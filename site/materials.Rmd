@@ -14,7 +14,7 @@ Week | Topic | Blank Notes | Filled Notes | Comments
 --- | ---------------------- | -------- | -------- | -------- 
 1  | Introduction, Data collection, Descriptive statistics (Ch. 1-2, 3.1-3.2) | [Ch. 1](notes/blank/01_introduction.pdf) <br/> [Ch. 2](notes/blank/02_collection.pdf) <br/> [Ch. 3](notes/blank/03_descriptive.pdf) | [Monday](notes/filled/05_15_2017_01.pdf) [Tuesday pt. 1](notes/filled/05_16_2017_01.pdf) [Tuesday pt. 2](notes/filled/05_16_2017_02.pdf) [Wednesday](notes/filled/05_17_2017_01.pdf) [Thursday pt. 1](notes/filled/05_18_2017_01.pdf) [Thursday pt. 2](notes/filled/05_18_2017_02.pdf) [Friday](notes/filled/05_19_2017_01.pdf) | [Homework 1](homework/01.pdf) assigned
 2  | Descriptive statistics, Line fitting (Ch. 3.2-3.4, 4.1) | [Ch. 4](notes/blank/04_relationships.pdf) <br/> | [Monday](notes/filled/05_22_2017_01.pdf) [Tuesday](notes/filled/05_23_2017_01.pdf) [Wednesday pt. 1](notes/filled/05_24_2017_01.pdf) [Wednesday pt. 2](notes/filled/05_24_2017_02.pdf) [Thursday](notes/filled/05_25_2017_01.pdf) [Friday](notes/filled/05_26_2017_01.pdf)| [Homework 2](homework/02.pdf) assigned
-3  | Curve and surface fitting, Random variables (Ch. 4.2, 5.1) |  |  |
+3  | Curve and surface fitting, Random variables (Ch. 4.2, 5.1) |  |  | [Homework 3](homework/02.pdf) assigned
 4  | Random variables (Ch. 5.2, 5.4) |  |  |
 5  | Random variables (Ch. 5.4, 5.5) |  |  |
 6  | Simple inference, (Ch. 6.1-6.2) |  |  |
@@ -25,8 +25,8 @@ Week | Topic | Blank Notes | Filled Notes | Comments
 
 1. [Homework 1](homework/01.pdf) - due May 22
 2. [Homework 2](homework/02.pdf) - due May 30
-<!--
 3. [Homework 3](homework/03.pdf) - due June 2
+<!--
 4. [Homework 4](homework/04.pdf) - due June 12
 5. [Homework 5](homework/05.pdf) - due June 19
 6. [Homework 6](homework/06.pdf) - due June 23
@@ -46,12 +46,13 @@ exams <- data.frame(Exam = c("Exam 1", "Exam 2", "Final Exam**"),
 knitr::kable(exams)
 ```
 
-<!--
+
 ### Exam 1
 
 [Topic outline](exams/practice/exam_1_topics.pdf)  
 [Practice exam](exams/practice/exam_1_practice.pdf)
 
+<!--
 ### Exam 2
 
 [Topic outline](exams/practice/exam_2_topics.pdf)  
@@ -86,14 +87,12 @@ knitr::kable(exams)
 [officehours.csv](data/officehours.csv)  
 [orangetrees.csv](data/orangetrees.csv)   
 [paper.csv](data/paper.csv)  
-[polyols.csv](data/polyols.csv)  
-[tool_life.csv](data/tool_life.csv)  
-
-<!--
 [plastics.csv](data/plastics.csv)  
 [pulp.csv](data/pulp.csv)  
 [rivers.csv](data/rivers.csv)  
 [stackloss.csv](data/stackloss.csv)  
+[polyols.csv](data/polyols.csv)  
+[tool_life.csv](data/tool_life.csv)  
 [tool_life_full.csv](data/tool_life_full.csv)  
 [towels.csv](data/towels.csv)
--->
+
