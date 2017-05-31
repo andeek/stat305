@@ -106,7 +106,7 @@ Exams will be held on the evening (6 - 8pm) of the follwing dates. On exam days 
 ```{r, echo=FALSE}
 exams <- data.frame(Exam = c("Exam 1", "Exam 2", "Final Exam**"),
                     Date = c("June 5", "June 26", "July 7"),
-                    Location = c("Carver 0274", "Carver 0274", "Carver 0274"),
+                    Location = c("Gilman 2272", "Carver 0274", "Carver 0274"),
                     Topics = c("Ch. 1-4", "Ch. 5", "Ch. 1-6, 9"))
 
 knitr::kable(exams)
