@@ -18,7 +18,7 @@ knitr::opts_chunk$set(echo=FALSE, message=FALSE, warning=FALSE, fig.height = 2)
 theme_set(theme_bw(base_family = "serif"))
 ```
 
-1. [Ch. 4.2, Exercise 1, pg. 161] Return to Homework 4, #1 (Exercise 3 of Section 4.1 on pg. 140 of the textbook). Fit a quadratic relationship $y \approx \beta_0 + \beta_1 x + \beta_2 x^2$ to the data via least squares. By appropriately plotting residuals and examining $R^2$ values, determine the advisability of using a quadratic rather than a linear equation to describe the relationship between $x$ and $y$. If a quadratic fitted equation is used, how does the predicted mean molecular weight at $200$°C compare to that obtained in part e) of the earlier exercise?
+1. [Ch. 4.2, Exercise 1, pg. 161] Return to Homework 2, #5 (Exercise 3 of Section 4.1 on pg. 140 of the textbook). Fit a quadratic relationship $y \approx \beta_0 + \beta_1 x + \beta_2 x^2$ to the data via least squares. By appropriately plotting residuals and examining $R^2$ values, determine the advisability of using a quadratic rather than a linear equation to describe the relationship between $x$ and $y$. If a quadratic fitted equation is used, how does the predicted mean molecular weight at $200$°C compare to that obtained in part e) of the earlier exercise?
 
 1. [Ch. 4.2, Exercise 2, pg. 161] Here are some data (also on website as `pulp.csv`) taken from the article "Chemithermomechanical Pulp from Mixed High Density Hardwoods" by Miller, Shankar, and Peterson (*Tappi Journal*, 1988). Given are the percent NaOH used as a pretreatment chemical, $x_1$, the pretreatment time in minutes, $x_2$, and the resulting value of a specific surface area variable, $y$ (with units of $\text{cm}^2$/g), for nine batches of pulp produced from a mixture of hardwoods at a treatment temperature of $75$°C in mechanical pulping.
 
@@ -44,7 +44,7 @@ theme_set(theme_bw(base_family = "serif"))
     
     h) What terminology (for data structures) introduced in section 1.2 describes this data set? It turns out that since the data set has this special structure and all nine sample sizes are the same (i.e., all are $1$), some special relationships hold between the equation fit in a) and what you get by separately fitting linear equations in $x_1$ and $x_2$ to the $y$ data. Fit such one-variable linear equations and compare coefficients and $R^2$ values to what you obtained in a). What relationships exist between these?
     
-1. [Ch. 4, Exercise 12, pg. 208] The article referred to in Homework 4, #2 (Ch. 4.1 Exercise 4, pg. 140) actually considers the effects of both cutting speed and feed rate on tool life. The whole data set from the article follows and is on the website as `tool_life_full.csv`. (The data for the previous assignment are the $x_2 = .01725$ data only.)
+1. [Ch. 4, Exercise 12, pg. 208] The article referred to in Homework 2, #6 (Ch. 4.1 Exercise 4, pg. 140) actually considers the effects of both cutting speed and feed rate on tool life. The whole data set from the article follows and is on the website as `tool_life_full.csv`. (The data for the previous assignment are the $x_2 = .01725$ data only.)
 
     ```{r}
     tool_life_full <- read_csv("../data/tool_life_full.csv")
