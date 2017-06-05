@@ -84,33 +84,3 @@ theme_set(theme_bw(base_family = "serif"))
     d) Compute and graph the cumulative probability distribution function for $X$, $F(x)$.
     e) Calculate $\text{E}X$ and the standard deviation of $X$.
     
-1. The mileage to first failure for a model of military personnel carrier can be modeled as exponential with mean $1,000$ miles.
-    a) Evaluate the probability that a vehicle of this type gives less than $500$ miles of service before first failure. Evaluate the probability that a vehicle of this type gives less than $2000$ miles of service before first failure. 
-    b) Find the $.05$ quantile of the distribution of mileage to first failure. Then find the $.9$ quantile of the distribution.
-    
-1. [Ch. 5.2, Exercise 2, pg. 263] Suppose that $Z$ is a standard normal random variable. Evaluate the following probabilities involving $Z$:
-    a) $P[Z < -.62]$
-    a) $P[Z > 1.06]$
-    a) $P[-.37 < Z < .51]$
-    a) $P[|Z| \le .47]$
-    a) $P[|Z| > .93]$
-    a) $P[-3.0 < Z < 3.0]$
-    
-    Now find numbers # such that the following statements involving $Z$ are true:
-    
-    g) $P[Z \le \#] = .90$
-    g) $P[|Z| \le \#] = .90$
-    g) $P[|Z| > \#] = .03$
-    
-1. [Ch. 5.2, Exercise 3, pg. 263] Suppose that $X$ is a normal random variable with mean $43$ and standard deviation $3.6$. Evaluate the following probabilities involving $X$:
-    a) $P[X < 45.2]$
-    a) $P[X \le 41.7]$
-    a) $P[43.8 < X \le 47.0]$
-    a) $P[|X - 43| \le 2]$
-    a) $P[|X - 43| > 1.7]$
-    
-    Now find numbers # such that the following statements involving $X$ are true:
-    
-    f) $P[X < \#] = .95$
-    g) $P[X \ge \#] = .30$
-    h) $P[|X - 43| > \#] = .05$
