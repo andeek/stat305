@@ -18,6 +18,7 @@ knitr::opts_chunk$set(echo=FALSE, message=FALSE, warning=FALSE, fig.height = 2)
 theme_set(theme_bw(base_family = "serif"))
 ```
 
+
 1. [Ch. 6.1, Exercise 2, pg. 344] We have a data set consisting of the aluminum contents of 26 bihourly samples of recycled PET plastic from a recycling facility. Those 26 measurements have $\overline{y} = 142.77$ ppm and $s \approx 98.2$ ppm. Use these facts to respond to the following.
     a) Make a 90% two-sided confidence interval for the mean aluminum content of such speciments over the whole study period.
     b) Make a 95% two-sided confidence interval for the mean aluminum content of such speciments over the whole study period. How does this compare to your answer in part a)?
