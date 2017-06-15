@@ -31,6 +31,7 @@ Week | Topic | Blank Notes | Filled Notes | Comments
 <!--
 6. [Homework 6](homework/06.pdf) - due June 23
 7. [Homework 7](homework/07.pdf) - due July 3 
+8. [Homework 8](homework/08.pdf) - due July 7 
 -->
 
 # Exams
