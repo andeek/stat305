@@ -16,8 +16,8 @@ Week | Topic | Blank Notes | Filled Notes | Comments
 2  | Descriptive statistics, Line fitting (Ch. 3.2-3.4, 4.1) | [Ch. 4](notes/blank/04_relationships.pdf) <br/> | [Monday](notes/filled/05_22_2017_01.pdf) <br/> [Tuesday](notes/filled/05_23_2017_01.pdf) <br/> [Wednesday pt. 1](notes/filled/05_24_2017_01.pdf) <br/> [Wednesday pt. 2](notes/filled/05_24_2017_02.pdf) <br/> [Thursday](notes/filled/05_25_2017_01.pdf) <br/> [Friday](notes/filled/05_26_2017_01.pdf)| [Homework 2](homework/02.pdf) assigned
 3  | Curve and surface fitting, Random variables (Ch. 4.2, 5.1) | [Ch. 5](notes/blank/05_probability.pdf) <br/> | [Tuesday](notes/filled/05_30_2017_01.pdf) <br/> [Wednesday pt. 1](notes/filled/05_31_2017_01.pdf) <br/> [Wednesday pt. 2](notes/filled/05_31_2017_02.pdf) <br/> [Thursday](notes/filled/06_01_2017_01.pdf) <br/> [Friday](notes/filled/06_02_2017_01.pdf) <br/>| [Homework 3](homework/03.pdf) assigned
 4  | Random variables (Ch. 5.2, 5.4) |  | [Tuesday](notes/filled/06_06_2017_01.pdf) <br/> [Wednesday](notes/filled/06_07_2017_01.pdf) <br/> [Thursday](notes/filled/06_08_2017_01.pdf) <br/> [Friday](notes/filled/06_09_2017_01.pdf) <br/> | [Homework 4](homework/04.pdf) assigned
-5  | Random variables (Ch. 5.4, 5.5) |  | [Monday](notes/filled/06_12_2017_01.pdf) <br/> [Tuesday](notes/filled/06_13_2017_01.pdf) <br/> [Wednesday](notes/filled/06_14_2017_01.pdf) <br/> [Thursday](notes/filled/06_15_2017_01.pdf) <br/> [Friday](notes/filled/06_16_2017_01.pdf) <br/>| [Homework 5](homework/05.pdf) assigned
-6  | Simple inference, (Ch. 6.1-6.2) |  |  |
+5  | Random variables (Ch. 5.4) |  | [Monday](notes/filled/06_12_2017_01.pdf) <br/> [Tuesday](notes/filled/06_13_2017_01.pdf) <br/> [Wednesday](notes/filled/06_14_2017_01.pdf) <br/> [Thursday](notes/filled/06_15_2017_01.pdf) <br/> [Friday](notes/filled/06_16_2017_01.pdf) <br/>| [Homework 5](homework/05.pdf) assigned
+6  | Central Limit Theorem, Simple inference, (Ch. 5.5, 6.1-6.2) |  |  | [Homework 6](homework/06.pdf) assigned
 7  | Hypothesis testing, Inference for SLR (Ch.6.3, 6.6, 9.1) |  |  |   
 8  | Inference for MLR (Ch. 9.2) |  |  | 
 
@@ -28,8 +28,8 @@ Week | Topic | Blank Notes | Filled Notes | Comments
 3. [Homework 3](homework/03.pdf) - due June 2
 4. [Homework 4](homework/04.pdf) - due June 12
 5. [Homework 5](homework/05.pdf) - due June 19
-<!--
 6. [Homework 6](homework/06.pdf) - due June 23
+<!--
 7. [Homework 7](homework/07.pdf) - due July 3 
 8. [Homework 8](homework/08.pdf) - due July 7 
 -->
@@ -51,14 +51,15 @@ knitr::kable(exams)
 ### Exam 1
 
 [Topic outline](exams/practice/exam_1_topics.pdf)  
-[Practice exam](exams/practice/exam_1_practice.pdf)
+[Practice problems](exams/practice/exam_1_practice.pdf)
 
-<!--
+
 ### Exam 2
 
 [Topic outline](exams/practice/exam_2_topics.pdf)  
-[Practice exam](exams/practice/exam_2_practice.pdf)
+[Practice problems](exams/practice/exam_2_practice.pdf)
 
+<!--
 ### Final Exam
 
 [Topic outline](exams/practice/exam_3_topics.pdf)  
@@ -72,11 +73,9 @@ knitr::kable(exams)
 # Tables
 
 [Random digits](tables/random-digits.pdf)  
-
-<!--
 [Standard Normal cumulative probabilities](tables/standard-normal.pdf)  
 [Student's t quantiles](tables/t.pdf)
--->
+
 
 # Data
 [bolts.csv](data/bolts.csv)  
