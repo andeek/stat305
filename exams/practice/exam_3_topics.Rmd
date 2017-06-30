@@ -15,7 +15,6 @@ The final exam is comprehensive, so all topics from Exam 1 and Exam 2 are also r
     - All the above using:
         i) Confidence intervals
         i) Critical values & p-values
-        i) Prediction intervals
 3. Inference for paired data under all the conditions in pt 2. (Ch. 6.3)
 4. Inference for 2-sample data under all the conditions in pt 2 for each sample (Ch. 6.3)
 5. Inference for simple linear regression (Ch. 9.1)

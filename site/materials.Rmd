@@ -18,8 +18,8 @@ Week | Topic | Blank Notes | Filled Notes | Comments
 4  | Random variables (Ch. 5.2, 5.4) |  | [Tuesday](notes/filled/06_06_2017_01.pdf) <br/> [Wednesday](notes/filled/06_07_2017_01.pdf) <br/> [Thursday](notes/filled/06_08_2017_01.pdf) <br/> [Friday](notes/filled/06_09_2017_01.pdf) <br/> | [Homework 4](homework/04.pdf) assigned
 5  | Random variables (Ch. 5.4) |  | [Monday](notes/filled/06_12_2017_01.pdf) <br/> [Tuesday](notes/filled/06_13_2017_01.pdf) <br/> [Wednesday](notes/filled/06_14_2017_01.pdf) <br/> [Thursday](notes/filled/06_15_2017_01.pdf) <br/> [Friday](notes/filled/06_16_2017_01.pdf) <br/>| [Homework 5](homework/05.pdf) assigned
 6  | Central Limit Theorem, Simple inference, (Ch. 5.5, 6.1-6.2) | [Ch. 6](notes/blank/06_inference.pdf) <br/> | [Monday](notes/filled/06_19_2017_01.pdf) <br/> [Tuesday pt. 1](notes/filled/06_20_2017_01.pdf) <br/> [Tuesday pt. 2](notes/filled/06_20_2017_02.pdf) <br/> [Wednesday](notes/filled/06_21_2017_01.pdf) <br/>  [Thursday](notes/filled/06_22_2017_01.pdf) <br/> [Friday](notes/filled/06_23_2017_01.pdf) <br/> | [Homework 6](homework/06.pdf) assigned
-7  | Hypothesis testing, Inference for SLR (Ch.6.3, 6.6, 9.1) |  | [Tuesday](notes/filled/06_27_2017_01.pdf) <br/> [Wednesday](notes/filled/06_28_2017_01.pdf) <br/> [Thursday](notes/filled/06_29_2017_01.pdf) <br/> | [Homework 7](homework/07.pdf) assigned
-8  | Inference for MLR (Ch. 9.2) |  |  | 
+7  | Hypothesis testing (Ch.6.3, 6.6) |  | [Tuesday](notes/filled/06_27_2017_01.pdf) <br/> [Wednesday](notes/filled/06_28_2017_01.pdf) <br/> [Thursday](notes/filled/06_29_2017_01.pdf) <br/> [Friday](notes/filled/06_30_2017_01.pdf) <br/> | [Homework 7](homework/07.pdf) assigned
+8  | Inference for SLR, MLR (Ch. 9.1, 9.2) |  |  | 
 
 # Homework
 
@@ -41,7 +41,7 @@ Exams will be held on the evening (6 - 8pm) of the following dates. On exam days
 ```{r, echo=FALSE}
 exams <- data.frame(Exam = c("Exam 1", "Exam 2", "Final Exam**"),
                     Date = c("June 5", "June 26", "July 7"),
-                    Location = c("Gilman 2272", "Gilman 2272", "Carver 0274"),
+                    Location = c("Gilman 2272", "Gilman 2272", "Gilman 2272"),
                     Topics = c("Ch. 1-4", "Ch. 5", "Ch. 1-6, 9"))
 
 knitr::kable(exams)
@@ -59,12 +59,12 @@ knitr::kable(exams)
 [Topic outline](exams/practice/exam_2_topics.pdf)  
 [Practice problems](exams/practice/exam_2_practice.pdf)
 
-<!--
+
 ### Final Exam
 
 [Topic outline](exams/practice/exam_3_topics.pdf)  
 [Practice exam](exams/practice/exam_3_practice.pdf)
--->
+
 
 # JMP
 
