@@ -1,14 +1,11 @@
 ---
-title: "Homework 8"
-date: "Due July 7, 2017 in class"
+title: "Homework 8 (Practice)"
+date: "Not due"
 output: 
   pdf_document:
     number_sections: true
 geometry: margin=1in
 ---
-
-Please show all work for full credit. Print and staple your assignment together and submit by end of class the due date. If you cannot attend class on the due date, please arrange to submit your homework prior to the due date.
-
 
 ```{r setup, echo=FALSE, message=FALSE}
 library(knitr)
